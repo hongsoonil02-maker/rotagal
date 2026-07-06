@@ -313,7 +313,7 @@ export default function RotagalInfographic({ lang = 'ko', t: tProp }) {
               <div className="bg-emerald-950/60 p-5 rounded-2xl border border-emerald-800/80 shadow-inner">
                 <div className="text-xs font-extrabold text-emerald-400 uppercase tracking-wider mb-1">{t.spec1Title}</div>
                 <div className="text-base sm:text-lg font-black text-white break-keep">{t.spec1Val}</div>
-                <div className="text-xs text-emerald-200/80 mt-1.5 font-semibold break-keep whitespace-pre-line leading-relaxed">{t.spec1Desc}</div>
+                <div className="text-xs text-emerald-200/80 mt-1.5 font-semibold break-keep whitespace-pre-wrap leading-relaxed">{t.spec1Desc}</div>
               </div>
 
               <div className="bg-emerald-950/60 p-5 rounded-2xl border border-emerald-800/80 shadow-inner">
