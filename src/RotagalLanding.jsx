@@ -142,11 +142,6 @@ export default function RotagalLanding() {
         <div className="absolute top-0 left-0 mt-20 -ml-20 w-72 h-72 bg-green-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse" style={{ animationDelay: '2s' }}></div>
         
         <div className="max-w-6xl mx-auto text-center relative z-10 pt-4 lg:pt-8">
-          <div className="inline-flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-2.5 px-4 sm:px-5 py-3 sm:py-2.5 rounded-2xl sm:rounded-full bg-emerald-100/90 text-emerald-950 font-black text-[13px] sm:text-base mb-4 shadow-md border-2 border-emerald-400 max-w-[95%]">
-            <img src="./pharmagal_logo.jpg" alt="Pharmagal Bio" className="h-6 sm:h-6 w-auto rounded bg-white px-1 py-0.5 shadow-2xs shrink-0" />
-            <span className="text-center sm:text-left leading-relaxed break-keep">{t.hero.badge}</span>
-          </div>
-          
           <div className="flex justify-center items-center mb-8">
             <div className="bg-gradient-to-r from-emerald-900 via-[#064e3b] to-emerald-900 text-white px-6 sm:px-10 py-5 rounded-3xl border-2 border-[#FFD700] shadow-[0_0_30px_rgba(255,215,0,0.35)] flex flex-wrap md:flex-nowrap items-center justify-between gap-6 transform hover:scale-[1.01] transition-all w-full">
               <div className="flex items-center gap-4 text-left">
