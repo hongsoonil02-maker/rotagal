@@ -339,11 +339,11 @@ export default function RotagalLanding() {
             {/* Card 4: Pharmagal Facility 2 & 3 */}
             <div className="bg-white p-6 sm:p-8 rounded-3xl shadow-xl border-2 border-amber-500 flex flex-col justify-between transform transition-all duration-300 hover:-translate-y-1">
               <div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="bg-amber-100 text-amber-900 font-black px-4 py-1.5 rounded-full text-sm sm:text-base border border-amber-300">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 mb-4">
+                  <span className="bg-amber-100 text-amber-900 font-black px-4 py-1.5 rounded-full text-sm sm:text-base border border-amber-300 whitespace-nowrap break-keep shrink-0">
                     {t.qualityShowcase.card4Badge}
                   </span>
-                  <span className="text-xs sm:text-sm font-bold text-gray-500">{t.qualityShowcase.card4Sub}</span>
+                  <span className="text-xs sm:text-sm font-bold text-gray-500 whitespace-nowrap break-keep shrink-0">{t.qualityShowcase.card4Sub}</span>
                 </div>
                 <h3 className="text-2xl sm:text-3xl font-black text-gray-950 mb-3 break-keep">
                   {t.qualityShowcase.card4Title}
