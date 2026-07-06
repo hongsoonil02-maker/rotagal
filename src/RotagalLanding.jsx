@@ -196,7 +196,7 @@ export default function RotagalLanding() {
       </section>
 
       {/* Video Section */}
-      <section id="video" className="py-10 sm:py-24 px-4 sm:px-6 lg:px-8 bg-gray-50">
+      <section id="video" className="pt-10 sm:pt-24 pb-6 sm:pb-10 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-8 sm:mb-12">
             <h2 className="text-3xl sm:text-5xl font-black text-gray-950 mb-4 break-keep">{t.video.title}</h2>
@@ -248,7 +248,7 @@ export default function RotagalLanding() {
       </section>
 
       {/* European Heritage & GMP Showcase Section */}
-      <section id="quality-showcase" className="py-10 sm:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-emerald-950/5">
+      <section id="quality-showcase" className="pt-4 sm:pt-8 pb-10 sm:pb-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-emerald-950/5">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-8 sm:mb-16">
             <div className="inline-flex items-center gap-2.5 bg-gradient-to-r from-emerald-800 to-teal-800 text-[#FFD700] font-black px-6 py-2.5 rounded-full text-base sm:text-lg mb-4 shadow-md border-2 border-[#FFD700]/70">
