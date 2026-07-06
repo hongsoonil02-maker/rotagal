@@ -183,7 +183,7 @@ export default function RotagalLanding() {
       </section>
 
       {/* Pain Point Section */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white">
+      <section className="py-0 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="bg-red-50 border-2 border-red-300 rounded-3xl p-8 md:p-12 text-center transform transition-all hover:shadow-xl hover:-translate-y-1 shadow-md">
             <AlertCircle className="w-16 h-16 text-red-600 mx-auto mb-6 shrink-0" />
