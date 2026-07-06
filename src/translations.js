@@ -1,5 +1,12 @@
 export const translations = {
   ko: {
+    header: {
+      brandKo: "로타갈",
+      brandEn: "Rotagal",
+      badge: "EU GMP 공식인증",
+      sub: "유럽 파마갈 공식 수입 · 3종 혼합 설사예방 백신",
+      subMobile: "유럽 공식 수입 · 3종 설사예방 백신"
+    },
     nav: {
       infographic: "핵심 인포그래픽",
       features: "제품특징",
@@ -245,6 +252,13 @@ export const translations = {
     }
   },
   en: {
+    header: {
+      brandKo: "Rotagal",
+      brandEn: "Bovigen Scour Equivalent",
+      badge: "EU GMP CERTIFIED",
+      sub: "Official European Import · 3-in-1 Calf Diarrhea Vaccine",
+      subMobile: "European 3-in-1 Calf Vaccine"
+    },
     nav: {
       infographic: "Infographic",
       features: "Features",
@@ -491,6 +505,13 @@ export const translations = {
     }
   },
   sk: {
+    header: {
+      brandKo: "Rotagal",
+      brandEn: "Pharmagal Bio",
+      badge: "EU GMP CERTIFIKÁT",
+      sub: "Oficiálny európsky import · 3-kombinovaná vakcína proti hnačke teliat",
+      subMobile: "3-kombinovaná vakcína pre telatá"
+    },
     nav: {
       infographic: "Infografika",
       features: "Vlastnosti",
