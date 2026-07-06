@@ -99,13 +99,6 @@ export default function RotagalLanding() {
             
             {/* Mobile Menu Button */}
             <div className="md:hidden flex items-center gap-2">
-              {/* Compact Mobile Language Buttons in Header */}
-              <div className="inline-flex items-center bg-gray-100 border border-gray-200 p-0.5 rounded-full text-xs">
-                <button onClick={() => setLang('ko')} className={`px-2 py-1 rounded-full font-bold ${lang === 'ko' ? 'bg-emerald-700 text-white' : 'text-gray-600'}`}>KR</button>
-                <button onClick={() => setLang('en')} className={`px-2 py-1 rounded-full font-bold ${lang === 'en' ? 'bg-emerald-700 text-white' : 'text-gray-600'}`}>EN</button>
-                <button onClick={() => setLang('sk')} className={`px-2 py-1 rounded-full font-bold ${lang === 'sk' ? 'bg-emerald-700 text-white' : 'text-gray-600'}`}>SK</button>
-              </div>
-
               <button 
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 className="text-gray-600 hover:text-emerald-700 focus:outline-none p-2"
@@ -147,42 +140,6 @@ export default function RotagalLanding() {
         <div className="absolute top-0 left-0 mt-20 -ml-20 w-72 h-72 bg-green-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse" style={{ animationDelay: '2s' }}></div>
         
         <div className="max-w-6xl mx-auto text-center relative z-10 pt-10 lg:pt-16">
-          {/* 언어 토글 버튼 (헤더 내부 상단 배치, Clean text without US/emoji flag rendering issues) */}
-          <div className="flex justify-center sm:justify-end mb-6 sm:mb-8">
-            <div className="inline-flex items-center bg-white/80 backdrop-blur-md border border-emerald-200 p-1 rounded-full shadow-lg">
-              <button
-                onClick={() => setLang('ko')}
-                className={`px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-extrabold transition-all duration-300 ${
-                  lang === 'ko'
-                    ? 'bg-gradient-to-r from-emerald-600 to-teal-700 text-white shadow-md scale-105'
-                    : 'text-gray-600 hover:text-emerald-800'
-                }`}
-              >
-                한국어
-              </button>
-              <button
-                onClick={() => setLang('en')}
-                className={`px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-extrabold transition-all duration-300 ${
-                  lang === 'en'
-                    ? 'bg-gradient-to-r from-emerald-600 to-teal-700 text-white shadow-md scale-105'
-                    : 'text-gray-600 hover:text-emerald-800'
-                }`}
-              >
-                English
-              </button>
-              <button
-                onClick={() => setLang('sk')}
-                className={`px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-extrabold transition-all duration-300 ${
-                  lang === 'sk'
-                    ? 'bg-gradient-to-r from-emerald-600 to-teal-700 text-white shadow-md scale-105'
-                    : 'text-gray-600 hover:text-emerald-800'
-                }`}
-              >
-                Slovenčina
-              </button>
-            </div>
-          </div>
-
           <div className="inline-flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-2.5 px-4 sm:px-5 py-3 sm:py-2.5 rounded-2xl sm:rounded-full bg-emerald-100/90 text-emerald-950 font-black text-[13px] sm:text-base mb-4 shadow-md border-2 border-emerald-400 max-w-[95%]">
             <img src="./pharmagal_logo.jpg" alt="Pharmagal Bio" className="h-6 sm:h-6 w-auto rounded bg-white px-1 py-0.5 shadow-2xs shrink-0" />
             <span className="text-center sm:text-left leading-relaxed break-keep">{t.hero.badge}</span>
@@ -610,7 +567,7 @@ export default function RotagalLanding() {
 
           {/* Middle Row: Detailed Company & Veterinary Registration Info (2 Columns) */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 py-8 text-left text-xs sm:text-sm font-semibold leading-relaxed text-emerald-200/90 break-keep">
-            {/* Left Column: Distributor Info (Korea Agro) */}
+            {/* Left Column: Distributor Info (Agrokorea) */}
             <div className="space-y-2 bg-emerald-900/30 p-5 rounded-2xl border border-emerald-800/60 shadow-inner">
               <div className="font-black text-white text-sm sm:text-base mb-3 flex items-center gap-2 border-b border-emerald-800/60 pb-2">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 inline-block"></span>

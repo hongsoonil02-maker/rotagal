@@ -539,7 +539,7 @@ export default function RotagalLandingA() {
         <footer style={{ backgroundColor: '#1c0a00', color: '#fde68a', padding: '40px 24px', textAlign: 'center' }}>
           <p style={{ fontWeight: '900', fontSize: '1.25rem', marginBottom: '8px' }}>㈜한국아그로</p>
           <p style={{ fontSize: '0.875rem', opacity: 0.7, marginBottom: '4px' }}>동물용 의약품 제조·판매업</p>
-          <p style={{ fontSize: '0.875rem', opacity: 0.7 }}>© 2025 Korea Agro. All rights reserved.</p>
+          <p style={{ fontSize: '0.875rem', opacity: 0.7 }}>© 2026 Agrokorea Co., Ltd. All rights reserved.</p>
         </footer>
 
       </div>

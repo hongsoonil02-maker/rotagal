@@ -334,7 +334,7 @@ export default function RotagalLandingB() {
         <p style={{ fontWeight: 900, color: 'white', fontSize: '20px', marginBottom: '12px' }}>ROTAGAL / (주)한국아그로</p>
         <p style={{ fontSize: '14px' }}>Premium Bioveterinary Solutions • EU GMP Original Vaccine</p>
         <div style={{ borderTop: '1px solid #1e293b', marginTop: '40px', paddingTop: '40px', fontSize: '12px' }}>
-          © 2026 KOREA AGRO. ALL RIGHTS RESERVED.
+          © 2026 AGROKOREA CO., LTD. ALL RIGHTS RESERVED.
         </div>
       </footer>
     </div>

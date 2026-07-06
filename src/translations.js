@@ -225,7 +225,7 @@ export const translations = {
       bannerTop: "★ 전국 한우 농가 공식 파트너 · EU GMP 공식 품질 마크",
       bannerTitle: "송아지 폐사율 0%를 향한 시작, 로타갈이 함께합니다",
       bannerBtn: "🚜 지역 총판 상담하기",
-      copyright: "ⓒ 2026 Korea Agro & Pharmagal Bio. All rights reserved. 본 웹사이트의 모든 콘텐츠는 저작권법의 보호를 받습니다."
+      copyright: "ⓒ 2026 Agrokorea & Pharmagal Bio. All rights reserved. 본 웹사이트의 모든 콘텐츠는 저작권법의 보호를 받습니다."
     },
     chatbot: {
       headerTitle: "로타갈 수의사 AI",
@@ -454,14 +454,14 @@ export const translations = {
     footer: {
       tagline: "3-in-1 Combination Vaccine for Calf Diarrhea Prevention",
       badge: "EU GMP Quality Certified · Approved by Korean APQA",
-      col1Title: "Korea Agro Co., Ltd. | Advising Vet Dr. James Hong",
+      col1Title: "Agrokorea Co., Ltd. | Advising Vet Dr. James Hong",
       address: "Address: Room 1506, Seongji Bldg, 75 Keunuemul-ro, Mapo-gu, Seoul, Republic of Korea",
       tel: "TEL: 02-6949-5706 | Mobile: 010-5407-5708",
       emailWeb: "Email: info@agrokorea.kr | Website:",
       col1Sub: "🚜 Dedicated Veterinary Technical Advisory & Direct Regional Distributor Supply",
       col2Title: "Veterinary Drug Registration & Manufacturer Information",
       mfg: "Manufacturer: Pharmagal Bio, s.r.o. (Slovakia, EU Plant Approval No. SK 82024 / Co-production site of Virbac Bovigen)",
-      imp: "Importer/Distributor: Korea Agro Co., Ltd. / Approved Veterinary Drug Import Product (National Batch Test Exemption)",
+      imp: "Importer/Distributor: Agrokorea Co., Ltd. / Approved Veterinary Drug Import Product (National Batch Test Exemption)",
       reg: "Registration No: Veterinary Drug Import Registration No. 362-2",
       name: "Product Name: ROTAGAL - Inactivated combination vaccine against bovine Rotavirus, Coronavirus, and E. coli diarrhea",
       form: "Form & Appearance: Biological product / White suspension that may form sediment during storage",
@@ -471,7 +471,7 @@ export const translations = {
       bannerTop: "★ Official Partner of Cattle Farmers Nationwide · EU GMP Quality Mark",
       bannerTitle: "The Start Towards 0% Calf Mortality, Rotagal is with You",
       bannerBtn: "🚜 Contact Regional Distributor",
-      copyright: "ⓒ 2026 Korea Agro & Pharmagal Bio. All rights reserved. All content on this website is protected by copyright law."
+      copyright: "ⓒ 2026 Agrokorea & Pharmagal Bio. All rights reserved. All content on this website is protected by copyright law."
     },
     chatbot: {
       headerTitle: "Rotagal AI Veterinary Assistant",
@@ -700,14 +700,14 @@ export const translations = {
     footer: {
       tagline: "Kombinovaná vakcína 3-v-1 na prevenciu hnačky teliat",
       badge: "Certifikovaná kvalita EU GMP · Schválené kórejskou APQA",
-      col1Title: "Korea Agro Co., Ltd. | Konzultujúci vet. Dr. James Hong",
+      col1Title: "Agrokorea Co., Ltd. | Konzultujúci vet. Dr. James Hong",
       address: "Adresa: Room 1506, Seongji Bldg, 75 Keunuemul-ro, Mapo-gu, Soul, Kórejská republika",
       tel: "TEL: 02-6949-5706 | Mobil: 010-5407-5708",
       emailWeb: "E-mail: info@agrokorea.kr | Webstránka:",
       col1Sub: "🚜 Špecializované veterinárne technické poradenstvo & priame dodávky regionálnym distribútorom",
       col2Title: "Registrácia vet. lieku & informácie o výrobcovi",
       mfg: "Výrobca: Pharmagal Bio, s.r.o. (Slovensko, Schválenie závodu EÚ č. SK 82024 / Spoločný výrobný závod Virbac Bovigen)",
-      imp: "Dovozca/Distribútor: Korea Agro Co., Ltd. / Schválený importovaný vet. liek (Výnimka zo štátneho testovania šarží)",
+      imp: "Dovozca/Distribútor: Agrokorea Co., Ltd. / Schválený importovaný vet. liek (Výnimka zo štátneho testovania šarží)",
       reg: "Registračné č.: Registrácia importu vet. lieku č. 362-2",
       name: "Názov lieku: ROTAGAL - Inaktivovaná kombinovaná vakcína proti hovädziemu rotavírusu, koronavírusu a E. coli hnačke",
       form: "Lieková forma: Biologický liek / Biela suspenzia, ktorá môže počas skladovania tvoriť usadeninu",
@@ -717,7 +717,7 @@ export const translations = {
       bannerTop: "★ Oficiálny partner chovateľov dobytka v celej krajine · Značka kvality EU GMP",
       bannerTitle: "Cesta k 0% mortalite teliat, Rotagal je s vami",
       bannerBtn: "🚜 Kontaktovať regionálneho distribútora",
-      copyright: "ⓒ 2026 Korea Agro & Pharmagal Bio. Všetky práva vyhradené. Všetok obsah na tejto webstránke je chránený autorským zákonom."
+      copyright: "ⓒ 2026 Agrokorea & Pharmagal Bio. Všetky práva vyhradené. Všetok obsah na tejto webstránke je chránený autorským zákonom."
     },
     chatbot: {
       headerTitle: "Veterinárny AI asistent Rotagal",
