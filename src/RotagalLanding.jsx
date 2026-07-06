@@ -592,11 +592,6 @@ export default function RotagalLanding() {
               <p><strong className="text-emerald-300">{t.footer.mfg.split(':')[0]}:</strong> {t.footer.mfg.split(':')[1] || t.footer.mfg}</p>
               <p><strong className="text-emerald-300">{t.footer.imp.split(':')[0]}:</strong> {t.footer.imp.split(':')[1] || t.footer.imp}</p>
               <p><strong className="text-emerald-300">{t.footer.reg.split(':')[0]}:</strong> {t.footer.reg.split(':')[1] || t.footer.reg}</p>
-              <p><strong className="text-emerald-300">{t.footer.name.split(':')[0]}:</strong> {t.footer.name.split(':')[1] || t.footer.name}</p>
-              <p><strong className="text-emerald-300">{t.footer.form.split(':')[0]}:</strong> {t.footer.form.split(':')[1] || t.footer.form}</p>
-              <p><strong className="text-emerald-300">{t.footer.dosage.split(':')[0]}:</strong> {t.footer.dosage.split(':')[1] || t.footer.dosage}</p>
-              <p><strong className="text-emerald-300">{t.footer.activeIng.split(':')[0]}:</strong> {t.footer.activeIng.split(':')[1] || t.footer.activeIng}</p>
-              <p><strong className="text-emerald-300">{t.footer.storage.split(':')[0]}:</strong> {t.footer.storage.split(':')[1] || t.footer.storage}</p>
             </div>
           </div>
 
