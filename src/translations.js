@@ -15,7 +15,7 @@ export const translations = {
       inquiry: "상담신청"
     },
     hero: {
-      badge: "유럽 명가 Pharmagal Bio 공식 수입 백신 (EU GMP 인증 · 유럽 Virvac(버박) 보비젠 동일 오리지널)",
+      badge: "유럽 파마갈 공식 수입 · 3종 혼합 설사예방 백신",
       bannerTitle: "★ EUROPEAN UNION GMP CERTIFIED ★",
       bannerDesc: "유럽 연합(EU) GMP 최고 등급 품질 인증 · 글로벌 동물약품 1위 Virvac(버박) '보비젠(Bovigen Scour)' 유럽 현지 100% 동일 공급 백신",
       title1: "송아지 폐사율 감소의\u00A0핵심",
@@ -267,7 +267,7 @@ export const translations = {
       inquiry: "Contact Us"
     },
     hero: {
-      badge: "Official Imported Vaccine from Pharmagal Bio Europe (EU GMP Certified · Original Equivalent to Virbac Bovigen Scour)",
+      badge: "Official European Import · 3-in-1 Calf Diarrhea Vaccine",
       bannerTitle: "★ EUROPEAN UNION GMP CERTIFIED ★",
       bannerDesc: "European Union (EU) GMP Highest Quality Certification · 100% Identical Formulation to Global #1 Animal Health Brand Virbac's 'Bovigen Scour'",
       title1: "The Core Solution for Calf Mortality Reduction",
@@ -520,7 +520,7 @@ export const translations = {
       inquiry: "Kontaktovať"
     },
     hero: {
-      badge: "Oficiálne importovaná vakcína od Pharmagal Bio Európa (Certifikácia EU GMP · Identický originál k Virbac Bovigen Scour)",
+      badge: "Oficiálny európsky import · 3-kombinovaná vakcína proti hnačke teliat",
       bannerTitle: "★ CERTIFIKOVANÁ KVALITA EU GMP ★",
       bannerDesc: "Najvyššia kvalita s certifikátom Európskej únie (EU) GMP · 100% identická európska produkcia ako globálna jednotka Virbac 'Bovigen Scour'",
       title1: "Kľúčové riešenie na zníženie mortality teliat",

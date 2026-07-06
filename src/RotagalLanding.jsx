@@ -81,8 +81,6 @@ export default function RotagalLanding() {
                   <span className="text-base sm:text-lg font-extrabold text-emerald-700 tracking-tight leading-none">{t.header?.brandEn || 'Rotagal'}</span>
                   <span className="text-[10px] sm:text-xs font-black bg-gradient-to-r from-emerald-100 to-amber-100 text-emerald-900 px-2 py-0.5 rounded-full border border-emerald-300 shadow-2xs leading-none">{t.header?.badge || 'EU GMP 공식인증'}</span>
                 </div>
-                <span className="hidden sm:block text-xs font-bold text-gray-600 tracking-tight mt-1 break-keep">{t.header?.sub || '유럽 파마갈 공식 수입 · 3종 혼합 설사예방 백신'}</span>
-                <span className="sm:hidden text-[11px] font-bold text-gray-600 tracking-tight mt-0.5 break-keep">{t.header?.subMobile || '유럽 공식 수입 · 3종 설사예방 백신'}</span>
               </div>
             </a>
             <div className="hidden md:flex gap-6 lg:gap-8 items-center">
@@ -139,11 +137,11 @@ export default function RotagalLanding() {
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-20 sm:pt-32 pb-10 sm:pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-emerald-50 via-white to-green-50 overflow-hidden relative">
+      <section className="pt-20 sm:pt-28 pb-10 sm:pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-emerald-50 via-white to-green-50 overflow-hidden relative">
         <div className="absolute top-0 right-0 -mt-20 -mr-20 w-96 h-96 bg-emerald-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse"></div>
         <div className="absolute top-0 left-0 mt-20 -ml-20 w-72 h-72 bg-green-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse" style={{ animationDelay: '2s' }}></div>
         
-        <div className="max-w-6xl mx-auto text-center relative z-10 pt-10 lg:pt-16">
+        <div className="max-w-6xl mx-auto text-center relative z-10 pt-4 lg:pt-8">
           <div className="inline-flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-2.5 px-4 sm:px-5 py-3 sm:py-2.5 rounded-2xl sm:rounded-full bg-emerald-100/90 text-emerald-950 font-black text-[13px] sm:text-base mb-4 shadow-md border-2 border-emerald-400 max-w-[95%]">
             <img src="./pharmagal_logo.jpg" alt="Pharmagal Bio" className="h-6 sm:h-6 w-auto rounded bg-white px-1 py-0.5 shadow-2xs shrink-0" />
             <span className="text-center sm:text-left leading-relaxed break-keep">{t.hero.badge}</span>
