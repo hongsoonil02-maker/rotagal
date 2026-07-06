@@ -72,8 +72,8 @@ export default function RotagalLanding() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16 sm:h-20">
             <a href="#" className="flex items-center gap-3 sm:gap-5 md:gap-6 lg:gap-8 xl:gap-10 group py-1">
-              <div className="bg-white px-2 py-1 sm:py-1.5 rounded-xl shadow-sm border border-emerald-200 group-hover:border-emerald-400 transition-all shrink-0 flex items-center">
-                <img src="./pharmagal_logo.jpg" alt="Pharmagal Bio Logo" className="h-7 sm:h-9 w-auto object-contain" />
+              <div className="bg-white px-1.5 py-0.5 sm:px-2 sm:py-1 rounded-lg shadow-sm border border-emerald-200 group-hover:border-emerald-400 transition-all shrink-0 flex items-center">
+                <img src="./pharmagal_logo.jpg" alt="Pharmagal Bio Logo" className="h-5 sm:h-6 w-auto object-contain" />
               </div>
               <div className="flex flex-col justify-center items-center text-center">
                 <div className="flex items-center justify-center gap-1.5 sm:gap-2">
