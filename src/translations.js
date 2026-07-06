@@ -19,7 +19,7 @@ export const translations = {
       bannerTitle: "★ EUROPEAN UNION GMP CERTIFIED ★",
       bannerDesc: "유럽 연합(EU) GMP 최고 등급 품질 인증 · 글로벌 동물약품 1위 Virvac(버박) '보비젠(Bovigen Scour)' 유럽 현지 100% 동일 공급 백신",
       title1: "송아지 폐사율 감소의\u00A0핵심",
-      title2: "설사예방 3종(로타,코로나,대장균) 혼합 백신",
+      title2: "설사예방 3종(로타,코로나,대장균) 혼합 백신 로타갈",
       subtitle: "한우 농가의 든든한 파트너. 치명적인 송아지 설사병으로부터 농가의 소중한 자산과 수익을 완벽하게 지켜드립니다.",
       btnInquiry: "지역 총판 다이렉트 문의",
       btnVideo: "제품 소개 영상 보기"
