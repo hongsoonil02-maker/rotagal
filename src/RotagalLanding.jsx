@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Shield, Clock, Syringe, Award, MessageCircle, X, Send, ChevronDown, CheckCircle2, AlertCircle, ArrowRight, ExternalLink } from 'lucide-react';
+import { Shield, Clock, Syringe, Award, MessageCircle, X, Send, ChevronDown, CheckCircle2, AlertCircle, ArrowRight, ExternalLink, FileText } from 'lucide-react';
 import RotagalInfographic from './RotagalInfographic';
 import { translations } from './translations';
 
@@ -179,6 +179,10 @@ export default function RotagalLanding() {
             </a>
             <a href="#video" className="bg-white hover:bg-gray-50 text-emerald-900 border-2 border-emerald-300 px-8 py-4.5 rounded-full font-black text-lg sm:text-xl transition-all shadow-sm hover:shadow-md flex items-center justify-center gap-2 break-keep">
               {t.hero.btnVideo}
+            </a>
+            <a href="./rotagal_leaflet.pdf" target="_blank" rel="noopener noreferrer" className="bg-gradient-to-r from-amber-500 to-[#FFD700] hover:from-amber-600 hover:to-amber-500 text-gray-950 px-8 py-4.5 rounded-full font-black text-lg sm:text-xl transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1 flex items-center justify-center gap-2 break-keep border-2 border-amber-600/30">
+              <FileText className="w-6 h-6 shrink-0" />
+              <span>{t.hero.btnLeaflet}</span>
             </a>
           </div>
         </div>
@@ -379,7 +383,7 @@ export default function RotagalLanding() {
                 {t.qualityShowcase.verifyDesc}
               </p>
             </div>
-            <div className="shrink-0 z-10 w-full md:w-auto text-center">
+            <div className="shrink-0 z-10 w-full md:w-auto text-center flex flex-col sm:flex-row gap-3">
               <a
                 href="https://vet-uk.virbac.com/home/products/farm-animals/vaccines/bovigen.html"
                 target="_blank"
@@ -388,6 +392,15 @@ export default function RotagalLanding() {
               >
                 <span>{t.qualityShowcase.verifyBtn}</span>
                 <ExternalLink className="w-5 h-5 shrink-0" />
+              </a>
+              <a
+                href="./rotagal_leaflet.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2.5 bg-white/10 hover:bg-white/20 border-2 border-white/40 text-white font-black px-6 py-4 rounded-2xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 text-base sm:text-lg w-full md:w-auto break-keep"
+              >
+                <span>{t.qualityShowcase.leafletBtn}</span>
+                <FileText className="w-5 h-5 shrink-0" />
               </a>
             </div>
           </div>

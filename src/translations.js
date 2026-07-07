@@ -22,7 +22,8 @@ export const translations = {
       title2: "설사예방 3종(로타,코로나,대장균) 혼합 백신 로타갈",
       subtitle: "한우 농가의 든든한 파트너. 치명적인 송아지 설사병으로부터 농가의 소중한 자산과 수익을 완벽하게 지켜드립니다.",
       btnInquiry: "지역 총판 다이렉트 문의",
-      btnVideo: "제품 소개 영상 보기"
+      btnVideo: "제품 소개 영상 보기",
+      btnLeaflet: "📄 공식 리플렛(A4) PDF 보기"
     },
     painPoint: {
       title: "송아지 설사병, 농가의 치명적인 경제적 손실입니다",
@@ -61,7 +62,8 @@ export const translations = {
       verifyBadge: "100% 동일 처방 및 동일 제조소 검증",
       verifyTitle: "유럽 현지 공급 오리지널 백신 '보비젠(Bovigen Scour)' 직접 확인하기",
       verifyDesc: "로타갈(Rotagal)은 유럽 전역에 공급되는 오리지널 백신 '보비젠(Bovigen Scour)'과 100% 동일 처방 및 동일 제조소(Pharmagal Bio)에서 공동 생산되는 프리미엄 백신입니다. 제품에 대한 국제 규격 및 상세 정보는 공식 안내 페이지를 통해 고객님께서 눈으로 직접 확인하실 수 있습니다.",
-      verifyBtn: "보비젠(Bovigen Scour) 제품 안내 페이지 직접 확인하기 ↗"
+      verifyBtn: "보비젠(Bovigen Scour) 제품 안내 페이지 직접 확인하기 ↗",
+      leafletBtn: "공식 리플렛(A4) 전단지 다운로드 ↗"
     },
     infographic: {
       topBadge: "송아지 자산 보호를 위한 원샷 백신\u00A0솔루션",
@@ -281,7 +283,8 @@ export const translations = {
       title3: "(ROTAGAL)",
       subtitle: "The reliable partner for cattle farmers. Perfectly protects your valuable herd assets and profitability from fatal neonatal calf diarrhea.",
       btnInquiry: "Contact Regional Distributor",
-      btnVideo: "Watch Product Video"
+      btnVideo: "Watch Product Video",
+      btnLeaflet: "📄 Official Leaflet (A4) PDF"
     },
     painPoint: {
       title: "Neonatal Calf Diarrhea: A Fatal Economic Loss for Farmers",
@@ -320,7 +323,8 @@ export const translations = {
       verifyBadge: "100% Identical Formulation Verified",
       verifyTitle: "Direct Verification: European Original 'Bovigen Scour'",
       verifyDesc: "Rotagal is co-produced at the exact same manufacturing site (Pharmagal Bio) and shares a 100% identical formulation with 'Bovigen Scour', supplied across Europe. You can independently check and verify the international specifications on the official product page.",
-      verifyBtn: "Verify 'Bovigen Scour' Official Product Page ↗"
+      verifyBtn: "Verify 'Bovigen Scour' Official Product Page ↗",
+      leafletBtn: "Download Official Leaflet (A4) ↗"
     },
     infographic: {
       topBadge: "One-Shot Vaccine Solution for Calf Asset Protection",
@@ -540,7 +544,8 @@ export const translations = {
       title3: "(ROTAGAL)",
       subtitle: "Spoľahlivý partner pre chovateľov hovädzieho dobytka. Dokonale chráni vaše cenné stádo a ziskovosť pred fatálnou neonatálnou hnačkou teliat.",
       btnInquiry: "Kontaktovať regionálneho distribútora",
-      btnVideo: "Pozrieť video o produkte"
+      btnVideo: "Pozrieť video o produkte",
+      btnLeaflet: "📄 Oficiálny leták (A4) PDF"
     },
     painPoint: {
       title: "Neonatálna hnačka teliat: Fatálna ekonomická strata pre farmárov",
@@ -579,7 +584,8 @@ export const translations = {
       verifyBadge: "Overenie 100% identického zloženia",
       verifyTitle: "Priame overenie: Európsky originál 'Bovigen Scour'",
       verifyDesc: "Rotagal je spoločne vyrábaný v rovnakom výrobnom závode (Pharmagal Bio) a má 100% identické zloženie s produktom 'Bovigen Scour', dodávaným po celej Európe. Medzinárodné špecifikácie si môžete nezávisle overiť na oficiálnej stránke produktu.",
-      verifyBtn: "Overiť oficiálnu stránku produktu 'Bovigen Scour' ↗"
+      verifyBtn: "Overiť oficiálnu stránku produktu 'Bovigen Scour' ↗",
+      leafletBtn: "Stiahnuť oficiálny leták (A4) ↗"
     },
     infographic: {
       topBadge: "Jednorazové vakcinačné riešenie na ochranu dobytka",
@@ -798,7 +804,8 @@ export const translations = {
       title3: "(ROTAGAL)",
       subtitle: "Надійний партнер для тваринницьких господарств. Надійно захищає поголів'я та прибутковість ферми від небезпечної неонатальної діареї телят.",
       btnInquiry: "Зв'язатися з регіональним дистриб'ютором",
-      btnVideo: "Дивитися відео про продукт"
+      btnVideo: "Дивитися відео про продукт",
+      btnLeaflet: "📄 Офіційний буклет (A4) PDF"
     },
     painPoint: {
       title: "Неонатальна діарея телят — критичні економічні втрати для фермерів",
@@ -837,7 +844,8 @@ export const translations = {
       verifyBadge: "Підтверджено 100% ідентичну рецептуру",
       verifyTitle: "Пряма перевірка: європейський оригінал «Bovigen Scour»",
       verifyDesc: "Ротагал виробляється на тому ж заводі (Pharmagal Bio) та має 100% ідентичну рецептуру з продуктом «Bovigen Scour», що постачається в Європі. Ви можете самостійно перевірити міжнародні специфікації на офіційній сторінці продукту.",
-      verifyBtn: "Перевірити офіційну сторінку «Bovigen Scour» ↗"
+      verifyBtn: "Перевірити офіційну сторінку «Bovigen Scour» ↗",
+      leafletBtn: "Завантажити офіційний буклет (A4) ↗"
     },
     infographic: {
       topBadge: "Рішення за одне щеплення для захисту поголів'я",
