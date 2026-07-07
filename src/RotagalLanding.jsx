@@ -47,11 +47,11 @@ export default function RotagalLanding() {
     
     setTimeout(() => {
       let aiResponse = t.chatbot.defaultResponse;
-      if (chatInput.includes('유통기한') || chatInput.includes('기한') || chatInput.toLowerCase().includes('shelf') || chatInput.toLowerCase().includes('trvan')) {
+      if (chatInput.includes('유통기한') || chatInput.includes('기한') || chatInput.toLowerCase().includes('shelf') || chatInput.toLowerCase().includes('trvan') || chatInput.toLowerCase().includes('термін') || chatInput.toLowerCase().includes('придатн')) {
         aiResponse = t.chatbot.expiryResponse;
-      } else if (chatInput.includes('접종') || chatInput.includes('언제') || chatInput.toLowerCase().includes('vaccin') || chatInput.toLowerCase().includes('očkov') || chatInput.toLowerCase().includes('dávk')) {
+      } else if (chatInput.includes('접종') || chatInput.includes('언제') || chatInput.toLowerCase().includes('vaccin') || chatInput.toLowerCase().includes('očkov') || chatInput.toLowerCase().includes('dávk') || chatInput.toLowerCase().includes('вакцин') || chatInput.toLowerCase().includes('щепл') || chatInput.toLowerCase().includes('коли') || chatInput.toLowerCase().includes('доза')) {
         aiResponse = t.chatbot.dosageResponse;
-      } else if (chatInput.includes('효과') || chatInput.includes('장점') || chatInput.toLowerCase().includes('benefit') || chatInput.toLowerCase().includes('výhod') || chatInput.toLowerCase().includes('advanta')) {
+      } else if (chatInput.includes('효과') || chatInput.includes('장점') || chatInput.toLowerCase().includes('benefit') || chatInput.toLowerCase().includes('výhod') || chatInput.toLowerCase().includes('advanta') || chatInput.toLowerCase().includes('переваг') || chatInput.toLowerCase().includes('чому') || chatInput.toLowerCase().includes('ефект')) {
         aiResponse = t.chatbot.benefitsResponse;
       }
       
@@ -96,6 +96,7 @@ export default function RotagalLanding() {
                 <button onClick={() => setLang('ko')} className={`px-2.5 py-1 rounded-full text-xs font-bold transition-all ${lang === 'ko' ? 'bg-emerald-700 text-white shadow-2xs' : 'text-gray-600 hover:text-emerald-800'}`}>KR</button>
                 <button onClick={() => setLang('en')} className={`px-2.5 py-1 rounded-full text-xs font-bold transition-all ${lang === 'en' ? 'bg-emerald-700 text-white shadow-2xs' : 'text-gray-600 hover:text-emerald-800'}`}>EN</button>
                 <button onClick={() => setLang('sk')} className={`px-2.5 py-1 rounded-full text-xs font-bold transition-all ${lang === 'sk' ? 'bg-emerald-700 text-white shadow-2xs' : 'text-gray-600 hover:text-emerald-800'}`}>SK</button>
+                <button onClick={() => setLang('uk')} className={`px-2.5 py-1 rounded-full text-xs font-bold transition-all ${lang === 'uk' ? 'bg-emerald-700 text-white shadow-2xs' : 'text-gray-600 hover:text-emerald-800'}`}>UA</button>
               </div>
 
               <a href="#inquiry" className="bg-emerald-700 hover:bg-emerald-800 text-white px-6 py-2.5 rounded-full font-bold transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5">{t.nav.inquiry}</a>
@@ -126,10 +127,11 @@ export default function RotagalLanding() {
               <a href="#reviews" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-3 text-base font-bold text-gray-800 hover:bg-emerald-50 hover:text-emerald-700 rounded-lg">{t.nav.reviews}</a>
               <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-3 text-base font-bold text-gray-800 hover:bg-emerald-50 hover:text-emerald-700 rounded-lg">{t.nav.contact}</a>
               
-              <div className="flex justify-center gap-2 pt-2 pb-1 border-t border-gray-100 mt-2">
-                <button onClick={() => { setLang('ko'); setIsMobileMenuOpen(false); }} className={`px-4 py-1.5 rounded-full text-xs font-bold ${lang === 'ko' ? 'bg-emerald-700 text-white' : 'bg-gray-100 text-gray-700'}`}>한국어</button>
-                <button onClick={() => { setLang('en'); setIsMobileMenuOpen(false); }} className={`px-4 py-1.5 rounded-full text-xs font-bold ${lang === 'en' ? 'bg-emerald-700 text-white' : 'bg-gray-100 text-gray-700'}`}>English</button>
-                <button onClick={() => { setLang('sk'); setIsMobileMenuOpen(false); }} className={`px-4 py-1.5 rounded-full text-xs font-bold ${lang === 'sk' ? 'bg-emerald-700 text-white' : 'bg-gray-100 text-gray-700'}`}>Slovenčina</button>
+              <div className="flex flex-wrap justify-center gap-1.5 sm:gap-2 pt-2 pb-1 border-t border-gray-100 mt-2">
+                <button onClick={() => { setLang('ko'); setIsMobileMenuOpen(false); }} className={`px-3.5 py-1.5 rounded-full text-xs font-bold ${lang === 'ko' ? 'bg-emerald-700 text-white' : 'bg-gray-100 text-gray-700'}`}>한국어</button>
+                <button onClick={() => { setLang('en'); setIsMobileMenuOpen(false); }} className={`px-3.5 py-1.5 rounded-full text-xs font-bold ${lang === 'en' ? 'bg-emerald-700 text-white' : 'bg-gray-100 text-gray-700'}`}>English</button>
+                <button onClick={() => { setLang('sk'); setIsMobileMenuOpen(false); }} className={`px-3.5 py-1.5 rounded-full text-xs font-bold ${lang === 'sk' ? 'bg-emerald-700 text-white' : 'bg-gray-100 text-gray-700'}`}>Slovenčina</button>
+                <button onClick={() => { setLang('uk'); setIsMobileMenuOpen(false); }} className={`px-3.5 py-1.5 rounded-full text-xs font-bold ${lang === 'uk' ? 'bg-emerald-700 text-white' : 'bg-gray-100 text-gray-700'}`}>Українська</button>
               </div>
 
               <a href="#inquiry" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-3 mt-4 text-center text-base font-black bg-emerald-700 text-white rounded-xl shadow-md">{t.nav.inquiry}</a>
@@ -621,7 +623,22 @@ export default function RotagalLanding() {
               </a>
             </div>
             
-            <div className="mt-8 text-center text-xs text-emerald-400/70 font-medium">
+            {/* Legal / Medical Disclaimer Box */}
+            <div className="mt-8 bg-emerald-950/60 border border-emerald-800/80 rounded-xl p-4 sm:p-5 text-center shadow-sm">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-6 text-xs sm:text-sm font-bold text-amber-200/90 tracking-tight break-keep leading-relaxed sm:leading-normal">
+                <span className="flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-amber-400 inline-block shrink-0"></span>
+                  <span>{t.footer.disclaimer1}</span>
+                </span>
+                <span className="hidden sm:inline text-emerald-700 font-normal">|</span>
+                <span className="flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-amber-400 inline-block shrink-0"></span>
+                  <span>{t.footer.disclaimer2}</span>
+                </span>
+              </div>
+            </div>
+
+            <div className="mt-6 text-center text-xs text-emerald-400/70 font-medium break-keep">
               {t.footer.copyright}
             </div>
           </div>
