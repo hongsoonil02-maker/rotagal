@@ -42,9 +42,9 @@ export default function RotagalLanding() {
   const handleChatSubmit = (e) => {
     e.preventDefault();
     if (!chatInput.trim()) return;
-    
+
     setChatMessages([...chatMessages, { role: 'user', content: chatInput }]);
-    
+
     setTimeout(() => {
       let aiResponse = t.chatbot.defaultResponse;
       if (chatInput.includes('유통기한') || chatInput.includes('기한') || chatInput.toLowerCase().includes('shelf') || chatInput.toLowerCase().includes('trvan') || chatInput.toLowerCase().includes('термін') || chatInput.toLowerCase().includes('придатн')) {
@@ -54,10 +54,10 @@ export default function RotagalLanding() {
       } else if (chatInput.includes('효과') || chatInput.includes('장점') || chatInput.toLowerCase().includes('benefit') || chatInput.toLowerCase().includes('výhod') || chatInput.toLowerCase().includes('advanta') || chatInput.toLowerCase().includes('переваг') || chatInput.toLowerCase().includes('чому') || chatInput.toLowerCase().includes('ефект')) {
         aiResponse = t.chatbot.benefitsResponse;
       }
-      
+
       setChatMessages(prev => [...prev, { role: 'ai', content: aiResponse }]);
     }, 1000);
-    
+
     setChatInput('');
   };
 
@@ -90,7 +90,7 @@ export default function RotagalLanding() {
               <a href="#features" className="text-gray-600 hover:text-emerald-700 font-semibold transition-colors">{t.nav.features}</a>
               <a href="#reviews" className="text-gray-600 hover:text-emerald-700 font-semibold transition-colors">{t.nav.reviews}</a>
               <a href="#contact" className="text-gray-600 hover:text-emerald-700 font-semibold transition-colors">{t.nav.contact}</a>
-              
+
               {/* Navbar Language Toggle */}
               <div className="inline-flex items-center bg-gray-100 border border-gray-200 p-0.5 rounded-full shadow-2xs">
                 <button onClick={() => setLang('ko')} className={`px-2.5 py-1 rounded-full text-xs font-bold transition-all ${lang === 'ko' ? 'bg-emerald-700 text-white shadow-2xs' : 'text-gray-600 hover:text-emerald-800'}`}>KR</button>
@@ -101,10 +101,10 @@ export default function RotagalLanding() {
 
               <a href="#inquiry" className="bg-emerald-700 hover:bg-emerald-800 text-white px-6 py-2.5 rounded-full font-bold transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5">{t.nav.inquiry}</a>
             </div>
-            
+
             {/* Mobile Menu Button */}
             <div className="md:hidden flex items-center gap-2">
-              <button 
+              <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 className="text-gray-600 hover:text-emerald-700 focus:outline-none p-2"
               >
@@ -126,7 +126,7 @@ export default function RotagalLanding() {
               <a href="#features" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-3 text-base font-bold text-gray-800 hover:bg-emerald-50 hover:text-emerald-700 rounded-lg">{t.nav.features}</a>
               <a href="#reviews" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-3 text-base font-bold text-gray-800 hover:bg-emerald-50 hover:text-emerald-700 rounded-lg">{t.nav.reviews}</a>
               <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-3 text-base font-bold text-gray-800 hover:bg-emerald-50 hover:text-emerald-700 rounded-lg">{t.nav.contact}</a>
-              
+
               <div className="flex flex-wrap justify-center gap-1.5 sm:gap-2 pt-2 pb-1 border-t border-gray-100 mt-2">
                 <button onClick={() => { setLang('ko'); setIsMobileMenuOpen(false); }} className={`px-3.5 py-1.5 rounded-full text-xs font-bold ${lang === 'ko' ? 'bg-emerald-700 text-white' : 'bg-gray-100 text-gray-700'}`}>한국어</button>
                 <button onClick={() => { setLang('en'); setIsMobileMenuOpen(false); }} className={`px-3.5 py-1.5 rounded-full text-xs font-bold ${lang === 'en' ? 'bg-emerald-700 text-white' : 'bg-gray-100 text-gray-700'}`}>English</button>
@@ -144,7 +144,7 @@ export default function RotagalLanding() {
       <section className="pt-20 sm:pt-28 pb-10 sm:pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-emerald-50 via-white to-green-50 overflow-hidden relative">
         <div className="absolute top-0 right-0 -mt-20 -mr-20 w-96 h-96 bg-emerald-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse"></div>
         <div className="absolute top-0 left-0 mt-20 -ml-20 w-72 h-72 bg-green-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse" style={{ animationDelay: '2s' }}></div>
-        
+
         <div className="max-w-6xl mx-auto text-center relative z-10 pt-4 lg:pt-8">
           <div className="flex justify-center items-center mb-8">
             <div className="bg-gradient-to-r from-emerald-900 via-[#064e3b] to-emerald-900 text-white px-6 sm:px-10 py-5 rounded-3xl border-2 border-[#FFD700] shadow-[0_0_30px_rgba(255,215,0,0.35)] flex flex-wrap md:flex-nowrap items-center justify-between gap-6 transform hover:scale-[1.01] transition-all w-full">
@@ -170,6 +170,12 @@ export default function RotagalLanding() {
               {t.hero.title2}
             </span> {t.hero.title3 && <span className="text-3xl sm:text-5xl lg:text-6xl text-gray-900">{t.hero.title3}</span>}
           </h1>
+          {/* Rotagal Logo showcase to reinforce brand identity */}
+          <div className="flex justify-center items-center gap-6 mb-8">
+            <img src="./pharmagal_logo.jpg" alt="Rotagal 로고" className="h-12 sm:h-16 w-auto object-contain" />
+            <span className="text-sm sm:text-base font-medium text-gray-700">|</span>
+            <img src="./eu_gmp_logo.svg" alt="EU GMP 인증 로고" className="h-12 sm:h-16 w-auto object-contain" />
+          </div>
           <p className="text-xl sm:text-2xl font-bold text-gray-800 mb-10 max-w-5xl mx-auto leading-relaxed break-keep">
             {t.hero.subtitle}
           </p>
@@ -208,7 +214,7 @@ export default function RotagalLanding() {
             <h2 className="text-3xl sm:text-5xl font-black text-gray-950 mb-4 break-keep">{t.video.title}</h2>
             <p className="text-lg sm:text-xl font-bold text-gray-800 break-keep">{t.video.subtitle}</p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
             {/* YouTube Video Player */}
             <div className="flex flex-col bg-white p-4 sm:p-6 rounded-3xl shadow-xl border border-gray-200 justify-between">
@@ -219,12 +225,12 @@ export default function RotagalLanding() {
                 </div>
               </div>
               <div className="aspect-w-16 aspect-h-9 bg-gray-900 rounded-2xl overflow-hidden relative shadow-inner w-full" style={{ paddingBottom: '56.25%' }}>
-                <iframe 
+                <iframe
                   className="absolute top-0 left-0 w-full h-full rounded-2xl"
-                  src="https://www.youtube.com/embed/zhsDYNm2Pig?rel=0" 
-                  title="로타갈 백신 소개 영상" 
-                  frameBorder="0" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                  src="https://www.youtube.com/embed/zhsDYNm2Pig?rel=0"
+                  title="로타갈 백신 소개 영상"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen>
                 </iframe>
               </div>
@@ -239,12 +245,12 @@ export default function RotagalLanding() {
                 </div>
               </div>
               <div className="aspect-w-16 aspect-h-9 bg-gray-900 rounded-2xl overflow-hidden relative shadow-inner w-full flex items-center justify-center" style={{ paddingBottom: '56.25%' }}>
-                <iframe 
+                <iframe
                   className="absolute top-0 left-0 w-full h-full rounded-2xl"
-                  src="https://www.youtube.com/embed/74oxPVMV1p4?rel=0" 
-                  title="유럽 현지 첨단 바이오 공정 영상" 
-                  frameBorder="0" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                  src="https://www.youtube.com/embed/74oxPVMV1p4?rel=0"
+                  title="유럽 현지 첨단 바이오 공정 영상"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen>
                 </iframe>
               </div>
@@ -417,7 +423,7 @@ export default function RotagalLanding() {
             <h2 className="text-3xl sm:text-5xl font-black text-gray-950 mb-4 break-keep">{t.features.title}</h2>
             <p className="text-xl sm:text-2xl font-bold text-gray-800 break-keep">{t.features.subtitle}</p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-gradient-to-br from-emerald-50 to-emerald-100 p-8 sm:p-10 rounded-3xl transform transition-all duration-300 hover:scale-[1.02] hover:shadow-xl flex flex-col items-center sm:items-start text-center sm:text-left border-2 border-emerald-200 shadow-sm">
               <Award className="w-12 h-12 text-emerald-600 mb-6 shrink-0" />
@@ -426,7 +432,7 @@ export default function RotagalLanding() {
                 {t.features.item1Desc}
               </p>
             </div>
-            
+
             <div className="bg-gradient-to-br from-teal-50 to-teal-100 p-8 sm:p-10 rounded-3xl transform transition-all duration-300 hover:scale-[1.02] hover:shadow-xl flex flex-col items-center sm:items-start text-center sm:text-left border-2 border-teal-200 shadow-sm">
               <Shield className="w-12 h-12 text-teal-600 mb-6 shrink-0" />
               <h3 className="text-2xl sm:text-3xl font-black text-teal-950 mb-4 break-keep">{t.features.item2Title}</h3>
@@ -434,7 +440,7 @@ export default function RotagalLanding() {
                 {t.features.item2Desc}
               </p>
             </div>
-            
+
             <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-8 sm:p-10 rounded-3xl transform transition-all duration-300 hover:scale-[1.02] hover:shadow-xl flex flex-col items-center sm:items-start text-center sm:text-left border-2 border-purple-200 shadow-sm">
               <Clock className="w-12 h-12 text-purple-600 mb-6 shrink-0" />
               <h3 className="text-2xl sm:text-3xl font-black text-purple-950 mb-4 break-keep">{t.features.item3Title}</h3>
@@ -442,7 +448,7 @@ export default function RotagalLanding() {
                 {t.features.item3Desc}
               </p>
             </div>
-            
+
             <div className="bg-gradient-to-br from-orange-50 to-orange-100 p-8 sm:p-10 rounded-3xl transform transition-all duration-300 hover:scale-[1.02] hover:shadow-xl flex flex-col items-center sm:items-start text-center sm:text-left border-2 border-orange-200 shadow-sm">
               <Syringe className="w-12 h-12 text-orange-600 mb-6 shrink-0" />
               <h3 className="text-2xl sm:text-3xl font-black text-orange-950 mb-4 break-keep">{t.features.item4Title}</h3>
@@ -461,7 +467,7 @@ export default function RotagalLanding() {
             <h2 className="text-3xl sm:text-5xl font-black mb-4 break-keep">{t.reviews.title}</h2>
             <p className="text-emerald-100 text-lg sm:text-xl font-bold break-keep">{t.reviews.subtitle}</p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {t.reviews.items.map((review, idx) => (
               <div key={idx} className="bg-emerald-800/60 p-8 sm:p-10 rounded-3xl border-2 border-emerald-600/80 relative flex flex-col items-center sm:items-start text-center sm:text-left shadow-lg">
@@ -488,7 +494,7 @@ export default function RotagalLanding() {
           <div className="bg-white p-8 md:p-12 rounded-3xl shadow-xl border-2 border-gray-300">
             <h2 className="text-3xl sm:text-5xl font-black text-center text-gray-950 mb-4 break-keep">{t.contact.title}</h2>
             <p className="text-center text-lg sm:text-xl font-bold text-gray-800 mb-10 break-keep">{t.contact.subtitle}</p>
-            
+
             <div className="sm:hidden text-xs text-emerald-700 font-bold mb-3 text-center bg-emerald-50 py-2.5 rounded-xl border border-emerald-200 shadow-2xs">
               {t.contact.scrollNotice}
             </div>
@@ -523,13 +529,13 @@ export default function RotagalLanding() {
       {/* Advisor Call Banner & Form */}
       <section id="inquiry" className="py-10 sm:py-24 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
-          
+
           <div className="lg:col-span-2 space-y-8">
             <div className="bg-gradient-to-br from-emerald-800 to-emerald-950 rounded-3xl p-10 text-center shadow-2xl text-white transform transition-all hover:scale-105">
               <div className="w-20 h-20 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-6 backdrop-blur-sm">
                 <CheckCircle2 className="w-10 h-10 text-emerald-300" />
               </div>
-              <h3 className="text-2xl sm:text-3xl font-black mb-4 break-keep">{t.inquiry.advTitle1}<br/><span className="text-emerald-300">{t.inquiry.advTitle2}</span></h3>
+              <h3 className="text-2xl sm:text-3xl font-black mb-4 break-keep">{t.inquiry.advTitle1}<br /><span className="text-emerald-300">{t.inquiry.advTitle2}</span></h3>
               <p className="text-emerald-100 mb-8 opacity-100 font-bold text-lg sm:text-xl break-keep">{t.inquiry.advDesc}</p>
               <a href="tel:010-5407-5708" className="inline-block bg-white text-emerald-950 text-2xl sm:text-3xl font-black py-4 px-10 rounded-full shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] transition-all transform hover:-translate-y-1">
                 010-5407-5708
@@ -537,12 +543,12 @@ export default function RotagalLanding() {
               <p className="mt-4 text-base font-bold text-emerald-200">{t.inquiry.advTouch}</p>
             </div>
           </div>
-          
+
           <div className="lg:col-span-3">
             <div className="bg-gray-50 p-5 sm:p-8 md:p-12 rounded-3xl shadow-lg border-2 border-gray-300">
               <h2 className="text-3xl sm:text-4xl font-black text-gray-950 mb-2 break-keep">{t.inquiry.formTitle}</h2>
               <p className="text-gray-800 font-bold text-lg mb-8 break-keep">{t.inquiry.formSubtitle}</p>
-              
+
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
@@ -554,7 +560,7 @@ export default function RotagalLanding() {
                     <input type="tel" name="phone" value={formData.phone} onChange={handleChange} required className="w-full px-4 py-3.5 rounded-xl border-2 border-gray-400 font-bold text-gray-900 text-base sm:text-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-600 outline-none transition-all bg-white" placeholder={t.inquiry.placeholderPhone} />
                   </div>
                 </div>
-                
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-base font-black text-gray-900 mb-2">{t.inquiry.labelRegion}</label>
@@ -578,7 +584,7 @@ export default function RotagalLanding() {
                   <label className="block text-base font-black text-gray-900 mb-2">{t.inquiry.labelInquiry}</label>
                   <textarea name="inquiry" value={formData.inquiry} onChange={handleChange} rows="4" className="w-full px-4 py-3.5 rounded-xl border-2 border-gray-400 font-bold text-gray-900 text-base sm:text-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-600 outline-none transition-all bg-white resize-none" placeholder={t.inquiry.placeholderInquiry}></textarea>
                 </div>
-                
+
                 <button type="submit" className="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-black text-lg sm:text-xl py-5 rounded-xl shadow-xl hover:shadow-2xl transform transition-all hover:-translate-y-1 flex justify-center items-center gap-2 break-keep">
                   <Send className="w-6 h-6 shrink-0" /> {t.inquiry.submitBtn}
                 </button>
@@ -655,15 +661,15 @@ export default function RotagalLanding() {
                   <div className="text-white text-base sm:text-xl font-black break-keep">{t.footer.bannerTitle}</div>
                 </div>
               </div>
-              <a 
-                href="#inquiry" 
+              <a
+                href="#inquiry"
                 className="w-full sm:w-auto bg-gradient-to-r from-[#FFE53B] via-[#FFDF00] to-[#FFA800] hover:from-[#FFF066] hover:to-[#FFB800] text-gray-950 font-black px-8 py-4 rounded-xl text-base sm:text-lg shadow-[0_4px_25px_rgba(255,215,0,0.5)] hover:shadow-[0_6px_30px_rgba(255,215,0,0.7)] border-2 border-[#FFF066] transition-all transform hover:-translate-y-1 flex items-center justify-center gap-2 shrink-0 break-keep relative z-10"
               >
                 <span>{t.footer.bannerBtn}</span>
                 <ArrowRight className="w-6 h-6 stroke-[3] text-gray-950" />
               </a>
             </div>
-            
+
             {/* Legal / Medical Disclaimer Box */}
             <div className="mt-8 bg-emerald-950/60 border border-emerald-800/80 rounded-xl p-4 sm:p-5 text-center shadow-sm">
               <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-6 text-xs sm:text-sm font-bold text-amber-200/90 tracking-tight break-keep leading-relaxed sm:leading-normal">
@@ -704,20 +710,19 @@ export default function RotagalLanding() {
                 <X className="w-6 h-6" />
               </button>
             </div>
-            
+
             <div className="flex-1 p-4 overflow-y-auto bg-gray-50 flex flex-col gap-4">
               {chatMessages.map((msg, i) => (
                 <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                  <div className={`max-w-[85%] p-3 rounded-2xl text-sm leading-relaxed break-keep ${
-                    msg.role === 'user' 
-                      ? 'bg-emerald-600 text-white rounded-tr-sm' 
+                  <div className={`max-w-[85%] p-3 rounded-2xl text-sm leading-relaxed break-keep ${msg.role === 'user'
+                      ? 'bg-emerald-600 text-white rounded-tr-sm'
                       : 'bg-white border border-gray-200 text-gray-800 rounded-tl-sm shadow-sm'
-                  }`}>
+                    }`}>
                     {msg.content}
                   </div>
                 </div>
               ))}
-              
+
               {/* Quick Replies */}
               <div className="flex flex-wrap gap-2 mt-4">
                 <button onClick={() => handleQuickReply(t.chatbot.quick1Question)} className="bg-white border border-emerald-200 text-emerald-700 text-xs px-3 py-1.5 rounded-full hover:bg-emerald-50 transition-colors shadow-sm">{t.chatbot.quick1Label}</button>
@@ -725,13 +730,13 @@ export default function RotagalLanding() {
                 <button onClick={() => handleQuickReply(t.chatbot.quick3Question)} className="bg-white border border-emerald-200 text-emerald-700 text-xs px-3 py-1.5 rounded-full hover:bg-emerald-50 transition-colors shadow-sm">{t.chatbot.quick3Label}</button>
               </div>
             </div>
-            
+
             <form onSubmit={handleChatSubmit} className="p-4 bg-white border-t border-gray-100 flex gap-2">
-              <input 
-                type="text" 
+              <input
+                type="text"
                 value={chatInput}
                 onChange={(e) => setChatInput(e.target.value)}
-                placeholder={t.chatbot.placeholder} 
+                placeholder={t.chatbot.placeholder}
                 className="flex-1 bg-gray-100 rounded-full px-4 py-2 text-sm outline-none focus:ring-2 focus:ring-emerald-500"
               />
               <button type="submit" className="w-10 h-10 bg-emerald-600 text-white rounded-full flex items-center justify-center hover:bg-emerald-700 transition-colors shrink-0 shadow-md">
@@ -740,7 +745,7 @@ export default function RotagalLanding() {
             </form>
           </div>
         ) : (
-          <button 
+          <button
             onClick={() => setIsChatOpen(true)}
             className="w-16 h-16 bg-emerald-600 hover:bg-emerald-700 text-white rounded-full shadow-2xl flex items-center justify-center transform transition-all hover:scale-110 hover:-translate-y-2 animate-bounce"
           >
