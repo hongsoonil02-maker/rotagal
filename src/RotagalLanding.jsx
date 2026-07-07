@@ -71,17 +71,17 @@ export default function RotagalLanding() {
       <nav className="fixed w-full z-50 glass transition-all duration-300">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16 sm:h-20">
-            <a href="#" className="flex items-center gap-3 sm:gap-5 md:gap-6 lg:gap-8 xl:gap-10 group py-1">
-              <div className="bg-white px-1.5 py-0.5 sm:px-2 sm:py-1 rounded-lg shadow-sm border border-emerald-200 group-hover:border-emerald-400 transition-all shrink-0 flex items-center">
-                <img src="./pharmagal_logo.jpg" alt="Pharmagal Bio Logo" className="h-5 sm:h-6 w-auto object-contain" />
+            <a href="#" className="flex items-center gap-2 sm:gap-5 md:gap-6 lg:gap-8 xl:gap-10 group py-1">
+              <div className="bg-white px-1 py-0.5 sm:px-2 sm:py-1 rounded-lg shadow-sm border border-emerald-200 group-hover:border-emerald-400 transition-all shrink-0 flex items-center">
+                <img src="./pharmagal_logo.jpg" alt="Pharmagal Bio Logo" className="h-3 sm:h-6 w-auto object-contain" />
               </div>
               <div className="flex flex-col justify-center items-center text-center">
-                <div className="flex items-center justify-center gap-1.5 sm:gap-2">
-                  <span className="text-xl sm:text-2xl font-black text-gray-950 tracking-tight leading-none group-hover:text-emerald-700 transition-colors">{t.header?.brandKo || '로타갈'}</span>
-                  <span className="text-base sm:text-lg font-extrabold text-emerald-700 tracking-tight leading-none">{t.header?.brandEn || 'Rotagal'}</span>
+                <div className="flex items-center justify-center gap-1 sm:gap-2">
+                  <span className="text-sm sm:text-2xl font-black text-gray-950 tracking-tight leading-none group-hover:text-emerald-700 transition-colors">{t.header?.brandKo || '로타갈'}</span>
+                  <span className="text-xs sm:text-lg font-extrabold text-emerald-700 tracking-tight leading-none">{t.header?.brandEn || 'Rotagal'}</span>
                 </div>
-                <div className="flex justify-center mt-1">
-                  <span className="text-[10px] sm:text-xs font-black bg-gradient-to-r from-emerald-100 to-amber-100 text-emerald-900 px-2.5 py-0.5 rounded-full border border-emerald-300 shadow-2xs leading-none">{t.header?.badge || 'EU GMP 공식인증'}</span>
+                <div className="flex justify-center mt-0.5">
+                  <span className="text-[7px] sm:text-xs font-black bg-gradient-to-r from-emerald-100 to-amber-100 text-emerald-900 px-1.5 py-0.5 rounded-full border border-emerald-300 shadow-2xs leading-none">{t.header?.badge || 'EU GMP 공식인증'}</span>
                 </div>
               </div>
             </a>
@@ -364,11 +364,11 @@ export default function RotagalLanding() {
                 </p>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 rounded-2xl overflow-hidden border-2 border-gray-200 bg-gray-100 shadow-inner">
-                <div className="relative h-80 sm:h-[350px] overflow-hidden">
-                  <img src="./montanide_1.png" alt="프랑스 세픽(SEPPIC)사 Montanide 이중 부형제 1" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+                <div className="relative h-64 sm:h-[350px] overflow-hidden">
+                  <img src="./montanide_1.png" alt="프랑스 세픽(SEPPIC)사 Montanide 이중 부형제 1" className="w-full h-full object-contain sm:object-cover hover:scale-105 transition-transform duration-500" />
                 </div>
-                <div className="relative h-80 sm:h-[350px] overflow-hidden">
-                  <img src="./montanide_2.png" alt="프랑스 세픽(SEPPIC)사 Montanide 이중 부형제 2" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+                <div className="relative h-64 sm:h-[350px] overflow-hidden">
+                  <img src="./montanide_2.png" alt="프랑스 세픽(SEPPIC)사 Montanide 이중 부형제 2" className="w-full h-full object-contain sm:object-cover hover:scale-105 transition-transform duration-500" />
                 </div>
               </div>
             </div>
@@ -715,8 +715,8 @@ export default function RotagalLanding() {
               {chatMessages.map((msg, i) => (
                 <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                   <div className={`max-w-[85%] p-3 rounded-2xl text-sm leading-relaxed break-keep ${msg.role === 'user'
-                      ? 'bg-emerald-600 text-white rounded-tr-sm'
-                      : 'bg-white border border-gray-200 text-gray-800 rounded-tl-sm shadow-sm'
+                    ? 'bg-emerald-600 text-white rounded-tr-sm'
+                    : 'bg-white border border-gray-200 text-gray-800 rounded-tl-sm shadow-sm'
                     }`}>
                     {msg.content}
                   </div>
