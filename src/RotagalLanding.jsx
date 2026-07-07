@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Shield, Clock, Syringe, Award, MessageCircle, X, Send, ChevronDown, CheckCircle2, AlertCircle, ArrowRight } from 'lucide-react';
+import { Shield, Clock, Syringe, Award, MessageCircle, X, Send, ChevronDown, CheckCircle2, AlertCircle, ArrowRight, ExternalLink } from 'lucide-react';
 import RotagalInfographic from './RotagalInfographic';
 import { translations } from './translations';
 
@@ -361,6 +361,34 @@ export default function RotagalLanding() {
                   <img src="./montanide_2.png" alt="프랑스 세픽(SEPPIC)사 Montanide 이중 부형제 2" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
                 </div>
               </div>
+            </div>
+          </div>
+
+          {/* Direct Verification Banner for Bovigen Scour */}
+          <div className="mt-12 bg-gradient-to-r from-emerald-900 via-teal-900 to-emerald-950 rounded-3xl p-6 sm:p-10 shadow-2xl border-2 border-[#FFD700]/60 text-white flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden">
+            <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-[#FFD700]/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div className="flex-1 text-center md:text-left z-10">
+              <div className="inline-flex items-center gap-2 bg-[#FFD700]/20 text-[#FFD700] px-3.5 py-1 rounded-full text-xs sm:text-sm font-black mb-3 border border-[#FFD700]/40">
+                <CheckCircle2 className="w-4 h-4 shrink-0" />
+                <span>{t.qualityShowcase.verifyBadge}</span>
+              </div>
+              <h3 className="text-2xl sm:text-3xl font-black text-white mb-3 break-keep">
+                {t.qualityShowcase.verifyTitle}
+              </h3>
+              <p className="text-emerald-100 font-medium text-base sm:text-lg leading-relaxed max-w-3xl break-keep">
+                {t.qualityShowcase.verifyDesc}
+              </p>
+            </div>
+            <div className="shrink-0 z-10 w-full md:w-auto text-center">
+              <a
+                href="https://vet-uk.virbac.com/home/products/farm-animals/vaccines/bovigen.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-[#FFD700] to-amber-400 hover:from-amber-400 hover:to-[#FFD700] text-gray-950 font-black px-6 py-4 rounded-2xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 text-base sm:text-lg w-full md:w-auto break-keep"
+              >
+                <span>{t.qualityShowcase.verifyBtn}</span>
+                <ExternalLink className="w-5 h-5 shrink-0" />
+              </a>
             </div>
           </div>
         </div>
