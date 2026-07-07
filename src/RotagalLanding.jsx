@@ -364,11 +364,11 @@ export default function RotagalLanding() {
                 </p>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 rounded-2xl overflow-hidden border-2 border-gray-200 bg-gray-100 shadow-inner">
-                <div className="relative h-64 sm:h-[350px] overflow-hidden">
-                  <img src="./montanide_1.png" alt="프랑스 세픽(SEPPIC)사 Montanide 이중 부형제 1" className="w-full h-full object-contain sm:object-cover hover:scale-105 transition-transform duration-500" />
+                <div className="relative h-64 sm:h-[450px] overflow-hidden">
+                  <img src="./montanide_1.png" alt="프랑스 세픽(SEPPIC)사 Montanide 이중 부형제 1" className="w-full h-full object-contain hover:scale-105 transition-transform duration-500" />
                 </div>
-                <div className="relative h-64 sm:h-[350px] overflow-hidden">
-                  <img src="./montanide_2.png" alt="프랑스 세픽(SEPPIC)사 Montanide 이중 부형제 2" className="w-full h-full object-contain sm:object-cover hover:scale-105 transition-transform duration-500" />
+                <div className="relative h-64 sm:h-[450px] overflow-hidden">
+                  <img src="./montanide_2.png" alt="프랑스 세픽(SEPPIC)사 Montanide 이중 부형제 2" className="w-full h-full object-contain hover:scale-105 transition-transform duration-500" />
                 </div>
               </div>
             </div>
