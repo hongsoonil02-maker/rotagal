@@ -71,17 +71,17 @@ export default function RotagalLanding() {
       <nav className="fixed w-full z-50 glass transition-all duration-300">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16 sm:h-20">
-            <a href="#" className="flex items-center gap-2 sm:gap-5 md:gap-6 lg:gap-8 xl:gap-10 group py-1">
-              <div className="bg-white px-1 py-0.5 sm:px-2 sm:py-1 rounded-lg shadow-sm border border-emerald-200 group-hover:border-emerald-400 transition-all shrink-0 flex items-center">
-                <img src="./pharmagal_logo.jpg" alt="Pharmagal Bio Logo" className="h-3 sm:h-6 w-auto object-contain" />
+            <a href="#" className="flex items-center gap-3 sm:gap-5 md:gap-6 lg:gap-8 xl:gap-10 group py-1">
+              <div className="bg-white px-1.5 py-0.5 sm:px-2 sm:py-1 rounded-lg shadow-sm border border-emerald-200 group-hover:border-emerald-400 transition-all shrink-0 flex items-center">
+                <img src="./pharmagal_logo.jpg" alt="Pharmagal Bio Logo" className="h-5 sm:h-6 w-auto object-contain" />
               </div>
               <div className="flex flex-col justify-center items-center text-center">
-                <div className="flex items-center justify-center gap-1 sm:gap-2">
-                  <span className="text-sm sm:text-2xl font-black text-gray-950 tracking-tight leading-none group-hover:text-emerald-700 transition-colors">{t.header?.brandKo || '로타갈'}</span>
-                  <span className="text-xs sm:text-lg font-extrabold text-emerald-700 tracking-tight leading-none">{t.header?.brandEn || 'Rotagal'}</span>
+                <div className="flex items-center justify-center gap-1.5 sm:gap-2">
+                  <span className="text-xl sm:text-2xl font-black text-gray-950 tracking-tight leading-none group-hover:text-emerald-700 transition-colors">{t.header?.brandKo || '로타갈'}</span>
+                  <span className="text-base sm:text-lg font-extrabold text-emerald-700 tracking-tight leading-none">{t.header?.brandEn || 'Rotagal'}</span>
                 </div>
-                <div className="flex justify-center mt-0.5">
-                  <span className="text-[7px] sm:text-xs font-black bg-gradient-to-r from-emerald-100 to-amber-100 text-emerald-900 px-1.5 py-0.5 rounded-full border border-emerald-300 shadow-2xs leading-none">{t.header?.badge || 'EU GMP 공식인증'}</span>
+                <div className="flex justify-center mt-1">
+                  <span className="text-[10px] sm:text-xs font-black bg-gradient-to-r from-emerald-100 to-amber-100 text-emerald-900 px-2.5 py-0.5 rounded-full border border-emerald-300 shadow-2xs leading-none">{t.header?.badge || 'EU GMP 공식인증'}</span>
                 </div>
               </div>
             </a>
@@ -171,10 +171,10 @@ export default function RotagalLanding() {
             </span> {t.hero.title3 && <span className="text-3xl sm:text-5xl lg:text-6xl text-gray-900">{t.hero.title3}</span>}
           </h1>
           {/* Rotagal Logo showcase to reinforce brand identity */}
-          <div className="flex justify-center items-center gap-3 sm:gap-6 mb-8">
-            <img src="./pharmagal_logo.jpg" alt="Rotagal 로고" className="h-6 sm:h-16 w-auto object-contain" />
-            <span className="text-xs sm:text-base font-medium text-gray-700">|</span>
-            <img src="./eu_gmp_logo.svg" alt="EU GMP 인증 로고" className="h-6 sm:h-16 w-auto object-contain" />
+          <div className="flex justify-center items-center gap-4 sm:gap-6 mb-8">
+            <img src="./pharmagal_logo.jpg" alt="Rotagal 로고" className="h-8 sm:h-16 w-auto object-contain" />
+            <span className="text-sm sm:text-base font-medium text-gray-700">|</span>
+            <img src="./eu_gmp_logo.svg" alt="EU GMP 인증 로고" className="h-8 sm:h-16 w-auto object-contain" />
           </div>
           <p className="text-xl sm:text-2xl font-bold text-gray-800 mb-10 max-w-5xl mx-auto leading-relaxed break-keep">
             {t.hero.subtitle}
