@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 
 // ─── Premium Biotech Styles ───────────────────────────────────────────
 const styles = `
@@ -112,7 +112,7 @@ function useScrollReveal() {
         if (entry.isIntersecting) entry.target.classList.add('active');
       });
     }, { threshold: 0.1 });
-    
+
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     return () => observer.disconnect();
   }, []);
@@ -146,7 +146,7 @@ export default function RotagalLandingB() {
               <span className="text-gradient">가장 완벽한 태어남</span>
             </h1>
             <p style={{ fontSize: '20px', color: '#475569', lineHeight: 1.6, marginBottom: '40px' }}>
-              로타바이러스, 코로나바이러스, 대장균(E.coli)<br /> 
+              로타바이러스, 코로나바이러스, 대장균(E.coli)<br />
               전격 차단 오리지널 3종 혼합백신 <strong>로타갈</strong>
             </p>
             <div style={{ display: 'flex', gap: '20px' }}>
@@ -156,7 +156,7 @@ export default function RotagalLandingB() {
               </a>
             </div>
           </div>
-          
+
           <div className="reveal floating" style={{ display: 'flex', justifyContent: 'center' }}>
             <div className="glass-card" style={{ padding: '40px', borderRadius: '32px', textAlign: 'center', width: '100%', maxWidth: '400px' }}>
               <div style={{ fontSize: '48px', marginBottom: '20px' }}>🐄</div>
@@ -192,51 +192,51 @@ export default function RotagalLandingB() {
 
       {/* ── Why Rotagal ──────────────────────────────────────────────────── */}
       <section style={{ padding: '120px 20px', position: 'relative' }}>
-         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-            <div className="reveal" style={{ textAlign: 'center', marginBottom: '80px' }}>
-              <h2 style={{ fontSize: '48px', fontWeight: 900, color: '#0f172a', marginBottom: '20px' }}>혁신을 통한 생명 보호</h2>
-              <p style={{ fontSize: '20px', color: '#475569' }}>로타갈이 제공하는 프리미엄 면역 케어 시스템</p>
-            </div>
+        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          <div className="reveal" style={{ textAlign: 'center', marginBottom: '80px' }}>
+            <h2 style={{ fontSize: '48px', fontWeight: 900, color: '#0f172a', marginBottom: '20px' }}>혁신을 통한 생명 보호</h2>
+            <p style={{ fontSize: '20px', color: '#475569' }}>로타갈이 제공하는 프리미엄 면역 케어 시스템</p>
+          </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '32px' }}>
-               {[
-                 { icon: '🧬', title: '국내 유일 오리지널 3종', text: '단 한 번의 접종으로 로타, 코로나, 대장균을 모두 잡는 완벽한 포뮬러.' },
-                 { icon: '🌍', title: 'Global Quality Control', text: '까다로운 유럽 기준을 통과한 EU GMP 인증 시설 생산 오리지널 백신.' },
-                 { icon: '🛡️', title: 'G6P5 혈청형 특화', text: '국내 발생의 대다수를 차지하는 로타바이러스 혈청형까지도 강력 방어.' },
-                 { icon: '📈', title: '농가 수익 증대', text: '치사율 높은 설사병 예방을 통해 송아지 폐사율을 획기적으로 감소시킵니다.' }
-               ].map((f, i) => (
-                 <div key={i} className="reveal glass-card" style={{ padding: '48px', borderRadius: '32px' }}>
-                    <div className="feature-icon-box">{f.icon}</div>
-                    <h4 style={{ fontSize: '24px', fontWeight: 800, color: '#064e3b', marginBottom: '16px' }}>{f.title}</h4>
-                    <p style={{ color: '#475569', lineHeight: 1.7, fontSize: '17px' }}>{f.text}</p>
-                 </div>
-               ))}
-            </div>
-         </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '32px' }}>
+            {[
+              { icon: '🧬', title: '국내 유일 오리지널 3종', text: '단 한 번의 접종으로 로타, 코로나, 대장균을 모두 잡는 완벽한 포뮬러.' },
+              { icon: '🌍', title: 'Global Quality Control', text: '까다로운 유럽 기준을 통과한 EU GMP 인증 시설 생산 오리지널 백신.' },
+              { icon: '🛡️', title: 'G6P5 혈청형 특화', text: '국내 발생의 대다수를 차지하는 로타바이러스 혈청형까지도 강력 방어.' },
+              { icon: '📈', title: '농가 수익 증대', text: '치사율 높은 설사병 예방을 통해 송아지 폐사율을 획기적으로 감소시킵니다.' }
+            ].map((f, i) => (
+              <div key={i} className="reveal glass-card" style={{ padding: '48px', borderRadius: '32px' }}>
+                <div className="feature-icon-box">{f.icon}</div>
+                <h4 style={{ fontSize: '24px', fontWeight: 800, color: '#064e3b', marginBottom: '16px' }}>{f.title}</h4>
+                <p style={{ color: '#475569', lineHeight: 1.7, fontSize: '17px' }}>{f.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* ── Video Section ────────────────────────────────────────────────── */}
       <section style={{ padding: '100px 20px', backgroundColor: '#064e3b' }}>
         <div style={{ maxWidth: '1000px', margin: '0 auto', textAlign: 'center' }}>
           <div className="reveal">
-            <h2 style={{ fontSize: '40px', fontWeight: 900, color: '#white', marginBottom: '24px', color: '#fff' }}>Scientific Overview</h2>
+            <h2 style={{ fontSize: '40px', fontWeight: 900, marginBottom: '24px', color: '#fff' }}>Scientific Overview</h2>
             <div style={{ position: 'relative', width: '100%', paddingBottom: '56.25%', height: 0, borderRadius: '24px', overflow: 'hidden', boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)', marginBottom: '32px' }}>
-              <iframe 
+              <iframe
                 style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
-                src="https://www.youtube.com/embed/zhsDYNm2Pig?rel=0" 
-                title="로타갈 백신 소개 영상" 
-                frameBorder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                src="https://www.youtube.com/embed/zhsDYNm2Pig?rel=0"
+                title="로타갈 백신 소개 영상"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen>
               </iframe>
             </div>
             <div style={{ position: 'relative', width: '100%', paddingBottom: '56.25%', height: 0, borderRadius: '24px', overflow: 'hidden', boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)' }}>
-              <iframe 
+              <iframe
                 style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
-                src="https://www.youtube.com/embed/74oxPVMV1p4?rel=0" 
-                title="유럽 현지 첨단 바이오 공정 영상" 
-                frameBorder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                src="https://www.youtube.com/embed/74oxPVMV1p4?rel=0"
+                title="유럽 현지 첨단 바이오 공정 영상"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen>
               </iframe>
             </div>
@@ -289,8 +289,8 @@ export default function RotagalLandingB() {
           <div className="reveal">
             <h2 style={{ fontSize: '40px', fontWeight: 900, color: '#0f172a', marginBottom: '24px' }}>협력 및 <br /><span className="text-gradient">기술 지원 센터</span></h2>
             <p style={{ color: '#475569', fontSize: '18px', lineHeight: 1.6, marginBottom: '40px' }}>
-               전문 고문 수의사 젬스홍 팀이 <br />
-               농장의 완벽한 방역 체계를 지원합니다.
+              전문 고문 수의사 젬스홍 팀이 <br />
+              농장의 완벽한 방역 체계를 지원합니다.
             </p>
             <div className="glass-card" style={{ padding: '32px', borderRadius: '24px', borderLeft: '4px solid #059669' }}>
               <div style={{ fontSize: '32px', fontWeight: 900, color: '#064e3b', marginBottom: '8px' }}>010-5407-5708</div>
@@ -299,33 +299,33 @@ export default function RotagalLandingB() {
           </div>
 
           <div className="reveal glass-card" style={{ padding: '48px', borderRadius: '32px' }}>
-              {submitted ? (
-                <div style={{ textAlign: 'center', padding: '40px 0' }}>
-                  <div style={{ fontSize: '64px', marginBottom: '24px' }}>✅</div>
-                  <h3>상담 신청 완료</h3>
-                  <p style={{ color: '#64748b', marginTop: '12px' }}>기술 지원 팀에서 24시간 이내에 연락드립니다.</p>
-                </div>
-              ) : (
-                <form onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }}>
-                  <div style={{ display: 'grid', gap: '24px' }}>
-                    <div>
-                      <label style={{ display: 'block', marginBottom: '8px', fontWeight: 700, fontSize: '14px', color: '#64748b' }}>이름 또는 농장명</label>
-                      <input required style={{ width: '100%', padding: '16px', borderRadius: '12px', border: '1px solid #e2e8f0', background: '#fff' }} placeholder="OOO 농장" />
-                    </div>
-                    <div>
-                      <label style={{ display: 'block', marginBottom: '8px', fontWeight: 700, fontSize: '14px', color: '#64748b' }}>연락처</label>
-                      <input type="tel" required style={{ width: '100%', padding: '16px', borderRadius: '12px', border: '1px solid #e2e8f0', background: '#fff' }} placeholder="010-0000-0000" />
-                    </div>
-                    <div>
-                      <label style={{ display: 'block', marginBottom: '8px', fontWeight: 700, fontSize: '14px', color: '#64748b' }}>상담 내용</label>
-                      <textarea rows="4" style={{ width: '100%', padding: '16px', borderRadius: '12px', border: '1px solid #e2e8f0', background: '#fff' }} placeholder="질환 상담, 제품 구매 문의 등" />
-                    </div>
-                    <button type="submit" className="btn-premium" style={{ width: '100%', padding: '20px', borderRadius: '12px', fontWeight: 900, fontSize: '18px' }}>
-                      프리미엄 상담 신청하기
-                    </button>
+            {submitted ? (
+              <div style={{ textAlign: 'center', padding: '40px 0' }}>
+                <div style={{ fontSize: '64px', marginBottom: '24px' }}>✅</div>
+                <h3>상담 신청 완료</h3>
+                <p style={{ color: '#64748b', marginTop: '12px' }}>기술 지원 팀에서 24시간 이내에 연락드립니다.</p>
+              </div>
+            ) : (
+              <form onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }}>
+                <div style={{ display: 'grid', gap: '24px' }}>
+                  <div>
+                    <label style={{ display: 'block', marginBottom: '8px', fontWeight: 700, fontSize: '14px', color: '#64748b' }}>이름 또는 농장명</label>
+                    <input required style={{ width: '100%', padding: '16px', borderRadius: '12px', border: '1px solid #e2e8f0', background: '#fff' }} placeholder="OOO 농장" />
                   </div>
-                </form>
-              )}
+                  <div>
+                    <label style={{ display: 'block', marginBottom: '8px', fontWeight: 700, fontSize: '14px', color: '#64748b' }}>연락처</label>
+                    <input type="tel" required style={{ width: '100%', padding: '16px', borderRadius: '12px', border: '1px solid #e2e8f0', background: '#fff' }} placeholder="010-0000-0000" />
+                  </div>
+                  <div>
+                    <label style={{ display: 'block', marginBottom: '8px', fontWeight: 700, fontSize: '14px', color: '#64748b' }}>상담 내용</label>
+                    <textarea rows="4" style={{ width: '100%', padding: '16px', borderRadius: '12px', border: '1px solid #e2e8f0', background: '#fff' }} placeholder="질환 상담, 제품 구매 문의 등" />
+                  </div>
+                  <button type="submit" className="btn-premium" style={{ width: '100%', padding: '20px', borderRadius: '12px', fontWeight: 900, fontSize: '18px' }}>
+                    프리미엄 상담 신청하기
+                  </button>
+                </div>
+              </form>
+            )}
           </div>
         </div>
       </section>

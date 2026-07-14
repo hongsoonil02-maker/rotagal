@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Shield, Clock, Syringe, Award, MessageCircle, X, Send, ChevronDown, CheckCircle2, AlertCircle, ArrowRight, ExternalLink, FileText } from 'lucide-react';
 import RotagalInfographic from './RotagalInfographic';
 import { translations } from './translations';
@@ -8,6 +8,8 @@ export default function RotagalLanding() {
   const t = translations[lang];
 
   const [formData, setFormData] = useState({ name: '', phone: '', farmSize: '', inquiry: '', region: '' });
+  const [submitStatus, setSubmitStatus] = useState({ type: '', message: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [chatMessages, setChatMessages] = useState([
     { role: 'ai', content: translations.ko.chatbot.initialMsg }
@@ -15,27 +17,67 @@ export default function RotagalLanding() {
   const [chatInput, setChatInput] = useState('');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  useEffect(() => {
-    setChatMessages([
-      { role: 'ai', content: t.chatbot.initialMsg }
-    ]);
-  }, [lang]);
+  const primaryDistributor = t.contact.distributors[0];
+
+  const handleSetLang = (newLang) => {
+    setLang(newLang);
+    setChatMessages(prev => {
+      if (prev.length === 1) {
+        return [{ role: 'ai', content: translations[newLang].chatbot.initialMsg }];
+      }
+      return prev;
+    });
+  };
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+    if (submitStatus.message) {
+      setSubmitStatus({ type: '', message: '' });
+    }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.region) {
-      alert(t.inquiry.alertRegion);
+      setSubmitStatus({ type: 'error', message: t.inquiry.alertRegion });
       return;
     }
+
     const dist = t.contact.distributors.find(d => d.region.includes(formData.region) || formData.region.includes(d.region));
-    if (dist) {
-      alert(`${t.inquiry.alertSuccess1}${dist.region}${t.inquiry.alertSuccess2}${dist.name}${t.inquiry.alertSuccess3}${dist.phone}${t.inquiry.alertSuccess4}`);
-    } else {
-      alert(t.inquiry.alertSuccessDefault);
+
+    const inquiryPayload = {
+      submittedAt: new Date().toISOString(),
+      language: lang,
+      ...formData,
+      distributor: dist ? {
+        region: dist.region,
+        name: dist.name,
+        rep: dist.rep,
+        tel: dist.tel,
+        phone: dist.phone,
+      } : null,
+    };
+
+    setIsSubmitting(true);
+
+    try {
+      const existingInquiries = JSON.parse(localStorage.getItem('rotagal_inquiries') || '[]');
+      localStorage.setItem('rotagal_inquiries', JSON.stringify([inquiryPayload, ...existingInquiries]));
+
+      if (dist) {
+        setSubmitStatus({
+          type: 'success',
+          message: `${t.inquiry.alertSuccess1}${dist.region}${t.inquiry.alertSuccess2}${dist.name}${t.inquiry.alertSuccess3}${dist.phone}${t.inquiry.alertSuccess4}`,
+        });
+      } else {
+        setSubmitStatus({ type: 'success', message: t.inquiry.alertSuccessDefault });
+      }
+
+      setFormData({ name: '', phone: '', farmSize: '', inquiry: '', region: '' });
+    } catch {
+      setSubmitStatus({ type: 'error', message: t.inquiry.submitError });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -93,10 +135,10 @@ export default function RotagalLanding() {
 
               {/* Navbar Language Toggle */}
               <div className="inline-flex items-center bg-gray-100 border border-gray-200 p-0.5 rounded-full shadow-2xs">
-                <button onClick={() => setLang('ko')} className={`px-2.5 py-1 rounded-full text-xs font-bold transition-all ${lang === 'ko' ? 'bg-emerald-700 text-white shadow-2xs' : 'text-gray-600 hover:text-emerald-800'}`}>KR</button>
-                <button onClick={() => setLang('en')} className={`px-2.5 py-1 rounded-full text-xs font-bold transition-all ${lang === 'en' ? 'bg-emerald-700 text-white shadow-2xs' : 'text-gray-600 hover:text-emerald-800'}`}>EN</button>
-                <button onClick={() => setLang('sk')} className={`px-2.5 py-1 rounded-full text-xs font-bold transition-all ${lang === 'sk' ? 'bg-emerald-700 text-white shadow-2xs' : 'text-gray-600 hover:text-emerald-800'}`}>SK</button>
-                <button onClick={() => setLang('uk')} className={`px-2.5 py-1 rounded-full text-xs font-bold transition-all ${lang === 'uk' ? 'bg-emerald-700 text-white shadow-2xs' : 'text-gray-600 hover:text-emerald-800'}`}>UA</button>
+                <button onClick={() => handleSetLang('ko')} className={`px-2.5 py-1 rounded-full text-xs font-bold transition-all ${lang === 'ko' ? 'bg-emerald-700 text-white shadow-2xs' : 'text-gray-600 hover:text-emerald-800'}`}>KR</button>
+                <button onClick={() => handleSetLang('en')} className={`px-2.5 py-1 rounded-full text-xs font-bold transition-all ${lang === 'en' ? 'bg-emerald-700 text-white shadow-2xs' : 'text-gray-600 hover:text-emerald-800'}`}>EN</button>
+                <button onClick={() => handleSetLang('sk')} className={`px-2.5 py-1 rounded-full text-xs font-bold transition-all ${lang === 'sk' ? 'bg-emerald-700 text-white shadow-2xs' : 'text-gray-600 hover:text-emerald-800'}`}>SK</button>
+                <button onClick={() => handleSetLang('uk')} className={`px-2.5 py-1 rounded-full text-xs font-bold transition-all ${lang === 'uk' ? 'bg-emerald-700 text-white shadow-2xs' : 'text-gray-600 hover:text-emerald-800'}`}>UA</button>
               </div>
 
               <a href="#inquiry" className="bg-emerald-700 hover:bg-emerald-800 text-white px-6 py-2.5 rounded-full font-bold transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5">{t.nav.inquiry}</a>
@@ -146,6 +188,19 @@ export default function RotagalLanding() {
         <div className="absolute top-0 left-0 mt-20 -ml-20 w-72 h-72 bg-green-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse" style={{ animationDelay: '2s' }}></div>
 
         <div className="max-w-6xl mx-auto text-center relative z-10 pt-4 lg:pt-8">
+          <div className="sm:hidden mb-5 rounded-2xl border border-emerald-200 bg-white/95 shadow-md px-4 py-3 text-left">
+            <div className="text-[11px] font-black text-emerald-700 uppercase tracking-wider mb-1.5">{t.hero.mobileQuickLabel}</div>
+            <div className="text-sm font-black text-gray-950 break-keep">{t.hero.mobileQuickTitle}</div>
+            <div className="mt-2 flex flex-wrap gap-2">
+              <a href="#inquiry" className="inline-flex items-center justify-center rounded-full bg-emerald-700 px-4 py-2 text-xs font-black text-white shadow-sm">
+                {t.hero.mobileQuickPrimary}
+              </a>
+              <a href={`tel:${primaryDistributor.phone}`} className="inline-flex items-center justify-center rounded-full border border-emerald-300 bg-emerald-50 px-4 py-2 text-xs font-black text-emerald-900 shadow-sm">
+                {t.hero.mobileQuickSecondary}
+              </a>
+            </div>
+          </div>
+
           <div className="flex justify-center items-center mb-8">
             <div className="bg-gradient-to-r from-emerald-900 via-[#064e3b] to-emerald-900 text-white px-6 sm:px-10 py-5 rounded-3xl border-2 border-[#FFD700] shadow-[0_0_30px_rgba(255,215,0,0.35)] flex flex-wrap md:flex-nowrap items-center justify-between gap-6 transform hover:scale-[1.01] transition-all w-full">
               <div className="flex items-center gap-4 text-left">
@@ -190,6 +245,21 @@ export default function RotagalLanding() {
               <FileText className="w-6 h-6 shrink-0" />
               <span>{t.hero.btnLeaflet}</span>
             </a>
+          </div>
+
+          <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-4xl mx-auto">
+            <div className="bg-white/90 border border-emerald-200 rounded-2xl px-4 py-3 shadow-sm">
+              <div className="text-xs font-black text-emerald-700 mb-1">{t.hero.proof1Label}</div>
+              <div className="text-sm sm:text-base font-bold text-gray-900 break-keep">{t.hero.proof1Value}</div>
+            </div>
+            <div className="bg-white/90 border border-emerald-200 rounded-2xl px-4 py-3 shadow-sm">
+              <div className="text-xs font-black text-emerald-700 mb-1">{t.hero.proof2Label}</div>
+              <div className="text-sm sm:text-base font-bold text-gray-900 break-keep">{t.hero.proof2Value}</div>
+            </div>
+            <div className="bg-white/90 border border-emerald-200 rounded-2xl px-4 py-3 shadow-sm">
+              <div className="text-xs font-black text-emerald-700 mb-1">{t.hero.proof3Label}</div>
+              <div className="text-sm sm:text-base font-bold text-gray-900 break-keep">{t.hero.proof3Value}</div>
+            </div>
           </div>
         </div>
       </section>
@@ -274,6 +344,21 @@ export default function RotagalLanding() {
             <p className="text-xl sm:text-2xl font-bold text-gray-800 max-w-4xl mx-auto leading-relaxed break-keep">
               {t.qualityShowcase.subtitle}
             </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mb-8 sm:mb-10">
+            <div className="rounded-2xl border border-emerald-200 bg-white/90 px-4 py-4 text-center shadow-sm">
+              <div className="text-xs font-black text-emerald-700 mb-1">{t.qualityShowcase.quick1Label}</div>
+              <div className="text-sm sm:text-base font-bold text-gray-900 break-keep">{t.qualityShowcase.quick1Value}</div>
+            </div>
+            <div className="rounded-2xl border border-emerald-200 bg-white/90 px-4 py-4 text-center shadow-sm">
+              <div className="text-xs font-black text-emerald-700 mb-1">{t.qualityShowcase.quick2Label}</div>
+              <div className="text-sm sm:text-base font-bold text-gray-900 break-keep">{t.qualityShowcase.quick2Value}</div>
+            </div>
+            <div className="rounded-2xl border border-emerald-200 bg-white/90 px-4 py-4 text-center shadow-sm">
+              <div className="text-xs font-black text-emerald-700 mb-1">{t.qualityShowcase.quick3Label}</div>
+              <div className="text-sm sm:text-base font-bold text-gray-900 break-keep">{t.qualityShowcase.quick3Value}</div>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -491,6 +576,19 @@ export default function RotagalLanding() {
       {/* Distributors Table */}
       <section id="contact" className="py-10 sm:py-24 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-6xl mx-auto">
+          <div className="sm:hidden mb-4 rounded-2xl border border-emerald-200 bg-white p-4 shadow-sm">
+            <div className="text-xs font-black text-emerald-700 mb-1">{t.contact.mobileCardLabel}</div>
+            <div className="text-sm font-bold text-gray-900 break-keep">{primaryDistributor.region} · {primaryDistributor.name}</div>
+            <div className="mt-3 grid grid-cols-2 gap-2">
+              <a href={`tel:${primaryDistributor.phone}`} className="rounded-xl bg-emerald-700 px-3 py-2 text-center text-xs font-black text-white shadow-sm">
+                {t.contact.mobileCallBtn}
+              </a>
+              <a href="#inquiry" className="rounded-xl border border-emerald-300 bg-emerald-50 px-3 py-2 text-center text-xs font-black text-emerald-900 shadow-sm">
+                {t.contact.mobileInquiryBtn}
+              </a>
+            </div>
+          </div>
+
           <div className="bg-white p-8 md:p-12 rounded-3xl shadow-xl border-2 border-gray-300">
             <h2 className="text-3xl sm:text-5xl font-black text-center text-gray-950 mb-4 break-keep">{t.contact.title}</h2>
             <p className="text-center text-lg sm:text-xl font-bold text-gray-800 mb-10 break-keep">{t.contact.subtitle}</p>
@@ -549,6 +647,27 @@ export default function RotagalLanding() {
               <h2 className="text-3xl sm:text-4xl font-black text-gray-950 mb-2 break-keep">{t.inquiry.formTitle}</h2>
               <p className="text-gray-800 font-bold text-lg mb-8 break-keep">{t.inquiry.formSubtitle}</p>
 
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
+                <div className="bg-white border border-emerald-200 rounded-2xl px-4 py-3 text-center shadow-sm">
+                  <div className="text-xs font-black text-emerald-700 mb-1">{t.inquiry.point1Label}</div>
+                  <div className="text-sm font-bold text-gray-900 break-keep">{t.inquiry.point1Value}</div>
+                </div>
+                <div className="bg-white border border-emerald-200 rounded-2xl px-4 py-3 text-center shadow-sm">
+                  <div className="text-xs font-black text-emerald-700 mb-1">{t.inquiry.point2Label}</div>
+                  <div className="text-sm font-bold text-gray-900 break-keep">{t.inquiry.point2Value}</div>
+                </div>
+                <div className="bg-white border border-emerald-200 rounded-2xl px-4 py-3 text-center shadow-sm">
+                  <div className="text-xs font-black text-emerald-700 mb-1">{t.inquiry.point3Label}</div>
+                  <div className="text-sm font-bold text-gray-900 break-keep">{t.inquiry.point3Value}</div>
+                </div>
+              </div>
+
+              {submitStatus.message && (
+                <div className={`mb-6 rounded-2xl border px-4 py-4 text-sm sm:text-base font-bold leading-relaxed whitespace-pre-line ${submitStatus.type === 'success' ? 'border-emerald-300 bg-emerald-50 text-emerald-950' : 'border-red-300 bg-red-50 text-red-900'}`}>
+                  {submitStatus.message}
+                </div>
+              )}
+
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
@@ -585,9 +704,13 @@ export default function RotagalLanding() {
                   <textarea name="inquiry" value={formData.inquiry} onChange={handleChange} rows="4" className="w-full px-4 py-3.5 rounded-xl border-2 border-gray-400 font-bold text-gray-900 text-base sm:text-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-600 outline-none transition-all bg-white resize-none" placeholder={t.inquiry.placeholderInquiry}></textarea>
                 </div>
 
-                <button type="submit" className="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-black text-lg sm:text-xl py-5 rounded-xl shadow-xl hover:shadow-2xl transform transition-all hover:-translate-y-1 flex justify-center items-center gap-2 break-keep">
-                  <Send className="w-6 h-6 shrink-0" /> {t.inquiry.submitBtn}
+                <button type="submit" disabled={isSubmitting} className="w-full bg-emerald-700 hover:bg-emerald-800 disabled:bg-emerald-400 disabled:cursor-not-allowed text-white font-black text-lg sm:text-xl py-5 rounded-xl shadow-xl hover:shadow-2xl transform transition-all hover:-translate-y-1 flex justify-center items-center gap-2 break-keep">
+                  <Send className="w-6 h-6 shrink-0" /> {isSubmitting ? t.inquiry.submitBtnLoading : t.inquiry.submitBtn}
                 </button>
+
+                <p className="text-xs sm:text-sm text-gray-600 font-bold leading-relaxed break-keep">
+                  {t.inquiry.privacyNote}
+                </p>
               </form>
             </div>
           </div>

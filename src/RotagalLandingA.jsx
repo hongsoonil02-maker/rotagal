@@ -300,7 +300,6 @@ export default function RotagalLandingA() {
               <h2 style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)', fontWeight: '900', color: '#1c0a00', marginBottom: '32px', wordBreak: 'keep-all' }}>
                 로타갈, 직접 확인하세요
               </h2>
-            </FadeSection>
               <div style={{ position: 'relative', width: '100%', paddingBottom: '56.25%', height: 0, borderRadius: '20px', overflow: 'hidden', boxShadow: '0 16px 48px rgba(146, 64, 14, 0.15)', marginBottom: '32px' }}>
                 <iframe
                   style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
