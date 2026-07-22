@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[로타갈] 대동물병원 임상 수의사 전용 - 학술 및 처방 안내</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700;800;900&family=Noto+Sans+KR:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Public Sans', 'Noto Sans KR', sans-serif;
+      background-color: #f8fafc;
+      color: #0f172a;
+      line-height: 1.6;
+      display: flex;
+      justify-content: center;
+      padding: 0;
+    }
+    .dm-container {
+      width: 100%;
+      max-width: 480px;
+      background-color: #ffffff;
+      min-height: 100vh;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      position: relative;
+      overflow: hidden;
+    }
+    /* 상단 학술 헤더 */
+    .header-banner {
+      background: linear-gradient(135deg, #064e3b 0%, #047857 100%);
+      color: white;
+      padding: 28px 20px 24px;
+      text-align: center;
+      position: relative;
+    }
+    .header-badge {
+      display: inline-block;
+      background: rgba(16, 185, 129, 0.2);
+      border: 1px solid rgba(110, 231, 183, 0.4);
+      color: #6ee7b7;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+    }
+    .header-title {
+      font-size: 23px;
+      font-weight: 900;
+      line-height: 1.35;
+      margin-bottom: 8px;
+      word-break: keep-all;
+    }
+    .header-title span {
+      color: #6ee7b7;
+    }
+    .header-sub {
+      font-size: 14px;
+      color: #d1fae5;
+      font-weight: 500;
+      word-break: keep-all;
+    }
+    /* 원장님 인사말 박스 */
+    .doc-greeting {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      margin: 20px;
+      padding: 18px;
+      border-radius: 12px;
+    }
+    .doc-greeting h3 {
+      font-size: 16px;
+      color: #166534;
+      font-weight: 800;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .doc-greeting p {
+      font-size: 14px;
+      color: #166534;
+      line-height: 1.55;
+      word-break: keep-all;
+    }
+    /* 과학적 근거 섹션 */
+    .section-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: #0f172a;
+      margin: 28px 20px 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .section-title::before {
+      content: '';
+      width: 6px;
+      height: 18px;
+      background-color: #059669;
+      border-radius: 3px;
+    }
+    /* 임상 강점 카드 */
+    .clinical-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 18px;
+      margin: 14px 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+      position: relative;
+    }
+    .clinical-card .tag {
+      display: inline-block;
+      background: #ecfdf5;
+      color: #059669;
+      border: 1px solid #a7f3d0;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 6px;
+      margin-bottom: 8px;
+    }
+    .clinical-card h4 {
+      font-size: 16px;
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 6px;
+    }
+    .clinical-card p {
+      font-size: 14px;
+      color: #475569;
+      line-height: 1.6;
+      word-break: keep-all;
+    }
+    .clinical-card .highlight {
+      color: #047857;
+      font-weight: 700;
+      background: #d1fae5;
+      padding: 1px 4px;
+      border-radius: 4px;
+    }
+    /* 학술 데이터 테이블 */
+    .spec-table {
+      width: calc(100% - 40px);
+      margin: 16px 20px;
+      border-collapse: collapse;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      overflow: hidden;
+      font-size: 13px;
+    }
+    .spec-table th {
+      background: #f1f5f9;
+      color: #334155;
+      font-weight: 700;
+      padding: 10px;
+      text-align: left;
+      width: 35%;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .spec-table td {
+      padding: 10px 12px;
+      color: #0f172a;
+      border-bottom: 1px solid #e2e8f0;
+      background: white;
+    }
+    /* 병원 처방 기대효과 */
+    .benefit-box {
+      background: #f8fafc;
+      border: 1px dashed #94a3b8;
+      border-radius: 12px;
+      padding: 18px;
+      margin: 20px;
+    }
+    .benefit-box h4 {
+      font-size: 15px;
+      color: #0f172a;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    .benefit-list {
+      list-style: none;
+    }
+    .benefit-list li {
+      font-size: 13px;
+      color: #475569;
+      margin-bottom: 6px;
+      padding-left: 16px;
+      position: relative;
+    }
+    .benefit-list li::before {
+      content: '✔';
+      position: absolute;
+      left: 0;
+      color: #059669;
+      font-weight: 900;
+    }
+    /* CTA */
+    .cta-section {
+      background: #064e3b;
+      color: white;
+      padding: 36px 20px;
+      text-align: center;
+      margin-top: 40px;
+    }
+    .cta-section h3 {
+      font-size: 19px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    .cta-section p {
+      font-size: 13px;
+      color: #a7f3d0;
+      margin-bottom: 24px;
+      word-break: keep-all;
+    }
+    .btn-vet {
+      display: block;
+      width: 100%;
+      background: #10b981;
+      color: white;
+      text-decoration: none;
+      padding: 16px;
+      border-radius: 50px;
+      font-size: 17px;
+      font-weight: 800;
+      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+      margin-bottom: 12px;
+      transition: all 0.2s;
+    }
+    .btn-vet:active {
+      transform: scale(0.98);
+    }
+    .btn-web {
+      display: block;
+      width: 100%;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.3);
+      color: white;
+      text-decoration: none;
+      padding: 14px;
+      border-radius: 50px;
+      font-size: 15px;
+      font-weight: 700;
+    }
+    .dist-info {
+      margin-top: 24px;
+      font-size: 13px;
+      color: #cbd5e1;
+      background: rgba(0,0,0,0.2);
+      padding: 14px;
+      border-radius: 10px;
+      text-align: left;
+    }
+    .dist-info div { margin-bottom: 6px; }
+    .dist-info strong { color: #6ee7b7; }
+  </style>
+</head>
+<body>
+  <div class="dm-container">
+    <!-- 헤더 -->
+    <div class="header-banner">
+      <div class="header-badge">VETERINARY CLINICAL BULLETIN</div>
+      <h1 class="header-title">대동물병원 처방 신뢰도를 높이는<br /><span>로타갈(ROTAGAL)</span> 임상정보</h1>
+      <p class="header-sub">유럽 EU GMP 인증 • 오리지널 3종 혼합 불활화 백신</p>
+    </div>
+
+    <!-- 원장님 인사말 -->
+    <div class="doc-greeting">
+      <h3>🩺 대동물병원 원장님, 안녕하십니까.</h3>
+      <p>농가의 송아지 설사병(Rotavirus, Coronavirus, E.coli) 예방 및 진료에 전념하시는 원장님께 깊은 경의를 표합니다. 본 안내문은 유럽 <strong>파마갈바이오(Pharmagal Bio)</strong>에서 제조하고 경상국립대 수의과대학 임상시험을 통해 안전성과 항체가 지속력을 입증한 <strong>'로타갈'</strong>의 임상 및 학술 정보를 담고 있습니다.</p>
+    </div>
+
+    <!-- 핵심 제품 스펙 요약 테이블 -->
+    <div class="section-title">제품 학술 사양 (Technical Spec)</div>
+    <table class="spec-table">
+      <tbody>
+        <tr>
+          <th>제조원 / 인증</th>
+          <td>Pharmagal Bio (슬로바키아) / <strong>EU GMP 인증 시설</strong></td>
+        </tr>
+        <tr>
+          <th>대상 질환 (3종)</th>
+          <td>Bovine Rotavirus, Coronavirus, E.coli (K99/F5)</td>
+        </tr>
+        <tr>
+          <th>특수 부형제</th>
+          <td><strong>Montanide ISA 206</strong> (Oil-in-Water 에멀전, 장기 면역유지)</td>
+        </tr>
+        <tr>
+          <th>접종 방법</th>
+          <td>임신우 분만 3~8주 전 근육주사 (1회 접종 / 2ml)</td>
+        </tr>
+        <tr>
+          <th>국내 임상 검증</th>
+          <td>경상국립대 수의과대학 국내 분리 균주 방어능 시험 완료</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 임상 3대 강점 -->
+    <div class="section-title">임상 및 처방 3대 강점</div>
+
+    <div class="clinical-card">
+      <span class="tag">CLINICAL EVIDENCE 01</span>
+      <h4>국내 야외 감염 82% 우세주(G6P5) 교차 방어능</h4>
+      <p>국내 한우 및 젖소 농가에서 분리되는 로타바이러스의 대다수를 차지하는 <span class="highlight">G6P5 혈청형에 대한 우수한 교차면역(Cross-protection)</span> 효과가 확인되어 실무 현장에서 높은 방어 효능을 보입니다.</p>
+    </div>
+
+    <div class="clinical-card">
+      <span class="tag">CLINICAL EVIDENCE 02</span>
+      <h4>Montanide ISA 206 부형제의 장기 항체 지속력</h4>
+      <p>일반 수산화알루미늄 부형제 대비 항체 생성 속도가 빠르며, <span class="highlight">고농도 체액성 항체가 장기간 안정적으로 지속</span>되어 초유 내 면역글로불린(IgG) 이행률을 극대화합니다.</p>
+    </div>
+
+    <div class="clinical-card">
+      <span class="tag">CLINICAL EVIDENCE 03</span>
+      <h4>1회 접종(원샷) 편의성 & 19,800원 합리적 공급가</h4>
+      <p>불활화 백신 특유의 높은 안전성으로 임신우 스트레스 및 사산 위험을 최소화하며, <span class="highlight">경산우 1회 원샷 접종</span> 및 합리적인 단가 구성으로 병원 처방 경쟁력을 대폭 강화합니다.</p>
+    </div>
+
+    <!-- 대동물병원 처방 이점 -->
+    <div class="benefit-box">
+      <h4>💡 대동물병원 처방 및 도입 기대효과</h4>
+      <ul class="benefit-list">
+        <li><strong>농가 신뢰도 상승:</strong> 설사병 예방 효과 입증으로 병원 신뢰 구축</li>
+        <li><strong>처방 경쟁력 확보:</strong> 1회 원샷 + 19,800원 가성비로 농가 만족도 극대화</li>
+        <li><strong>안정적 유통 보장:</strong> 24개월 긴 유통기한 및 도별 직통 공급 체계</li>
+      </ul>
+    </div>
+
+    <!-- 하단 CTA 바 -->
+    <div class="cta-section">
+      <h3>대동물병원 전용 공급 단가 및<br />학술 브로슈어/샘플 신청 안내</h3>
+      <p>원장님의 임상 실무에 도움이 되는 상세 학술 자료와<br />병원 전용 공급 조건에 대해 즉시 상담해 드립니다.</p>
+      
+      <a href="tel:010-5407-5708" class="btn-vet">📞 대동물병원 전용 학술/공급 직통 상담</a>
+      <a href="https://rotagal.co.kr" target="_blank" class="btn-web">🌐 학술 데이터 및 제품 상세 페이지 보기</a>
+
+      <div class="dist-info">
+        <div><strong>[본사 및 총판 학술 지원부]</strong></div>
+        <div>• <strong>본사 직통:</strong> 010-5407-5708</div>
+        <div>• <strong>경북 총판 ((주)대경):</strong> 010-3506-3040</div>
+        <div>• <strong>경남 총판 (경남수의약품):</strong> 010-5270-6498</div>
+        <div style="margin-top: 8px; font-size: 11px; color: #a7f3d0;">※ 동물병원 개설자 명의 대량 공급 및 지역 총판 제휴 문의 환영</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
