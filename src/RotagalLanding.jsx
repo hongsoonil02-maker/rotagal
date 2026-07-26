@@ -2,8 +2,12 @@ import React, { useState } from 'react';
 import { Shield, Clock, Syringe, Award, MessageCircle, X, Send, ChevronDown, CheckCircle2, AlertCircle, ArrowRight, ExternalLink, FileText } from 'lucide-react';
 import RotagalInfographic from './RotagalInfographic';
 import { translations } from './translations';
+import VaccineCalculator from './components/VaccineCalculator';
+import StickyBottomCTA from './components/StickyBottomCTA';
 
 export default function RotagalLanding() {
+  const [isCalcOpen, setIsCalcOpen] = useState(false);
+
   const [lang, setLang] = useState('ko');
   const t = translations[lang];
 
@@ -876,6 +880,11 @@ export default function RotagalLanding() {
           </button>
         )}
       </div>
+
+      {/* 모바일/데스크톱 공통 스티키 바 및 계산기 모달 */}
+      <StickyBottomCTA onOpenCalc={() => setIsCalcOpen(true)} />
+      <VaccineCalculator isOpen={isCalcOpen} onClose={() => setIsCalcOpen(false)} />
     </div>
   );
 }
+
