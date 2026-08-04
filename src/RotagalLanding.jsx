@@ -882,9 +882,10 @@ export default function RotagalLanding() {
       </div>
 
       {/* 모바일/데스크톱 공통 스티키 바 및 계산기 모달 */}
-      <StickyBottomCTA onOpenCalc={() => setIsCalcOpen(true)} />
-      <VaccineCalculator isOpen={isCalcOpen} onClose={() => setIsCalcOpen(false)} />
+      <StickyBottomCTA onOpenCalc={() => setIsCalcOpen(true)} t={t} />
+      <VaccineCalculator isOpen={isCalcOpen} onClose={() => setIsCalcOpen(false)} t={t} />
     </div>
   );
 }
+
 

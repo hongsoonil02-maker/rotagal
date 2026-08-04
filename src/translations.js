@@ -14,6 +14,23 @@ export const translations = {
       contact: "총판안내",
       inquiry: "상담신청"
     },
+    stickyCta: {
+      title: "로타갈(ROTAGAL) 명품 백신",
+      sub: "어미소 1회 접종으로 송아지 설사병 3종 완벽 예방",
+      calcBtn: "📅 접종적기 계산기",
+      consultBtn: "📞 1회 19,800원 문의"
+    },
+    vaccineCalc: {
+      title: "어미소 로타갈 접종 적기 계산기",
+      sub: "어미소 분만 예정일을 입력하시면 로타갈 1회 최적 접종 기간을 계산해 드립니다.",
+      selectLabel: "어미소 분만 예정일 선택",
+      submitBtn: "접종 권장 기간 계산하기",
+      resultTag: "💡 로타갈 단 1회 원샷 접종 권장일",
+      dueLabel: "분만 예정일",
+      windowTitle: "어미소 접종 추천 골든타임 (분만전 3~5주)",
+      notice: "* 어미소 접종 시 초유를 통해 항체가 형성되어 송아지 로타·코로나·대장균 설사를 완벽 예방합니다."
+    },
+
     hero: {
       badge: "유럽 파마갈 공식 수입 · 3종 혼합 설사예방 백신",
       bannerTitle: "★ EUROPEAN UNION GMP CERTIFIED ★",
@@ -296,11 +313,27 @@ export const translations = {
       subMobile: "European 3-in-1 Calf Vaccine"
     },
     nav: {
-      infographic: "Infographic",
+      infographic: "Technology",
       features: "Features",
       reviews: "Reviews",
       contact: "Distributors",
-      inquiry: "Contact Us"
+      inquiry: "Inquire"
+    },
+    stickyCta: {
+      title: "ROTAGAL Premium Vaccine",
+      sub: "Complete 3-in-1 Calf Diarrhea Protection via 1-Shot Dam Vaccination",
+      calcBtn: "📅 Vaccine Timing Calculator",
+      consultBtn: "📞 Price & Order Inquiry"
+    },
+    vaccineCalc: {
+      title: "Dam Rotagal Vaccination Timing Calculator",
+      sub: "Enter the expected calving date of the dam to calculate the optimal Rotagal 1-shot timing.",
+      selectLabel: "Select Expected Calving Date",
+      submitBtn: "Calculate Recommended Timing",
+      resultTag: "💡 Recommended 1-Shot Vaccination Timing",
+      dueLabel: "Expected Calving Date",
+      windowTitle: "Golden Window for Dam Vaccination (3~5 Weeks Before Calving)",
+      notice: "* Dam vaccination transfers maternal antibodies via colostrum to protect calves from Rota, Corona, and E. coli diarrhea."
     },
     hero: {
       badge: "Official European Import · 3-in-1 Calf Diarrhea Vaccine",
