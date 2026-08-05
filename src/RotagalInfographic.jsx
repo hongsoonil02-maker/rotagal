@@ -199,9 +199,24 @@ export default function RotagalInfographic({ lang = 'ko', t: tProp }) {
                 </div>
                 <div className="bg-amber-50 border-2 border-amber-300 rounded-xl p-4">
                   <div className="text-xs sm:text-sm font-black text-amber-900 mb-1.5 break-keep">🏛 {t.scheduleKrLabel}</div>
-                  <ul className="space-y-1.5 text-sm sm:text-base font-bold text-gray-900 break-keep">
-                    <li>• {t.scheduleKrValue1}</li>
-                    <li>• {t.scheduleKrValue2}</li>
+                  <ul className="space-y-2 text-sm sm:text-base font-bold text-gray-900 break-keep">
+                    <li className="flex items-start gap-1.5">
+                      <span className="shrink-0">•</span>
+                      <span className="flex items-start gap-1.5">
+                        <span className="shrink-0">{t.scheduleKrLabel1}</span>
+                        <span>
+                          <span className="block whitespace-nowrap">{t.scheduleKrLine1}</span>
+                          <span className="block whitespace-nowrap">{t.scheduleKrLine2}</span>
+                        </span>
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-1.5">
+                      <span className="shrink-0">•</span>
+                      <span className="flex items-start gap-1.5">
+                        <span className="shrink-0">{t.scheduleKrLabel2}</span>
+                        <span className="whitespace-nowrap">{t.scheduleKrLine3}</span>
+                      </span>
+                    </li>
                   </ul>
                 </div>
               </div>
