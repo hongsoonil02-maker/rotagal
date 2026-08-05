@@ -1,14 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Shield, Clock, Syringe, Award, MessageCircle, X, Send, ChevronDown, CheckCircle2, AlertCircle, ArrowRight, ExternalLink, FileText } from 'lucide-react';
 import RotagalInfographic from './RotagalInfographic';
 import { translations } from './translations';
 import VaccineCalculator from './components/VaccineCalculator';
 import StickyBottomCTA from './components/StickyBottomCTA';
 
+const LANGS = ['ko', 'en', 'sk', 'uk'];
+
+const getInitialLang = () => {
+  try {
+    const saved = localStorage.getItem('rotagal_lang');
+    if (saved && translations[saved]) return saved;
+  } catch {
+    /* ignore */
+  }
+
+  const browserLang = (typeof navigator !== 'undefined' ? (navigator.language || '') : '').toLowerCase();
+  if (browserLang.startsWith('ko')) return 'ko';
+  if (browserLang.startsWith('sk')) return 'sk';
+  if (browserLang.startsWith('uk')) return 'uk';
+  return 'en';
+};
+
 export default function RotagalLanding() {
   const [isCalcOpen, setIsCalcOpen] = useState(false);
 
-  const [lang, setLang] = useState('ko');
+  const [lang, setLang] = useState(getInitialLang);
   const t = translations[lang];
 
   const [formData, setFormData] = useState({ name: '', phone: '', farmSize: '', inquiry: '', region: '' });
@@ -16,12 +33,21 @@ export default function RotagalLanding() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [chatMessages, setChatMessages] = useState([
-    { role: 'ai', content: translations.ko.chatbot.initialMsg }
+    { role: 'ai', content: translations[getInitialLang()].chatbot.initialMsg }
   ]);
   const [chatInput, setChatInput] = useState('');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const primaryDistributor = t.contact.distributors[0];
+
+  useEffect(() => {
+    document.documentElement.lang = lang;
+    try {
+      localStorage.setItem('rotagal_lang', lang);
+    } catch {
+      /* ignore */
+    }
+  }, [lang]);
 
   const handleSetLang = (newLang) => {
     setLang(newLang);
@@ -152,7 +178,9 @@ export default function RotagalLanding() {
             <div className="md:hidden flex items-center gap-2">
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="text-gray-600 hover:text-emerald-700 focus:outline-none p-2"
+                aria-label={lang === 'ko' ? (isMobileMenuOpen ? '메뉴 닫기' : '메뉴 열기') : 'Toggle menu'}
+                aria-expanded={isMobileMenuOpen}
+                className="text-gray-600 hover:text-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 rounded-lg p-2"
               >
                 {isMobileMenuOpen ? <X className="w-6 h-6" /> : (
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -174,10 +202,10 @@ export default function RotagalLanding() {
               <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-3 text-base font-bold text-gray-800 hover:bg-emerald-50 hover:text-emerald-700 rounded-lg">{t.nav.contact}</a>
 
               <div className="flex flex-wrap justify-center gap-1.5 sm:gap-2 pt-2 pb-1 border-t border-gray-100 mt-2">
-                <button onClick={() => { setLang('ko'); setIsMobileMenuOpen(false); }} className={`px-3.5 py-1.5 rounded-full text-xs font-bold ${lang === 'ko' ? 'bg-emerald-700 text-white' : 'bg-gray-100 text-gray-700'}`}>한국어</button>
-                <button onClick={() => { setLang('en'); setIsMobileMenuOpen(false); }} className={`px-3.5 py-1.5 rounded-full text-xs font-bold ${lang === 'en' ? 'bg-emerald-700 text-white' : 'bg-gray-100 text-gray-700'}`}>English</button>
-                <button onClick={() => { setLang('sk'); setIsMobileMenuOpen(false); }} className={`px-3.5 py-1.5 rounded-full text-xs font-bold ${lang === 'sk' ? 'bg-emerald-700 text-white' : 'bg-gray-100 text-gray-700'}`}>Slovenčina</button>
-                <button onClick={() => { setLang('uk'); setIsMobileMenuOpen(false); }} className={`px-3.5 py-1.5 rounded-full text-xs font-bold ${lang === 'uk' ? 'bg-emerald-700 text-white' : 'bg-gray-100 text-gray-700'}`}>Українська</button>
+                <button onClick={() => { handleSetLang('ko'); setIsMobileMenuOpen(false); }} className={`px-3.5 py-1.5 rounded-full text-xs font-bold ${lang === 'ko' ? 'bg-emerald-700 text-white' : 'bg-gray-100 text-gray-700'}`}>한국어</button>
+                <button onClick={() => { handleSetLang('en'); setIsMobileMenuOpen(false); }} className={`px-3.5 py-1.5 rounded-full text-xs font-bold ${lang === 'en' ? 'bg-emerald-700 text-white' : 'bg-gray-100 text-gray-700'}`}>English</button>
+                <button onClick={() => { handleSetLang('sk'); setIsMobileMenuOpen(false); }} className={`px-3.5 py-1.5 rounded-full text-xs font-bold ${lang === 'sk' ? 'bg-emerald-700 text-white' : 'bg-gray-100 text-gray-700'}`}>Slovenčina</button>
+                <button onClick={() => { handleSetLang('uk'); setIsMobileMenuOpen(false); }} className={`px-3.5 py-1.5 rounded-full text-xs font-bold ${lang === 'uk' ? 'bg-emerald-700 text-white' : 'bg-gray-100 text-gray-700'}`}>Українська</button>
               </div>
 
               <a href="#inquiry" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-3 mt-4 text-center text-base font-black bg-emerald-700 text-white rounded-xl shadow-md">{t.nav.inquiry}</a>
@@ -820,9 +848,9 @@ export default function RotagalLanding() {
       </footer>
 
       {/* AI Chatbot Floating Action Button & Window */}
-      <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+      <div className="fixed bottom-20 right-3 sm:right-6 z-50 flex flex-col items-end">
         {isChatOpen ? (
-          <div className="bg-white w-[350px] sm:w-[400px] h-[550px] rounded-3xl shadow-2xl border border-gray-200 flex flex-col overflow-hidden transform transition-all duration-300 origin-bottom-right mb-4">
+          <div className="bg-white w-[350px] max-w-[calc(100vw-1.5rem)] sm:max-w-[400px] sm:w-[400px] h-[60vh] sm:h-[550px] rounded-3xl shadow-2xl border border-gray-200 flex flex-col overflow-hidden transform transition-all duration-300 origin-bottom-right mb-4">
             <div className="bg-emerald-700 p-4 flex justify-between items-center text-white">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
@@ -833,12 +861,12 @@ export default function RotagalLanding() {
                   <p className="text-xs text-emerald-200">{t.chatbot.headerSub}</p>
                 </div>
               </div>
-              <button onClick={() => setIsChatOpen(false)} className="text-emerald-100 hover:text-white transition-colors">
+              <button onClick={() => setIsChatOpen(false)} aria-label={lang === 'ko' ? '대화창 닫기' : 'Close chat'} className="text-emerald-100 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-300 rounded-lg p-1">
                 <X className="w-6 h-6" />
               </button>
             </div>
 
-            <div className="flex-1 p-4 overflow-y-auto bg-gray-50 flex flex-col gap-4">
+            <div className="flex-1 p-4 overflow-y-auto bg-gray-50 flex flex-col gap-4" aria-live="polite">
               {chatMessages.map((msg, i) => (
                 <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                   <div className={`max-w-[85%] p-3 rounded-2xl text-sm leading-relaxed break-keep ${msg.role === 'user'
@@ -852,9 +880,9 @@ export default function RotagalLanding() {
 
               {/* Quick Replies */}
               <div className="flex flex-wrap gap-2 mt-4">
-                <button onClick={() => handleQuickReply(t.chatbot.quick1Question)} className="bg-white border border-emerald-200 text-emerald-700 text-xs px-3 py-1.5 rounded-full hover:bg-emerald-50 transition-colors shadow-sm">{t.chatbot.quick1Label}</button>
-                <button onClick={() => handleQuickReply(t.chatbot.quick2Question)} className="bg-white border border-emerald-200 text-emerald-700 text-xs px-3 py-1.5 rounded-full hover:bg-emerald-50 transition-colors shadow-sm">{t.chatbot.quick2Label}</button>
-                <button onClick={() => handleQuickReply(t.chatbot.quick3Question)} className="bg-white border border-emerald-200 text-emerald-700 text-xs px-3 py-1.5 rounded-full hover:bg-emerald-50 transition-colors shadow-sm">{t.chatbot.quick3Label}</button>
+                <button onClick={() => handleQuickReply(t.chatbot.quick1Question)} className="bg-white border border-emerald-200 text-emerald-700 text-xs sm:text-sm px-3.5 py-2.5 rounded-full hover:bg-emerald-50 transition-colors shadow-sm focus:outline-none focus:ring-2 focus:ring-emerald-500">{t.chatbot.quick1Label}</button>
+                <button onClick={() => handleQuickReply(t.chatbot.quick2Question)} className="bg-white border border-emerald-200 text-emerald-700 text-xs sm:text-sm px-3.5 py-2.5 rounded-full hover:bg-emerald-50 transition-colors shadow-sm focus:outline-none focus:ring-2 focus:ring-emerald-500">{t.chatbot.quick2Label}</button>
+                <button onClick={() => handleQuickReply(t.chatbot.quick3Question)} className="bg-white border border-emerald-200 text-emerald-700 text-xs sm:text-sm px-3.5 py-2.5 rounded-full hover:bg-emerald-50 transition-colors shadow-sm focus:outline-none focus:ring-2 focus:ring-emerald-500">{t.chatbot.quick3Label}</button>
               </div>
             </div>
 
@@ -864,9 +892,10 @@ export default function RotagalLanding() {
                 value={chatInput}
                 onChange={(e) => setChatInput(e.target.value)}
                 placeholder={t.chatbot.placeholder}
-                className="flex-1 bg-gray-100 rounded-full px-4 py-2 text-sm outline-none focus:ring-2 focus:ring-emerald-500"
+                aria-label={t.chatbot.placeholder}
+                className="flex-1 min-w-0 bg-gray-100 rounded-full px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-emerald-500"
               />
-              <button type="submit" className="w-10 h-10 bg-emerald-600 text-white rounded-full flex items-center justify-center hover:bg-emerald-700 transition-colors shrink-0 shadow-md">
+              <button type="submit" aria-label={lang === 'ko' ? '메시지 전송' : 'Send message'} className="w-11 h-11 bg-emerald-600 text-white rounded-full flex items-center justify-center hover:bg-emerald-700 transition-colors shrink-0 shadow-md focus:outline-none focus:ring-2 focus:ring-emerald-300">
                 <Send className="w-4 h-4 ml-1" />
               </button>
             </form>
@@ -874,7 +903,8 @@ export default function RotagalLanding() {
         ) : (
           <button
             onClick={() => setIsChatOpen(true)}
-            className="w-16 h-16 bg-emerald-600 hover:bg-emerald-700 text-white rounded-full shadow-2xl flex items-center justify-center transform transition-all hover:scale-110 hover:-translate-y-2 animate-bounce"
+            aria-label={t.chatbot.headerTitle}
+            className="w-16 h-16 bg-emerald-600 hover:bg-emerald-700 text-white rounded-full shadow-2xl flex items-center justify-center transform transition-all hover:scale-110 hover:-translate-y-2 animate-bounce focus:outline-none focus:ring-2 focus:ring-emerald-300"
           >
             <MessageCircle className="w-8 h-8" />
           </button>
