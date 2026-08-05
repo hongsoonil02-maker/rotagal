@@ -3,7 +3,7 @@ import React from 'react';
 export default function StickyBottomCTA({ onOpenCalc, t }) {
   const s = t?.stickyCta || {
     title: "로타갈(ROTAGAL) 명품 백신",
-    sub: "어미소 1회 접종으로 송아지 설사병 3종 완벽 예방",
+    sub: "유럽 기준 어미소 1회 접종으로 송아지 설사병 3종 예방",
     calcBtn: "📅 접종적기 계산기",
     consultBtn: "📞 1회 19,800원 문의"
   };

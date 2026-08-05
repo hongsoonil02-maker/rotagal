@@ -6,13 +6,15 @@ export default function VaccineCalculator({ isOpen, onClose, t }) {
 
   const c = t?.vaccineCalc || {
     title: "어미소 로타갈 접종 적기 계산기",
-    sub: "어미소 분만 예정일을 입력하시면 로타갈 1회 최적 접종 기간을 계산해 드립니다.",
+    sub: "어미소 분만 예정일을 입력하면 '유럽 원샷(1회) 접종'의 최적 적기(골든타임)를 계산해 드립니다.",
     selectLabel: "어미소 분만 예정일 선택",
-    submitBtn: "접종 권장 기간 계산하기",
-    resultTag: "💡 로타갈 단 1회 원샷 접종 권장일",
+    submitBtn: "최적 접종 적기 계산하기",
+    resultTag: "💡 원샷(1회) 접종 최적 적기 · 골든타임",
     dueLabel: "분만 예정일",
-    windowTitle: "어미소 접종 추천 골든타임 (분만전 3~5주)",
-    notice: "* 어미소 접종 시 초유를 통해 항체가 형성되어 송아지 로타·코로나·대장균 설사를 완벽 예방합니다."
+    windowTitle: "원샷 접종 추천 골든타임 (분만전 3~5주)",
+    euRange: "유럽 보비젠(Bovigen Scour) 가이드라인 허용 범위: 분만전 3~12주",
+    approvalNote: "※ 국내 허가 기준: 첫 접종(초임우)은 분만 6~5주 전 1차, 분만 3~2주 전 2차 접종 / 재접종은 분만 6~3주 전 1회 접종입니다. 정확한 농가별 일정은 고문수의사와 상담해 주세요.",
+    notice: "* 어미소 접종 시 초유를 통해 항체가 형성되어 송아지 로타·코로나·대장균 설사를 예방합니다."
   };
 
   // Keyboard accessibility: ESC to close
@@ -113,6 +115,12 @@ export default function VaccineCalculator({ isOpen, onClose, t }) {
               <span className="text-base sm:text-lg font-black text-emerald-900">
                 {result.start} ~ {result.end}
               </span>
+            </div>
+            <div className="bg-amber-50 border border-amber-300 rounded-lg p-2.5 mt-2">
+              <p className="text-[11px] sm:text-xs text-amber-900 font-semibold">{c.euRange}</p>
+            </div>
+            <div className="bg-amber-50 border border-amber-300 rounded-lg p-2.5 mt-2">
+              <p className="text-[11px] sm:text-xs text-amber-900 font-semibold leading-relaxed">{c.approvalNote}</p>
             </div>
             <p className="text-xs text-emerald-800 mt-2">
               {c.notice}

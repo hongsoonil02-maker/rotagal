@@ -188,6 +188,32 @@ export default function RotagalInfographic({ lang = 'ko', t: tProp }) {
               </div>
             </div>
 
+            {/* Unified Vaccination Schedule: Europe vs Korea */}
+            <div className="mt-6 bg-white/95 p-5 sm:p-6 rounded-2xl border-2 border-amber-400 shadow-md">
+              <h4 className="text-lg sm:text-xl font-black text-amber-950 mb-1 text-center break-keep">{t.scheduleTitle}</h4>
+              <p className="text-xs sm:text-sm font-bold text-gray-800 text-center mb-4 break-keep">{t.scheduleSub}</p>
+              <div className="space-y-3">
+                <div className="bg-emerald-50 border-2 border-emerald-300 rounded-xl p-4">
+                  <div className="text-xs sm:text-sm font-black text-emerald-900 mb-1 break-keep">✅ {t.scheduleEuLabel}</div>
+                  <div className="text-sm sm:text-base font-bold text-gray-900 break-keep">{t.scheduleEuValue}</div>
+                </div>
+                <div className="bg-amber-50 border-2 border-amber-300 rounded-xl p-4">
+                  <div className="text-xs sm:text-sm font-black text-amber-900 mb-1.5 break-keep">🏛 {t.scheduleKrLabel}</div>
+                  <ul className="space-y-1.5 text-sm sm:text-base font-bold text-gray-900 break-keep">
+                    <li>• {t.scheduleKrValue1}</li>
+                    <li>• {t.scheduleKrValue2}</li>
+                  </ul>
+                </div>
+              </div>
+              <div className="mt-4 pt-3 border-t-2 border-dashed border-amber-300 text-center">
+                <p className="text-xs sm:text-sm font-extrabold text-amber-950 break-keep leading-relaxed mb-3">{t.scheduleNote}</p>
+                <a href="#inquiry" className="inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-600 text-white font-black px-6 py-3 rounded-full text-sm sm:text-base shadow-md transition-all break-keep">
+                  <Syringe className="w-4 h-4 shrink-0" />
+                  {t.scheduleCta}
+                </a>
+              </div>
+            </div>
+
           </div>
         </div>
 

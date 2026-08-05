@@ -16,19 +16,21 @@ export const translations = {
     },
     stickyCta: {
       title: "로타갈(ROTAGAL) 명품 백신",
-      sub: "어미소 1회 접종으로 송아지 설사병 3종 완벽 예방",
+      sub: "유럽 기준 어미소 1회 접종으로 송아지 설사병 3종 예방",
       calcBtn: "📅 접종적기 계산기",
       consultBtn: "📞 1회 19,800원 문의"
     },
     vaccineCalc: {
       title: "어미소 로타갈 접종 적기 계산기",
-      sub: "어미소 분만 예정일을 입력하시면 로타갈 1회 최적 접종 기간을 계산해 드립니다.",
+      sub: "어미소 분만 예정일을 입력하면 '유럽 원샷(1회) 접종'의 최적 적기(골든타임)를 계산해 드립니다.",
       selectLabel: "어미소 분만 예정일 선택",
-      submitBtn: "접종 권장 기간 계산하기",
-      resultTag: "💡 로타갈 단 1회 원샷 접종 권장일",
+      submitBtn: "최적 접종 적기 계산하기",
+      resultTag: "💡 원샷(1회) 접종 최적 적기 · 골든타임",
       dueLabel: "분만 예정일",
-      windowTitle: "어미소 접종 추천 골든타임 (분만전 3~5주)",
-      notice: "* 어미소 접종 시 초유를 통해 항체가 형성되어 송아지 로타·코로나·대장균 설사를 완벽 예방합니다."
+      windowTitle: "원샷 접종 추천 골든타임 (분만전 3~5주)",
+      euRange: "유럽 보비젠(Bovigen Scour) 가이드라인 허용 범위: 분만전 3~12주",
+      approvalNote: "※ 국내 허가 기준: 첫 접종(초임우)은 분만 6~5주 전 1차, 분만 3~2주 전 2차 접종 / 재접종은 분만 6~3주 전 1회 접종입니다. 정확한 농가별 일정은 고문수의사와 상담해 주세요.",
+      notice: "* 어미소 접종 시 초유를 통해 항체가 형성되어 송아지 로타·코로나·대장균 설사를 예방합니다."
     },
 
     hero: {
@@ -48,7 +50,7 @@ export const translations = {
       proof1Label: "품질 인증",
       proof1Value: "EU GMP 공식 인증",
       proof2Label: "접종 편의",
-      proof2Value: "임신우 1회 원샷 접종",
+      proof2Value: "유럽 기준 임신우 1회 원샷 접종",
       proof3Label: "재고 운영",
       proof3Value: "24~36개월 유통기한"
     },
@@ -134,6 +136,15 @@ export const translations = {
       progStep2Desc: "어미 소의 체내에서 생성된 3대 질병 방어 면역 글로불린이 초유로 고도로 농축되어 전달 준비를 마칩니다.",
       progStep3Title: "태어나자마자 자동 면역\u00A0형성",
       progStep3Desc: "갓 태어난 송아지가 초유를 섭취함과 동시에 장관 내부에 강력한 방어벽이 형성되어 설사병 치사율을 방지합니다.",
+      scheduleTitle: "접종 일정 한눈에 보기",
+      scheduleSub: "유럽 가이드라인과 국내 허가 기준을 함께 안내해 드립니다.",
+      scheduleEuLabel: "유럽 보비젠(Bovigen Scour) 가이드라인",
+      scheduleEuValue: "분만 3~12주 전 · 단 1회(3mL) 근육 접종",
+      scheduleKrLabel: "국내 허가 기준",
+      scheduleKrValue1: "첫 접종(초임우): 분만 6~5주 전 1차 → 분만 3~2주 전 2차",
+      scheduleKrValue2: "재접종: 분만 6~3주 전 1회 접종",
+      scheduleNote: "💡 농가별 최적 접종 일정은 고문수의사 상담을 통해 확인해 주세요.",
+      scheduleCta: "고문수의사 상담 신청",
       sec3Badge: "차별화된 G6P5 차단 효과",
       sec3Sub: "국내 발생 82% 대응",
       sec3Title: "한국 농장에서 문제되는 G6P5 혈청형 완벽\u00A0방어",
@@ -193,8 +204,8 @@ export const translations = {
       item2Desc: "국내 주요 유행 혈청형인 G6P5·G6P1 대응에 강점이 있고, 로타·코로나·대장균 방어를 함께 지원합니다.",
       item3Title: "길고 여유로운\u00A0유통기한",
       item3Desc: "24개월 유통기한(유럽 현지 36개월 기준)으로 보관 부담을 줄이고 재고 운영을 더 편하게 합니다.",
-      item4Title: "편리한 일괄 원샷\u00A0접종",
-      item4Desc: "분만 전 3주~12주 사이 임신우에 1회 접종하는 방식으로, 다회 접종 대비 관리가 간편합니다."
+      item4Title: "유럽 기준 편리한 원샷\u00A0접종",
+      item4Desc: "유럽 보비젠(Bovigen) 가이드라인 기준 분만 전 3주~12주 사이 임신우에 1회 접종하는 방식으로, 다회 접종 대비 관리가 간편합니다."
     },
     reviews: {
       title: "전국 농장주님들의 생생한\u00A0후기",
@@ -321,19 +332,21 @@ export const translations = {
     },
     stickyCta: {
       title: "ROTAGAL Premium Vaccine",
-      sub: "Complete 3-in-1 Calf Diarrhea Protection via 1-Shot Dam Vaccination",
+      sub: "EU-standard 1-shot dam vaccination to prevent 3-in-1 calf diarrhea",
       calcBtn: "📅 Vaccine Timing Calculator",
       consultBtn: "📞 Price & Order Inquiry"
     },
     vaccineCalc: {
       title: "Dam Rotagal Vaccination Timing Calculator",
-      sub: "Enter the expected calving date of the dam to calculate the optimal Rotagal 1-shot timing.",
+      sub: "Enter the expected calving date of the dam to calculate the optimal timing for the EU-standard 1-shot vaccination (golden window).",
       selectLabel: "Select Expected Calving Date",
-      submitBtn: "Calculate Recommended Timing",
-      resultTag: "💡 Recommended 1-Shot Vaccination Timing",
+      submitBtn: "Calculate Optimal Timing",
+      resultTag: "💡 Optimal 1-Shot Vaccination Timing · Golden Window",
       dueLabel: "Expected Calving Date",
-      windowTitle: "Golden Window for Dam Vaccination (3~5 Weeks Before Calving)",
-      notice: "* Dam vaccination transfers maternal antibodies via colostrum to protect calves from Rota, Corona, and E. coli diarrhea."
+      windowTitle: "Recommended Golden Window for 1-Shot Vaccination (3~5 Weeks Before Calving)",
+      euRange: "European Bovigen Scour guideline allowed range: 3~12 weeks before calving",
+      approvalNote: "※ Korean approved schedule: First vaccination (primiparous) - 1st dose 6~5 weeks, 2nd dose 3~2 weeks before calving / Revaccination - single dose 6~3 weeks before calving. For an exact farm-specific schedule, please consult your veterinarian.",
+      notice: "* Dam vaccination transfers maternal antibodies via colostrum to help prevent Rota, Corona, and E. coli diarrhea in calves."
     },
     hero: {
       badge: "Official European Import · 3-in-1 Calf Diarrhea Vaccine",
@@ -353,7 +366,7 @@ export const translations = {
       proof1Label: "Quality",
       proof1Value: "Official EU GMP Certification",
       proof2Label: "Convenience",
-      proof2Value: "Single-shot for pregnant cows",
+      proof2Value: "EU-standard single shot for pregnant cows",
       proof3Label: "Inventory",
       proof3Value: "24~36 month shelf life"
     },
@@ -439,6 +452,15 @@ export const translations = {
       progStep2Desc: "Immunoglobulins against the 3 major diseases generated within the dam's body are highly enriched in colostrum ready for passive transfer.",
       progStep3Title: "Automatic Immunity Upon Birth",
       progStep3Desc: "As soon as the newborn calf ingests colostrum, a powerful intestinal mucosal shield is formed immediately, preventing fatal diarrhea.",
+      scheduleTitle: "Vaccination Schedule at a Glance",
+      scheduleSub: "European guideline and Korean approved schedule shown together.",
+      scheduleEuLabel: "European Bovigen Scour Guideline",
+      scheduleEuValue: "3~12 weeks before calving · single 3mL dose",
+      scheduleKrLabel: "Korean Approved Schedule",
+      scheduleKrValue1: "First vaccination (primiparous): 1st dose 6~5 wks → 2nd dose 3~2 wks before calving",
+      scheduleKrValue2: "Revaccination: single dose 6~3 weeks before calving",
+      scheduleNote: "💡 For the optimal farm-specific schedule, please consult your veterinarian.",
+      scheduleCta: "Consult Your Veterinarian",
       sec3Badge: "Superior G6P5 Serotype Protection",
       sec3Sub: "Covers 82% of Domestic Outbreaks",
       sec3Title: "Complete Defense Against Prevalent G6P5 Serotype in Farms",
@@ -498,8 +520,8 @@ export const translations = {
       item2Desc: "Strong for major circulating serotypes such as G6P5 and G6P1 while supporting combined defense against rotavirus, coronavirus, and E. coli.",
       item3Title: "Long & Generous Shelf Life",
       item3Desc: "A 24-month shelf life from manufacturing date (36 months in Europe) helps simplify storage and inventory handling.",
-      item4Title: "Convenient One-Shot Vaccination",
-      item4Desc: "A single dose given 3 to 12 weeks before calving makes vaccination management easier than multi-dose schedules."
+      item4Title: "Convenient EU-Standard One-Shot Vaccination",
+      item4Desc: "A single dose given 3 to 12 weeks before calving per the European Bovigen guideline makes vaccination management easier than multi-dose schedules."
     },
     reviews: {
       title: "Real Testimonials from Cattle Farmers Nationwide",
@@ -624,6 +646,24 @@ export const translations = {
       contact: "Distribútori",
       inquiry: "Kontaktovať"
     },
+    stickyCta: {
+      title: "ROTAGAL prémiová vakcína",
+      sub: "Jednorazové očkovanie matky podľa európskych štandardov · prevencia hnačky teliat 3-v-1",
+      calcBtn: "📅 Kalkulačka času očkovania",
+      consultBtn: "📞 Konzultácia"
+    },
+    vaccineCalc: {
+      title: "Kalkulačka vhodného času vakcinácie Rotagal",
+      sub: "Zadajte očakávaný dátum otelenia a vypočítame optimálny čas pre jednorazové očkovanie (zlaté okno).",
+      selectLabel: "Vyberte očakávaný dátum otelenia",
+      submitBtn: "Vypočítať optimálny čas",
+      resultTag: "💡 Optimálny čas jednorazového očkovania",
+      dueLabel: "Očakávaný dátum otelenia",
+      windowTitle: "Odporúčané zlaté okno (3~5 týždňov pred otelením)",
+      euRange: "Povolené rozmedzie podľa európskych smerníc (Bovigen Scour): 3~12 týždňov pred otelením",
+      approvalNote: "※ Schválený harmonogram v Kórei: Prvá vakcinácia (prvorodičky) - 1. dávka 6~5 týždňov, 2. dávka 3~2 týždne pred otelením / Revakcinácia - jedna dávka 6~3 týždne pred otelením. Presný harmonogram konzultujte so svojím veterinárom.",
+      notice: "* Vakcinácia matky vytvára protilátky v kolostre, ktoré pomáhajú predchádzať hnačke teliat spôsobenej rotavírusom, koronavírusom a E. coli."
+    },
     hero: {
       badge: "Oficiálny európsky import · 3-kombinovaná vakcína proti hnačke teliat",
       bannerTitle: "★ CERTIFIKOVANÁ KVALITA EU GMP ★",
@@ -712,6 +752,15 @@ export const translations = {
       progStep2Desc: "Imunoglobulíny proti 3 hlavným chorobám vytvorené v tele matky sú vysoko koncentrované v kolostre a pripravené na pasívny prenos.",
       progStep3Title: "Automatická imunita hneď po narodení",
       progStep3Desc: "Hneď ako novonarodené teľa prijme kolostrum, okamžite sa vytvorí silný ochranný štít črevnej sliznice, ktorý zabráni fatálnej hnačke.",
+      scheduleTitle: "Harmonogram očkovania na prvý pohľad",
+      scheduleSub: "Európske odporúčania a kórejský schválený harmonogram.",
+      scheduleEuLabel: "Európske odporúčania (Bovigen Scour)",
+      scheduleEuValue: "3~12 týždňov pred otelením · jedna dávka 3 ml",
+      scheduleKrLabel: "Schválený harmonogram v Kórei",
+      scheduleKrValue1: "Prvá vakcinácia (prvorodičky): 1. dávka 6~5 týždňov → 2. dávka 3~2 týždne pred otelením",
+      scheduleKrValue2: "Revakcinácia: jedna dávka 6~3 týždne pred otelením",
+      scheduleNote: "💡 Optimálny harmonogram pre vašu farmu konzultujte so svojím veterinárom.",
+      scheduleCta: "Konzultovať s veterinárom",
       sec3Badge: "Vynikajúca ochrana proti sérotypu G6P5",
       sec3Sub: "Pokrýva 82% domácich ohnísk",
       sec3Title: "Dokonalá ochrana proti prevládajúcemu sérotypu G6P5 na farmách",
@@ -884,6 +933,24 @@ export const translations = {
       contact: "Дистриб'ютори",
       inquiry: "Консультація"
     },
+    stickyCta: {
+      title: "РОТАГАЛ — преміальна вакцина",
+      sub: "Одноразова вакцинація матері за європейськими стандартами · профілактика діареї телят 3-в-1",
+      calcBtn: "📅 Калькулятор часу вакцинації",
+      consultBtn: "📞 Консультація"
+    },
+    vaccineCalc: {
+      title: "Калькулятор оптимального часу вакцинації Ротагал",
+      sub: "Вкажіть очікувану дату отелення — ми розрахуємо оптимальний час для одноразової вакцинації (золоте вікно).",
+      selectLabel: "Оберіть очікувану дату отелення",
+      submitBtn: "Розрахувати оптимальний час",
+      resultTag: "💡 Оптимальний час одноразової вакцинації",
+      dueLabel: "Очікувана дата отелення",
+      windowTitle: "Рекомендоване золоте вікно (за 3–5 тижнів до отелення)",
+      euRange: "Дозволений діапазон за європейськими рекомендаціями (Bovigen Scour): за 3–12 тижнів до отелення",
+      approvalNote: "※ Схема, затверджена в Кореї: Первинна вакцинація (первістки) - 1-ша доза за 6–5 тижнів, 2-га доза за 3–2 тижні до отелення / Ревакцинація - одноразово за 6–3 тижні до отелення. Точну схему для вашого господарства уточнюйте з ветеринаром.",
+      notice: "* Вакцинація матері формує антитіла в молозиві, які допомагають запобігати діареї телят, спричиненій ротавірусом, коронавірусом та E. coli."
+    },
     hero: {
       badge: "Офіційний європейський імпорт · 3-в-1 комбінована вакцина проти діареї телят",
       bannerTitle: "★ СЕРТИФІКОВАНА ЯКІСТЬ EU GMP ★",
@@ -972,6 +1039,15 @@ export const translations = {
       progStep2Desc: "Імуноглобуліни проти 3 головних захворювань, синтезовані в організмі матері, накопичуються в молозиві у високій концентрації та готові до пасивної передачі.",
       progStep3Title: "Миттєвий імунітет одразу після народження",
       progStep3Desc: "Щойно новонароджене теля споживає молозиво, на слизовій оболонці кишечника формується надійний захисний бар'єр, що запобігає фатальній діареї.",
+      scheduleTitle: "Схема вакцинації — все в одному вікні",
+      scheduleSub: "Європейські рекомендації та затверджена в Кореї схема.",
+      scheduleEuLabel: "Європейські рекомендації (Bovigen Scour)",
+      scheduleEuValue: "За 3–12 тижнів до отелення · одна доза 3 мл",
+      scheduleKrLabel: "Затверджена в Кореї схема",
+      scheduleKrValue1: "Первинна вакцинація (первістки): 1-ша доза за 6–5 тижнів → 2-га доза за 3–2 тижні до отелення",
+      scheduleKrValue2: "Ревакцинація: одноразово за 6–3 тижні до отелення",
+      scheduleNote: "💡 Точну схему для вашого господарства уточнюйте з ветеринаром.",
+      scheduleCta: "Проконсультуватися з ветеринаром",
       sec3Badge: "Надійний захист від серотипу G6P5",
       sec3Sub: "Покриває 82% місцевих спалахів",
       sec3Title: "Повноцінний захист від найпоширенішого на фермах серотипу G6P5",
