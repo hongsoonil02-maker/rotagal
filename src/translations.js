@@ -142,7 +142,7 @@ export const translations = {
       scheduleEuValue: "분만 3~12주 전 · 단 1회(3mL) 근육 접종",
       scheduleKrLabel: "국내 허가 기준",
       scheduleKrValue1: "첫 접종(초임우): 분만 6~5주전 1차 → 분만 3~2주전 2차",
-      scheduleKrValue2: "재접종: 분만 6~3주 전 1회 접종",
+      scheduleKrValue2: "재접종: 분만 6~3주전 1회 접종",
       scheduleNote: "💡 농가별 최적 접종 일정은 고문수의사 상담을 통해 확인해 주세요.",
       scheduleCta: "고문수의사 상담 신청",
       sec3Badge: "차별화된 G6P5 차단 효과",
