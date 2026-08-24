@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/rotagal/', // 깃허브 페이지스(rotagal 저장소) 전용 base 경로 설정
+  base: './', // 커스텀 도메인(rotagal.kr)과 github.io 하위경로 모두 지원하는 상대 경로
   plugins: [
     tailwindcss(),
     react()
