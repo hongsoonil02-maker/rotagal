@@ -28,17 +28,17 @@ export default function StickyBottomCTA({ onOpenCalc, t }) {
           <button
             onClick={onOpenCalc}
             aria-label={s.calcBtn}
-            className="flex-1 md:flex-initial px-4 py-2.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-bold text-xs sm:text-sm rounded-xl border border-emerald-300 transition-colors flex items-center justify-center gap-1.5 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+            className="flex-1 md:flex-initial px-2.5 sm:px-4 py-2.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-bold text-xs sm:text-sm rounded-xl border border-emerald-300 transition-colors flex items-center justify-center gap-1.5 focus:outline-none focus:ring-2 focus:ring-emerald-500"
           >
-            <span>{s.calcBtn}</span>
+            <span className="whitespace-nowrap">{s.calcBtn}</span>
           </button>
-          
+
           <a
              href="tel:010-5407-5708"
             aria-label={s.consultBtn}
-            className="flex-1 md:flex-initial px-4 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs sm:text-sm rounded-xl shadow-md transition-all flex items-center justify-center gap-1.5 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+            className="flex-1 md:flex-initial px-2.5 sm:px-4 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs sm:text-sm rounded-xl shadow-md transition-all flex items-center justify-center gap-1.5 focus:outline-none focus:ring-2 focus:ring-emerald-500"
           >
-            <span>{s.consultBtn}</span>
+            <span className="whitespace-nowrap">{s.consultBtn}</span>
           </a>
         </div>
       </div>
