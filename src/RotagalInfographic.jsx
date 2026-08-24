@@ -1,18 +1,14 @@
 import React from 'react';
-import { 
-  Shield, 
-  Clock, 
-  Syringe, 
-  Award, 
-  CheckCircle2, 
-  XCircle, 
-  Sparkles, 
-  ArrowRight, 
-  ShieldCheck, 
-  Zap, 
-  Layers, 
-  TrendingUp, 
-  Activity, 
+import {
+  Shield,
+  Clock,
+  Syringe,
+  Award,
+  CheckCircle2,
+  XCircle,
+  Sparkles,
+  ArrowRight,
+  Activity,
   ChevronRight
 } from 'lucide-react';
 import { translations } from './translations';
@@ -21,7 +17,7 @@ export default function RotagalInfographic({ lang = 'ko', t: tProp }) {
   const t = tProp || translations[lang].infographic;
 
   return (
-    <section id="infographic" className="py-10 sm:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white via-emerald-50/40 to-white text-gray-900 border-t border-b border-emerald-100/80 relative overflow-hidden">
+    <section id="infographic" className="scroll-mt-20 sm:scroll-mt-24 py-10 sm:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white via-emerald-50/40 to-white text-gray-900 border-t border-b border-emerald-100/80 relative overflow-hidden">
       {/* Soft Background Accents */}
       <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-emerald-200/20 rounded-full filter blur-3xl pointer-events-none"></div>
       <div className="absolute bottom-1/3 right-1/4 w-96 h-96 bg-teal-200/20 rounded-full filter blur-3xl pointer-events-none"></div>
@@ -329,6 +325,9 @@ export default function RotagalInfographic({ lang = 'ko', t: tProp }) {
                 </div>
               </div>
 
+              <p className="mt-5 text-[11px] sm:text-xs font-semibold text-gray-500 leading-relaxed break-keep">
+                {t.compareNote}
+              </p>
             </div>
           </div>
 

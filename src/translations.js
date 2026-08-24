@@ -56,7 +56,7 @@ export const translations = {
     },
     painPoint: {
       title: "송아지 설사병, 농가의 치명적인 경제적 손실입니다",
-      desc: "태어난 지 얼마 안 된 송아지에게 발생하는 설사병은 탈수와 영양실조를 유발하여 치사율이 매우 높습니다. 송아지 설사는 폐사로 인한 피해뿐만 아니라 성장 정체와 육질 등급 저하에도 영향을 미쳐 많은 경제적 피해를 초래합니다. 초기 대응과 완벽한 예방만이 한우 농가의 막대한 타격을 막을 수 있습니다."
+      desc: "태어난 지 얼마 안 된 송아지에게 발생하는 설사병은 탈수와 영양실조를 유발하여 치사율이 매우 높습니다. 송아지 설사는 폐사로 인한 피해뿐만 아니라 성장 정체와 육질 등급 저하에도 영향을 미쳐 많은 경제적 피해를 초래합니다. 초기 대응과 철저한 예방이 한우 농가의 막대한 타격을 막는 데 중요합니다."
     },
     video: {
       title: "왜 로타갈이 정답일까요?",
@@ -105,7 +105,7 @@ export const translations = {
       title1: "로타갈",
       title2: "(Rotagal)",
       title3: "핵심 방어\u00A0메커니즘",
-      subtitle: "송아지 설사병 3대 원인체(로타, 코로나, 대장균)를 단 한 번의 접종으로 완벽 차단하는 유럽 오리지널 (EU GMP 인증) 프리미엄 백신의 작동 원리와 접종 가이드라인입니다.",
+      subtitle: "송아지 설사병 3대 원인체(로타, 코로나, 대장균)를 단 한 번의 접종으로 동시에 대응하는 유럽 오리지널 (EU GMP 인증) 프리미엄 백신의 작동 원리와 접종 가이드라인입니다.",
       gmpBadge: "유럽 연합(EU) GMP 공식 인증 · 유럽 오리지널 보비젠(Bovigen) 동일 처방 백신",
       sec1Badge: "'로타갈'이란?",
       sec1Sub: "3종 혼합 프리미엄",
@@ -150,12 +150,12 @@ export const translations = {
       scheduleCta: "고문수의사 상담 신청",
       sec3Badge: "차별화된 G6P5 차단 효과",
       sec3Sub: "국내 발생 82% 대응",
-      sec3Title: "한국 농장에서 문제되는 G6P5 혈청형 완벽\u00A0방어",
+      sec3Title: "한국 농장에서 문제되는 G6P5 혈청형 강력\u00A0대응",
       colHeader1: "구분 항목",
       colHeader2: "로타갈",
       colHeader3: "경쟁 백신",
       row1Title: "G6P5 유행 혈청형 방어",
-      row1Rota: "완벽 방어",
+      row1Rota: "강력한 방어",
       row1Comp: "제한적",
       row2Title: "임신우 일괄 원샷 접종",
       row2Rota: "원샷 가능",
@@ -164,7 +164,7 @@ export const translations = {
       row3Rota: "24~36개월",
       row3Comp: "12~18개월",
       chartTitle: "G6P5 항체가 (Titer) 비교",
-      chartBadge: "압도적 면역 우위 ⭐",
+      chartBadge: "우수한 면역 형성 ⭐",
       chartCompLabel: "일반 항체가",
       chartCompLevel: "보통",
       chartCompName: "경쟁 제품",
@@ -172,6 +172,7 @@ export const translations = {
       chartRotaLevel: "고역가 타이터",
       chartRotaName: "로타갈 G6P5",
       chartNote: "* 초유 내 G6P5 항체 생성 농도 및 교차 방어 시험 결과 기준",
+      compareNote: "* 위 비교는 제품 특성에 대한 요약이며, 효능·효과 및 접종 방법은 각 제품의 허가사항과 사용설명서를 따릅니다.",
       sec4Badge1: "동물용의약품 허가번호 : 제 362-2호",
       sec4Badge2: "★ EU GMP 품질 인증 · 공식 품목 규격",
       sec4Title1: "로타갈® (Rotagal)",
@@ -211,8 +212,8 @@ export const translations = {
       item4Desc: "유럽 보비젠(Bovigen) 가이드라인 기준 분만 전 3주~12주 사이 임신우에 1회 접종하는 방식으로, 다회 접종 대비 관리가 간편합니다."
     },
     reviews: {
-      title: "전국 농장주님들의 생생한\u00A0후기",
-      subtitle: "현장 상담에서 자주 들었던 실제 반응을 바탕으로 정리했습니다",
+      title: "전국 농장 상담 현장의\u00A0반응 예시",
+      subtitle: "상담 현장에서 들을 수 있는 대표적인 반응을 정리한 예시입니다",
       items: [
         { text: "로타갈 3종 혼합백신으로 바꾸고 나서 송아지 설사병 걱정이 싹 사라졌습니다. 백신 하나 바꿨을 뿐인데 농장 운영이 훨씬 수월해요!", author: "충남 천안 농장주님" },
         { text: "우리 동네 수의사님이 적극 추천하셔서 써봤는데, 확실히 EU GMP 인증받은 오리지널이라 그런지 든든하고 결과도 대만족입니다.", author: "경북 상주 농장주님" },
@@ -274,7 +275,7 @@ export const translations = {
       alertSuccess4: ")",
       alertSuccessDefault: "상담 문의가 접수되었습니다. 담당자가 곧 연락드릴게요 대표님!",
       submitBtnLoading: "문의 내용을 접수하는 중입니다...",
-      submitError: "문의 접수 중 문제가 발생했습니다. 잠시 후 다시 시도해주세요.",
+      submitError: "전송 중 문제가 발생했습니다. 입력 내용은 이 기기에 임시 저장되었습니다. 급하시면 담당 총판 또는 대표번호 010-5407-5708로 전화해 주세요.",
       privacyNote: "입력하신 정보는 상담 연결 및 제품 문의 응대를 위해서만 사용되며, 브라우저에 임시 저장됩니다."
     },
     footer: {
@@ -375,7 +376,7 @@ export const translations = {
     },
     painPoint: {
       title: "Neonatal Calf Diarrhea: A Fatal Economic Loss for Farmers",
-      desc: "Diarrhea occurring in newborn calves causes severe dehydration and malnutrition, resulting in a very high mortality rate. Beyond calf mortality, diarrhea also leads to growth stagnation and lower beef quality grading, causing massive economic losses. Early intervention and complete prevention are the only ways to protect cattle farmers from significant financial impact."
+      desc: "Diarrhea occurring in newborn calves causes severe dehydration and malnutrition, resulting in a very high mortality rate. Beyond calf mortality, diarrhea also leads to growth stagnation and lower beef quality grading, causing massive economic losses. Early intervention and thorough prevention are essential to protect cattle farms from significant financial impact."
     },
     video: {
       title: "Why is Rotagal the Right Answer?",
@@ -424,7 +425,7 @@ export const translations = {
       title1: "Rotagal",
       title2: "(ROTAGAL)",
       title3: "Core Defense Mechanism",
-      subtitle: "The operating mechanism and vaccination guidelines for the European original (EU GMP certified) premium vaccine, which completely blocks the 3 major causes of calf diarrhea (Rotavirus, Coronavirus, E. coli) with just one shot.",
+      subtitle: "The operating mechanism and vaccination guidelines for the European original (EU GMP certified) premium vaccine, which addresses the 3 major causes of calf diarrhea (Rotavirus, Coronavirus, E. coli) with just one shot.",
       gmpBadge: "European Union (EU) GMP Certified · Identical Formulation to European Original Bovigen Scour",
       sec1Badge: "What is 'Rotagal'?",
       sec1Sub: "3-in-1 Premium Formula",
@@ -474,7 +475,7 @@ export const translations = {
       colHeader2: "Rotagal",
       colHeader3: "Competitor",
       row1Title: "G6P5 Epidemic Serotype Protection",
-      row1Rota: "Complete Defense",
+      row1Rota: "Strong Defense",
       row1Comp: "Limited",
       row2Title: "Single Shot in Pregnant Cows",
       row2Rota: "One-Shot Possible",
@@ -483,7 +484,7 @@ export const translations = {
       row3Rota: "24~36 Months",
       row3Comp: "12~18 Months",
       chartTitle: "G6P5 Antibody Titer Comparison",
-      chartBadge: "Overwhelming Immune Superiority ⭐",
+      chartBadge: "Excellent Immune Response ⭐",
       chartCompLabel: "Standard Titer",
       chartCompLevel: "Average",
       chartCompName: "Competitor",
@@ -491,6 +492,7 @@ export const translations = {
       chartRotaLevel: "High-Titer Level",
       chartRotaName: "Rotagal G6P5",
       chartNote: "* Based on colostrum G6P5 antibody concentration and cross-protection trial results",
+      compareNote: "* The comparison above is a summary of product characteristics. Efficacy, indications, and vaccination methods follow each product's approved labeling.",
       sec4Badge1: "Veterinary Drug Registration No: 362-2",
       sec4Badge2: "★ EU GMP Quality Certified · Official Specification",
       sec4Title1: "Rotagal®",
@@ -530,8 +532,8 @@ export const translations = {
       item4Desc: "A single dose given 3 to 12 weeks before calving per the European Bovigen guideline makes vaccination management easier than multi-dose schedules."
     },
     reviews: {
-      title: "Real Testimonials from Cattle Farmers Nationwide",
-      subtitle: "Based on the most common responses heard in real farm consultations",
+      title: "Farmer Feedback Examples from Farm Consultations",
+      subtitle: "Representative example responses commonly heard during farm consultations",
       items: [
         { text: "Since switching to the Rotagal 3-in-1 vaccine, all worries about neonatal calf diarrhea have completely vanished. Just changing our vaccine made farm operations so much easier!", author: "Farmer from Cheonan, Chungnam" },
         { text: "Our local veterinarian strongly recommended it. Knowing it's an EU GMP certified original product gave us great peace of mind, and the results have been exceptionally satisfying.", author: "Farmer from Sangju, Gyeongbuk" },
@@ -593,7 +595,7 @@ export const translations = {
       alertSuccess4: ")",
       alertSuccessDefault: "Your inquiry has been received. Our representative will contact you shortly!",
       submitBtnLoading: "Submitting your inquiry...",
-      submitError: "There was a problem while submitting your inquiry. Please try again shortly.",
+      submitError: "Submission failed. Your entry has been saved temporarily on this device. For urgent matters, please call your regional distributor or 010-5407-5708.",
       privacyNote: "Your information is used only to route product consultation requests and is temporarily stored in your browser."
     },
     footer: {
@@ -677,14 +679,24 @@ export const translations = {
       title1: "Kľúčové riešenie na zníženie mortality teliat",
       title2: "Kombinovaná vakcína proti hnačke 3-v-1: Rotagal",
       title3: "(ROTAGAL)",
-      subtitle: "Spoľahlivý partner pre chovateľov hovädzieho dobytka. Dokonale chráni vaše cenné stádo a ziskovosť pred fatálnou neonatálnou hnačkou teliat.",
+      subtitle: "Spoľahlivý partner pre chovateľov hovädzieho dobytka. Pomáha chrániť vaše cenné stádo a ziskovosť pred fatálnou neonatálnou hnačkou teliat.",
+      mobileQuickLabel: "Rýchly kontakt z mobilu",
+      mobileQuickTitle: "Odošlite dopyt alebo sa priamo spojte s hlavným distribútorom",
+      mobileQuickPrimary: "Odoslať dopyt",
+      mobileQuickSecondary: "Zavolať hlavnému distribútorovi",
+      proof1Label: "Kvalita",
+      proof1Value: "Oficiálna certifikácia EU GMP",
+      proof2Label: "Jednoduchosť",
+      proof2Value: "Jednorazová dávka pre teľné kravy podľa EÚ",
+      proof3Label: "Zásoby",
+      proof3Value: "Trvanlivosť 24~36 mesiacov",
       btnInquiry: "Kontaktovať regionálneho distribútora",
       btnVideo: "Pozrieť video o produkte",
       btnLeaflet: "📄 Oficiálny leták (A4) PDF"
     },
     painPoint: {
       title: "Neonatálna hnačka teliat: Fatálna ekonomická strata pre farmárov",
-      desc: "Hnačka vyskytujúca sa u novonarodených teliat spôsobuje ťažkú dehydratáciu a podvýživu, čo vedie k veľmi vysokej mortalite. Okrem úhynu teliat hnačka spôsobuje aj stagnáciu rastu a zníženie kvality mäsa, čo prináša obrovské ekonomické straty. Včasný zásah a dokonalá prevencia sú jediným spôsobom, ako ochrániť chovateľov pred vážnymi finančnými dopadmi."
+      desc: "Hnačka vyskytujúca sa u novonarodených teliat spôsobuje ťažkú dehydratáciu a podvýživu, čo vedie k veľmi vysokej mortalite. Okrem úhynu teliat hnačka spôsobuje aj stagnáciu rastu a zníženie kvality mäsa, čo prináša obrovské ekonomické straty. Včasný zásah a dôsledná prevencia sú kľúčové na ochranu chovateľov pred vážnymi finančnými dopadmi."
     },
     video: {
       title: "Prečo je Rotagal správnou voľbou?",
@@ -698,6 +710,12 @@ export const translations = {
       badge: "CERTIFIKOVANÁ KVALITA EU GMP",
       title: "Svetovo uznávaná kvalita: Pharmagal Bio Európa",
       subtitle: "Rotagal je 100% identická globálna originálna prémiová vakcína k produktu 'Bovigen Scour', dodávaná po celej Európe. Pýši sa bezchybnou kvalitou certifikovanou prísnymi normami EU GMP a výnimkou zo štátneho testovania šarží od Kórejskej agentúry pre karanténu zvierat a rastlín (APQA).",
+      quick1Label: "Výrobná základňa",
+      quick1Value: "Spoločná výroba v závode Bovigen",
+      quick2Label: "Stabilita dodávok",
+      quick2Value: "Priamy import v chlade 2~8℃",
+      quick3Label: "Kórejský dôkaz",
+      quick3Value: "Schválená výnimka zo štátneho testovania šarží",
       card1Badge: "🏆 Oficiálna certifikácia APQA",
       card1Sub: "Schválená výnimka z testovania šarží",
       card1Title: "Certifikát o výnimke zo štátneho testovania šarží",
@@ -727,7 +745,7 @@ export const translations = {
       title1: "Rotagal",
       title2: "(ROTAGAL)",
       title3: "Kľúčový obranný mechanizmus",
-      subtitle: "Mechanizmus účinku a usmernenia k očkovaniu pre európsku originálnu prémiovú vakcínu (certifikovanú EU GMP), ktorá len jednou dávkou dokonale blokuje 3 hlavné príčiny hnačky teliat (rotavírus, koronavírus, E. coli).",
+      subtitle: "Mechanizmus účinku a usmernenia k očkovaniu pre európsku originálnu prémiovú vakcínu (certifikovanú EU GMP), ktorá len jednou dávkou pôsobí proti 3 hlavným príčinám hnačky teliat (rotavírus, koronavírus, E. coli).",
       gmpBadge: "Certifikácia EU GMP · Identické zloženie s európskym originálom Bovigen Scour",
       sec1Badge: "Čo je 'Rotagal'?",
       sec1Sub: "3-v-1 prémiová formula",
@@ -772,7 +790,7 @@ export const translations = {
       scheduleCta: "Konzultovať s veterinárom",
       sec3Badge: "Vynikajúca ochrana proti sérotypu G6P5",
       sec3Sub: "Pokrýva 82% domácich ohnísk",
-      sec3Title: "Dokonalá ochrana proti prevládajúcemu sérotypu G6P5 na farmách",
+      sec3Title: "Silná ochrana proti prevládajúcemu sérotypu G6P5 na farmách",
       colHeader1: "Kategória",
       colHeader2: "Rotagal",
       colHeader3: "Konkurencia",
@@ -794,6 +812,7 @@ export const translations = {
       chartRotaLevel: "Vysoký titer",
       chartRotaName: "Rotagal G6P5",
       chartNote: "* Založené na koncentrácii protilátok G6P5 v kolostre a výsledkoch testov krížovej ochrany",
+      compareNote: "* Vyššie uvedené porovnanie je zhrnutím vlastností produktov. Účinnosť, indikácie a spôsob očkovania sa riadia schválenými informáciami jednotlivých produktov.",
       sec4Badge1: "Registračné číslo vet. lieku: 362-2",
       sec4Badge2: "★ Certifikovaná kvalita EU GMP · Oficiálna špecifikácia",
       sec4Title1: "Rotagal®",
@@ -833,8 +852,8 @@ export const translations = {
       item4Desc: "Podľa európskych štandardných odporúčaní sa podáva jedna 3 ml dávka teľným kravám medzi 3. a 12. týždňom pred otelením. Odstránenie zložitého viacdávkového očkovania výrazne znižuje prácu a náklady."
     },
     reviews: {
-      title: "Reálne skúsenosti chovateľov dobytka",
-      subtitle: "Mnohé farmy už zažívajú pozoruhodné výhody vakcíny Rotagal",
+      title: "Príkladové skúsenosti chovateľov dobytka",
+      subtitle: "Príkladové reakcie bežne ozývajúce sa pri konzultáciách na farmách",
       items: [
         { text: "Od prechodu na kombinovanú vakcínu Rotagal 3-v-1 všetky obavy z neonatálnej hnačky teliat úplne zmizli. Už len zmena vakcíny nám nesmierne uľahčila chod farmy!", author: "Chovateľ z Cheonan, Chungnam" },
         { text: "Náš miestny veterinár ju dôrazne odporúčal. Vedomie, že ide o originálny produkt s certifikátom EU GMP, nám dodalo veľkú istotu a výsledky sú maximálne uspokojivé.", author: "Chovateľ zo Sangju, Gyeongbuk" },
@@ -844,6 +863,9 @@ export const translations = {
     contact: {
       title: "Regionálni distribútori v krajine",
       subtitle: "Kontaktujte svojho najbližšieho regionálneho distribútora pre rýchlu, odbornú a priateľskú pomoc.",
+      mobileCardLabel: "Rýchly kontakt z mobilu",
+      mobileCallBtn: "Zavolať",
+      mobileInquiryBtn: "Zanechať dopyt",
       scrollNotice: "👆 Posuňte tabuľku horizontálne pre zobrazenie celých kontaktov na distribútorov",
       thRegion: "Región",
       thName: "Názov spoločnosti",
@@ -869,6 +891,12 @@ export const translations = {
       advTouch: "Dotykom sa priamo spojíte telefonicky",
       formTitle: "Rýchly dopyt na produkt",
       formSubtitle: "Vyberte svoj región a my vás priamo spojíme so zodpovedným regionálnym distribútorom.",
+      point1Label: "Odpoveď",
+      point1Value: "Po odoslaní vás kontaktuje príslušný distribútor",
+      point2Label: "Smerovanie",
+      point2Value: "Dopyt je smerovaný podľa zvoleného regiónu",
+      point3Label: "Ochrana údajov",
+      point3Value: "Údaje sa použijú len na účel konzultácie",
       labelName: "Meno chovateľa",
       placeholderName: "Ján Novák",
       labelPhone: "Telefónne číslo",
@@ -885,7 +913,10 @@ export const translations = {
       alertSuccess2: "] zodpovedný za región (",
       alertSuccess3: ") vás bude čoskoro kontaktovať.\n(Rýchly kontakt: ",
       alertSuccess4: ")",
-      alertSuccessDefault: "Váš dopyt bol prijatý. Náš zástupca vás bude čoskoro kontaktovať!"
+      alertSuccessDefault: "Váš dopyt bol prijatý. Náš zástupca vás bude čoskoro kontaktovať!",
+      submitBtnLoading: "Dopyt sa odosiela...",
+      submitError: "Odoslanie sa nepodarilo. Údaje boli dočasne uložené vo vašom prehliadači. V naliehavých prípadoch zavolajte svojmu distribútorovi alebo na 010-5407-5708.",
+      privacyNote: "Vaše údaje sa používajú výhradne na smerovanie konzultačných dopytov a sú dočasne uložené vo vašom prehliadači."
     },
     footer: {
       tagline: "Kombinovaná vakcína 3-v-1 na prevenciu hnačky teliat",
@@ -924,6 +955,7 @@ export const translations = {
       quick2Label: "Kedy očkovať?",
       quick2Question: "Zaujíma ma harmonogram a spôsob očkovania.",
       quick3Label: "Doba použiteľnosti?",
+      quick3Question: "Aká je doba použiteľnosti vakcíny?",
       placeholder: "Spýtajte sa AI veterinára na čokoľvek..."
     }
   },
@@ -967,7 +999,17 @@ export const translations = {
       title1: "Ключове рішення для зниження смертності телят",
       title2: "Комбінована вакцина проти діареї 3-в-1: Ротагал",
       title3: "(ROTAGAL)",
-      subtitle: "Надійний партнер для тваринницьких господарств. Надійно захищає поголів'я та прибутковість ферми від небезпечної неонатальної діареї телят.",
+      subtitle: "Надійний партнер для тваринницьких господарств. Допомагає захистити поголів'я та прибутковість ферми від небезпечної неонатальної діареї телят.",
+      mobileQuickLabel: "Швидкий контакт з мобільного",
+      mobileQuickTitle: "Надішліть запит або одразу зв'яжіться з головним дистриб'ютором",
+      mobileQuickPrimary: "Надіслати запит",
+      mobileQuickSecondary: "Подзвонити дистриб'ютору",
+      proof1Label: "Якість",
+      proof1Value: "Офіційний сертифікат EU GMP",
+      proof2Label: "Зручність",
+      proof2Value: "Одна доза для тільних корів за стандартами ЄС",
+      proof3Label: "Запаси",
+      proof3Value: "Термін придатності 24–36 місяців",
       btnInquiry: "Зв'язатися з регіональним дистриб'ютором",
       btnVideo: "Дивитися відео про продукт",
       btnLeaflet: "📄 Офіційний буклет (A4) PDF"
@@ -988,6 +1030,12 @@ export const translations = {
       badge: "СЕРТИФІКОВАНА ЯКІСТЬ EU GMP",
       title: "Світове визнання якості: Pharmagal Bio (Європа)",
       subtitle: "Ротагал — це 100% ідентична оригінальна преміальна вакцина до продукту «Bovigen Scour», що постачається по всій Європі. Пишається бездоганною якістю, підтвердженою суворими стандартами EU GMP та звільненням від державного посерійного контролю в Кореї (APQA).",
+      quick1Label: "Виробнича база",
+      quick1Value: "Спільне виробництво на заводі Bovigen",
+      quick2Label: "Стабільність постачання",
+      quick2Value: "Прямий імпорт у холоді 2~8℃",
+      quick3Label: "Корейське підтвердження",
+      quick3Value: "Затверджене звільнення від держпосерійного контролю серій",
       card1Badge: "🏆 Офіційна сертифікація APQA",
       card1Sub: "Звільнення від посерійного контролю",
       card1Title: "Сертифікат про звільнення від державного тестування серій",
@@ -1017,7 +1065,7 @@ export const translations = {
       title1: "Ротагал",
       title2: "(ROTAGAL)",
       title3: "Ключовий механізм захисту",
-      subtitle: "Принцип дії та рекомендації щодо застосування оригінальної європейської преміум-вакцини (сертифікованої EU GMP), яка за одне щеплення надійно блокує 3 головні збудники діареї телят (ротавірус, коронавірус, кишкова паличка).",
+      subtitle: "Принцип дії та рекомендації щодо застосування оригінальної європейської преміум-вакцини (сертифікованої EU GMP), яка за одне щеплення діє проти 3 головних збудників діареї телят (ротавірус, коронавірус, кишкова паличка).",
       gmpBadge: "Сертифікат EU GMP · Ідентична рецептура з європейським оригіналом Bovigen Scour",
       sec1Badge: "Що таке «Ротагал»?",
       sec1Sub: "Преміум-формула 3-в-1",
@@ -1067,7 +1115,7 @@ export const translations = {
       colHeader2: "Ротагал",
       colHeader3: "Конкуренти",
       row1Title: "Захист від епідемічного серотипу G6P5",
-      row1Rota: "Повний захист",
+      row1Rota: "Сильний захист",
       row1Comp: "Обмежений",
       row2Title: "Схема введення тільним коровам",
       row2Rota: "Одноразово (1 ін'єкція)",
@@ -1076,7 +1124,7 @@ export const translations = {
       row3Rota: "24–36 місяців",
       row3Comp: "12–18 місяців",
       chartTitle: "Порівняння титру антитіл до G6P5",
-      chartBadge: "Беззаперечна імунна перевага ⭐",
+      chartBadge: "Відмінна імунна відповідь ⭐",
       chartCompLabel: "Стандартний титр",
       chartCompLevel: "Середній",
       chartCompName: "Конкуренти",
@@ -1084,6 +1132,7 @@ export const translations = {
       chartRotaLevel: "Високий титр",
       chartRotaName: "Ротагал G6P5",
       chartNote: "* На основі концентрації антитіл до G6P5 у молозиві та результатів досліджень перехресної охорони",
+      compareNote: "* Наведене порівняння є узагальненням характеристик продуктів. Ефективність, показання та схеми вакцинації визначаються затвердженою інструкцією кожного продукту.",
       sec4Badge1: "Реєстраційний номер ветпрепарату: 362-2",
       sec4Badge2: "★ Сертифікована якість EU GMP · Офіційна специфікація",
       sec4Title1: "Ротагал® (Rotagal®)",
@@ -1123,8 +1172,8 @@ export const translations = {
       item4Desc: "Відповідно до європейських стандартів, вводиться всього 1 доза (3 мл) тільним коровам за 3–12 тижнів до отелення. Відмова від складних багатократних щеплень заощаджує час, працю та кошти фермера."
     },
     reviews: {
-      title: "Реальний досвід та відгуки фермерів",
-      subtitle: "Багато господарств уже оцінили виняткову ефективність та зручність Ротагал",
+      title: "Приклади відгуків фермерів із консультацій",
+      subtitle: "Типові приклади реакцій, які часто лунають під час консультацій з господарствами",
       items: [
         { text: "Після переходу на комбіновану вакцину Ротагал 3-в-1 усі тривоги щодо неонатальної діареї телят лишилися в минулому. Одне щеплення значно полегшило роботу на фермі!", author: "Фермер із Чхонана, Чхуннам" },
         { text: "Наш ветеринарний лікар впевнено порекомендував цю вакцину. Той факт, що це оригінальний європейський препарат стандарту EU GMP, дає повну впевненість. Результат на 100% відмінний.", author: "Фермер із Санджу, Кьонбук" },
@@ -1134,6 +1183,9 @@ export const translations = {
     contact: {
       title: "Офіційні регіональні дистриб'ютори",
       subtitle: "Зверніться до найближчого регіонального представника для швидкої та кваліфікованої консультації.",
+      mobileCardLabel: "Швидкий контакт з мобільного",
+      mobileCallBtn: "Подзвонити",
+      mobileInquiryBtn: "Залишити запит",
       scrollNotice: "👆 Прокрутіть таблицю горизонтально, щоб побачити всю контактну інформацію дистриб'юторів",
       thRegion: "Регіон",
       thName: "Компанія",
@@ -1159,6 +1211,12 @@ export const translations = {
       advTouch: "Натисніть тут для прямого телефонного дзвінка",
       formTitle: "Швидкий запит щодо продукту",
       formSubtitle: "Оберіть свій регіон, і ми з'єднаємо вас напряму з відповідальним регіональним представником.",
+      point1Label: "Відповідь",
+      point1Value: "Після надсилання з вами зв'яжеться відповідний дистриб'ютор",
+      point2Label: "Маршрутизація",
+      point2Value: "Запит спрямовується за обраним регіоном",
+      point3Label: "Захист даних",
+      point3Value: "Дані використовуються лише для консультації",
       labelName: "Ім'я фермера / контактна особа",
       placeholderName: "Олександр Коваленко",
       labelPhone: "Номер телефону",
@@ -1175,7 +1233,10 @@ export const translations = {
       alertSuccess2: "] у вашому регіоні (",
       alertSuccess3: ") незабаром зв'яжеться з вами.\n(Прямий контакт: ",
       alertSuccess4: ")",
-      alertSuccessDefault: "Ваш запит отримано! Наш представник зв'яжеться з вами найближчим часом."
+      alertSuccessDefault: "Ваш запит отримано! Наш представник зв'яжеться з вами найближчим часом.",
+      submitBtnLoading: "Запит надсилається...",
+      submitError: "Не вдалося надіслати запит. Дані тимчасово збережено у вашому браузері. В термінових випадках зателефонуйте дистриб'ютору або за номером 010-5407-5708.",
+      privacyNote: "Ваші дані використовуються виключно для спрямування запитів на консультацію та тимчасово зберігаються у вашому браузері."
     },
     footer: {
       tagline: "3-в-1 комбінована вакцина для профілактики діареї телят",

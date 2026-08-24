@@ -7,6 +7,8 @@ import StickyBottomCTA from './components/StickyBottomCTA';
 
 const LANGS = ['ko', 'en', 'sk', 'uk'];
 
+const FORM_ENDPOINT = '';
+
 const getInitialLang = () => {
   try {
     const saved = localStorage.getItem('rotagal_lang');
@@ -68,6 +70,7 @@ export default function RotagalLanding() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (e.target.elements._gotcha && e.target.elements._gotcha.value) return;
     if (!formData.region) {
       setSubmitStatus({ type: 'error', message: t.inquiry.alertRegion });
       return;
@@ -90,9 +93,26 @@ export default function RotagalLanding() {
 
     setIsSubmitting(true);
 
+    const backupLocally = () => {
+      try {
+        const existingInquiries = JSON.parse(localStorage.getItem('rotagal_inquiries') || '[]');
+        localStorage.setItem('rotagal_inquiries', JSON.stringify([inquiryPayload, ...existingInquiries]));
+      } catch {
+        /* ignore */
+      }
+    };
+
     try {
-      const existingInquiries = JSON.parse(localStorage.getItem('rotagal_inquiries') || '[]');
-      localStorage.setItem('rotagal_inquiries', JSON.stringify([inquiryPayload, ...existingInquiries]));
+      if (FORM_ENDPOINT) {
+        const res = await fetch(FORM_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify(inquiryPayload),
+        });
+        if (!res.ok) throw new Error(`Submission failed with status ${res.status}`);
+      }
+
+      backupLocally();
 
       if (dist) {
         setSubmitStatus({
@@ -105,6 +125,7 @@ export default function RotagalLanding() {
 
       setFormData({ name: '', phone: '', farmSize: '', inquiry: '', region: '' });
     } catch {
+      backupLocally();
       setSubmitStatus({ type: 'error', message: t.inquiry.submitError });
     } finally {
       setIsSubmitting(false);
@@ -115,7 +136,7 @@ export default function RotagalLanding() {
     e.preventDefault();
     if (!chatInput.trim()) return;
 
-    setChatMessages([...chatMessages, { role: 'user', content: chatInput }]);
+    setChatMessages(prev => [...prev, { role: 'user', content: chatInput }]);
 
     setTimeout(() => {
       let aiResponse = t.chatbot.defaultResponse;
@@ -310,7 +331,7 @@ export default function RotagalLanding() {
       </section>
 
       {/* Video Section */}
-      <section id="video" className="pt-10 sm:pt-24 pb-6 sm:pb-10 px-4 sm:px-6 lg:px-8 bg-gray-50">
+      <section id="video" className="scroll-mt-20 sm:scroll-mt-24 pt-10 sm:pt-24 pb-6 sm:pb-10 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-8 sm:mb-12">
             <h2 className="text-3xl sm:text-5xl font-black text-gray-950 mb-4 break-keep">{t.video.title}</h2>
@@ -330,7 +351,8 @@ export default function RotagalLanding() {
                 <iframe
                   className="absolute top-0 left-0 w-full h-full rounded-2xl"
                   src="https://www.youtube.com/embed/zhsDYNm2Pig?rel=0"
-                  title="로타갈 백신 소개 영상"
+                  title={t.video.yt1Title}
+                  loading="lazy"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen>
@@ -350,7 +372,8 @@ export default function RotagalLanding() {
                 <iframe
                   className="absolute top-0 left-0 w-full h-full rounded-2xl"
                   src="https://www.youtube.com/embed/74oxPVMV1p4?rel=0"
-                  title="유럽 현지 첨단 바이오 공정 영상"
+                  title={t.video.yt2Title}
+                  loading="lazy"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen>
@@ -534,7 +557,7 @@ export default function RotagalLanding() {
       <RotagalInfographic lang={lang} t={t.infographic} />
 
       {/* Features Bento Grid */}
-      <section id="features" className="py-10 sm:py-24 px-4 sm:px-6 lg:px-8 bg-white">
+      <section id="features" className="scroll-mt-20 sm:scroll-mt-24 py-10 sm:py-24 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-8 sm:mb-16">
             <h2 className="text-3xl sm:text-5xl font-black text-gray-950 mb-4 break-keep">{t.features.title}</h2>
@@ -606,7 +629,7 @@ export default function RotagalLanding() {
       </section>
 
       {/* Distributors Table */}
-      <section id="contact" className="py-10 sm:py-24 px-4 sm:px-6 lg:px-8 bg-gray-50">
+      <section id="contact" className="scroll-mt-20 sm:scroll-mt-24 py-10 sm:py-24 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-6xl mx-auto">
           <div className="sm:hidden mb-4 rounded-2xl border border-emerald-200 bg-white p-4 shadow-sm">
             <div className="text-xs font-black text-emerald-700 mb-1">{t.contact.mobileCardLabel}</div>
@@ -657,7 +680,7 @@ export default function RotagalLanding() {
       </section>
 
       {/* Advisor Call Banner & Form */}
-      <section id="inquiry" className="py-10 sm:py-24 px-4 sm:px-6 lg:px-8 bg-white">
+      <section id="inquiry" className="scroll-mt-20 sm:scroll-mt-24 py-10 sm:py-24 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
 
           <div className="lg:col-span-2 space-y-8">
@@ -701,6 +724,7 @@ export default function RotagalLanding() {
               )}
 
               <form onSubmit={handleSubmit} className="space-y-6">
+                <input type="text" name="_gotcha" tabIndex="-1" autoComplete="off" aria-hidden="true" className="hidden" />
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-base font-black text-gray-900 mb-2">{t.inquiry.labelName}</label>

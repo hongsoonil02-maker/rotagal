@@ -1,5 +1,18 @@
 @import "tailwindcss";
 
+@theme {
+  --animate-fadeIn: fadeIn 0.25s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 /* Custom modern utilities */
 @layer utilities {
   .glass {

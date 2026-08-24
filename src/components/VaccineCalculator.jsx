@@ -57,13 +57,17 @@ export default function VaccineCalculator({ isOpen, onClose, t }) {
   };
 
   return (
-    <div 
+    <div
+      onClick={onClose}
       className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fadeIn"
       role="dialog"
       aria-modal="true"
       aria-labelledby="calc-modal-title"
     >
-      <div className="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl relative border border-emerald-100">
+      <div
+        onClick={(e) => e.stopPropagation()}
+        className="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl relative border border-emerald-100"
+      >
         <button
           onClick={onClose}
           aria-label="Close calculator"
