@@ -302,9 +302,9 @@ export default function RotagalLanding() {
           </h1>
           {/* Rotagal Logo showcase to reinforce brand identity */}
           <div className="flex justify-center items-center gap-4 sm:gap-6 mb-8">
-            <img src="./pharmagal_logo.jpg" alt="Rotagal 로고" className="h-8 sm:h-16 w-auto object-contain" />
-            <span className="text-sm sm:text-base font-medium text-gray-700">|</span>
-            <img src="./eu_gmp_logo.svg" alt="EU GMP 인증 로고" className="h-8 sm:h-16 w-auto object-contain" />
+            <img src="./pharmagal_logo.jpg" alt="Rotagal 로고" className="h-8 sm:h-16 w-auto max-w-[40%] object-contain" />
+            <span className="text-sm sm:text-base font-medium text-gray-700 shrink-0">|</span>
+            <img src="./eu_gmp_logo.svg" alt="EU GMP 인증 로고" className="h-8 sm:h-16 w-auto max-w-[40%] object-contain" />
           </div>
           <p className="text-xl sm:text-2xl font-bold text-gray-800 mb-10 max-w-5xl mx-auto leading-relaxed break-keep">
             {t.hero.subtitle}
