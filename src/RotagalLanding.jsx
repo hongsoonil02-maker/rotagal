@@ -9,6 +9,9 @@ const LANGS = ['ko', 'en', 'sk', 'uk'];
 
 const FORM_ENDPOINT = '';
 
+const CHAT_API_URL = import.meta.env.VITE_CHAT_API_URL
+  || 'https://vetacol.hongsoonil02.workers.dev/api/chat';
+
 const getInitialLang = () => {
   try {
     const saved = localStorage.getItem('rotagal_lang');
@@ -38,6 +41,7 @@ export default function RotagalLanding() {
     { role: 'ai', content: translations[getInitialLang()].chatbot.initialMsg }
   ]);
   const [chatInput, setChatInput] = useState('');
+  const [isChatLoading, setIsChatLoading] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const primaryDistributor = t.contact.distributors[0];
@@ -132,26 +136,44 @@ export default function RotagalLanding() {
     }
   };
 
-  const handleChatSubmit = (e) => {
+  const getKeywordResponse = (text) => {
+    const q = text.toLowerCase();
+    if (q.includes('유통기한') || q.includes('기한') || q.includes('shelf') || q.includes('trvan') || q.includes('термін') || q.includes('придатн')) {
+      return t.chatbot.expiryResponse;
+    }
+    if (q.includes('접종') || q.includes('언제') || q.includes('vaccin') || q.includes('očkov') || q.includes('dávk') || q.includes('вакцин') || q.includes('щепл') || q.includes('коли') || q.includes('доза')) {
+      return t.chatbot.dosageResponse;
+    }
+    if (q.includes('효과') || q.includes('장점') || q.includes('benefit') || q.includes('výhod') || q.includes('advanta') || q.includes('переваг') || q.includes('чому') || q.includes('ефект')) {
+      return t.chatbot.benefitsResponse;
+    }
+    return t.chatbot.defaultResponse;
+  };
+
+  const handleChatSubmit = async (e) => {
     e.preventDefault();
-    if (!chatInput.trim()) return;
+    const question = chatInput.trim();
+    if (!question || isChatLoading) return;
 
-    setChatMessages(prev => [...prev, { role: 'user', content: chatInput }]);
-
-    setTimeout(() => {
-      let aiResponse = t.chatbot.defaultResponse;
-      if (chatInput.includes('유통기한') || chatInput.includes('기한') || chatInput.toLowerCase().includes('shelf') || chatInput.toLowerCase().includes('trvan') || chatInput.toLowerCase().includes('термін') || chatInput.toLowerCase().includes('придатн')) {
-        aiResponse = t.chatbot.expiryResponse;
-      } else if (chatInput.includes('접종') || chatInput.includes('언제') || chatInput.toLowerCase().includes('vaccin') || chatInput.toLowerCase().includes('očkov') || chatInput.toLowerCase().includes('dávk') || chatInput.toLowerCase().includes('вакцин') || chatInput.toLowerCase().includes('щепл') || chatInput.toLowerCase().includes('коли') || chatInput.toLowerCase().includes('доза')) {
-        aiResponse = t.chatbot.dosageResponse;
-      } else if (chatInput.includes('효과') || chatInput.includes('장점') || chatInput.toLowerCase().includes('benefit') || chatInput.toLowerCase().includes('výhod') || chatInput.toLowerCase().includes('advanta') || chatInput.toLowerCase().includes('переваг') || chatInput.toLowerCase().includes('чому') || chatInput.toLowerCase().includes('ефект')) {
-        aiResponse = t.chatbot.benefitsResponse;
-      }
-
-      setChatMessages(prev => [...prev, { role: 'ai', content: aiResponse }]);
-    }, 1000);
-
+    setChatMessages(prev => [...prev, { role: 'user', content: question }]);
     setChatInput('');
+    setIsChatLoading(true);
+
+    try {
+      const response = await fetch(CHAT_API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ product: 'rotagal', message: question })
+      });
+      if (!response.ok) throw new Error(`API error: ${response.status}`);
+      const data = await response.json();
+      setChatMessages(prev => [...prev, { role: 'ai', content: data.reply || getKeywordResponse(question) }]);
+    } catch {
+      // 프록시 실패 시 기존 키워드 자동응답으로 대체
+      setChatMessages(prev => [...prev, { role: 'ai', content: getKeywordResponse(question) }]);
+    } finally {
+      setIsChatLoading(false);
+    }
   };
 
   const handleQuickReply = (question) => {
