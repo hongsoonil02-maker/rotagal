@@ -157,29 +157,36 @@ export default function AccessibilityToolbar({ lang = 'ko', t }) {
     }
   };
 
+  // Listen for external toggle from navbar
+  useEffect(() => {
+    const handleToggleA11y = () => setIsOpen((prev) => !prev);
+    window.addEventListener('toggle-a11y-toolbar', handleToggleA11y);
+    return () => window.removeEventListener('toggle-a11y-toolbar', handleToggleA11y);
+  }, []);
+
   const hasActiveModifiers = fontSize !== 'normal' || highContrast || highlightLinks || readableFont || reduceMotion;
 
   return (
     <>
-      {/* Accessibility Floating Trigger Button (Left side of screen to avoid overlapping right-side chatbot) */}
+      {/* Accessibility Floating Trigger Button - Synchronized with Chatbot FAB */}
       <div className="fixed bottom-20 left-3 sm:left-6 z-40">
         <button
           onClick={() => setIsOpen(!isOpen)}
           aria-label={a11yText.openToolbar}
           aria-haspopup="dialog"
           aria-expanded={isOpen}
-          className={`flex items-center gap-2 px-3.5 py-2.5 rounded-full shadow-2xl transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-amber-400 ${
-            hasActiveModifiers 
-              ? 'bg-amber-500 text-gray-950 font-black border-2 border-amber-300'
-              : 'bg-gray-900/90 hover:bg-gray-950 text-white backdrop-blur-md border border-gray-700'
-          }`}
+          title={a11yText.title}
+          className="group relative flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white rounded-full shadow-2xl border-2 border-white/90 transition-all transform hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-emerald-400"
         >
-          <Eye className="w-5 h-5 text-amber-400 stroke-[2.5]" />
-          <span className="text-xs sm:text-sm font-bold tracking-tight hidden sm:inline">
+          <Eye className="w-6 h-6 sm:w-7 sm:h-7 stroke-[2.2] text-white" />
+
+          {/* Desktop Hover Tooltip */}
+          <span className="pointer-events-none absolute left-full ml-3 px-3 py-1.5 bg-emerald-950/95 text-white text-xs font-bold rounded-xl shadow-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity hidden sm:block border border-emerald-700/50">
             {a11yText.title}
           </span>
+
           {hasActiveModifiers && (
-            <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 inline-block animate-ping"></span>
+            <span className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-amber-400 border-2 border-white rounded-full shadow-sm"></span>
           )}
         </button>
       </div>

@@ -310,11 +310,32 @@ export default function RotagalLanding() {
                 <button onClick={() => handleSetLang('uk')} className={`px-2.5 py-1 rounded-full text-xs font-bold transition-all ${lang === 'uk' ? 'bg-emerald-700 text-white shadow-2xs' : 'text-gray-600 hover:text-emerald-800'}`}>UA</button>
               </div>
 
+              {/* Navbar A11y Quick Trigger */}
+              <button
+                type="button"
+                onClick={() => window.dispatchEvent(new CustomEvent('toggle-a11y-toolbar'))}
+                title={lang === 'ko' ? '웹 접근성 및 읽기 편의 설정' : 'Accessibility Settings'}
+                aria-label={lang === 'ko' ? '웹 접근성 및 읽기 편의 설정' : 'Accessibility Settings'}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-xs font-bold rounded-full border border-emerald-300 transition-colors shadow-2xs"
+              >
+                <Eye className="w-3.5 h-3.5 stroke-[2.5]" />
+                <span>{lang === 'ko' ? '접근성' : 'A11y'}</span>
+              </button>
+
               <a href="#inquiry" className="bg-emerald-700 hover:bg-emerald-800 text-white px-6 py-2.5 rounded-full font-bold transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5">{t.nav.inquiry}</a>
             </div>
 
             {/* Mobile Menu Button */}
             <div className="md:hidden flex items-center gap-2">
+              <button
+                type="button"
+                onClick={() => window.dispatchEvent(new CustomEvent('toggle-a11y-toolbar'))}
+                title={lang === 'ko' ? '웹 접근성' : 'A11y'}
+                aria-label={lang === 'ko' ? '웹 접근성' : 'A11y'}
+                className="p-2 text-emerald-800 bg-emerald-50 rounded-full border border-emerald-300"
+              >
+                <Eye className="w-4 h-4 stroke-[2.5]" />
+              </button>
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 aria-label={lang === 'ko' ? (isMobileMenuOpen ? '메뉴 닫기' : '메뉴 열기') : 'Toggle menu'}
@@ -339,6 +360,18 @@ export default function RotagalLanding() {
               <a href="#features" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-3 text-base font-bold text-gray-800 hover:bg-emerald-50 hover:text-emerald-700 rounded-lg">{t.nav.features}</a>
               <a href="#reviews" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-3 text-base font-bold text-gray-800 hover:bg-emerald-50 hover:text-emerald-700 rounded-lg">{t.nav.reviews}</a>
               <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-3 text-base font-bold text-gray-800 hover:bg-emerald-50 hover:text-emerald-700 rounded-lg">{t.nav.contact}</a>
+
+              <button
+                type="button"
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  window.dispatchEvent(new CustomEvent('toggle-a11y-toolbar'));
+                }}
+                className="flex items-center justify-center gap-2 w-full py-2.5 bg-emerald-50 text-emerald-900 rounded-xl font-bold text-sm border border-emerald-200"
+              >
+                <Eye className="w-4 h-4 text-emerald-700" />
+                <span>{lang === 'ko' ? '웹 접근성 및 읽기 편의 설정' : 'Accessibility Settings'}</span>
+              </button>
 
               <div className="flex flex-wrap justify-center gap-1.5 sm:gap-2 pt-2 pb-1 border-t border-gray-100 mt-2">
                 <button onClick={() => { handleSetLang('ko'); setIsMobileMenuOpen(false); }} className={`px-3.5 py-1.5 rounded-full text-xs font-bold ${lang === 'ko' ? 'bg-emerald-700 text-white' : 'bg-gray-100 text-gray-700'}`}>한국어</button>
@@ -394,11 +427,18 @@ export default function RotagalLanding() {
             </div>
           </div>
           <h1 className="text-3xl sm:text-5xl lg:text-7xl font-black text-gray-950 mb-6 leading-tight tracking-tight break-keep text-balance">
-            <span className="inline-block">{t.hero.title1}</span><br className="hidden sm:inline" />{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-teal-600 to-green-600 inline-block">
-              {t.hero.title2}
-            </span>{' '}
-            {t.hero.title3 && <span className="text-2xl sm:text-4xl lg:text-6xl text-gray-900 inline-block">{t.hero.title3}</span>}
+            <span className="block mb-1 sm:mb-2">{t.hero.title1}</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-teal-600 to-green-600 block sm:inline-block">
+              {lang === 'ko' ? (
+                <>
+                  <span className="inline-block whitespace-nowrap">설사예방 3종(로타·코로나·대장균)</span>{' '}
+                  <span className="inline-block whitespace-nowrap">혼합 백신 로타갈</span>
+                </>
+              ) : (
+                t.hero.title2
+              )}
+            </span>
+            {t.hero.title3 && <span className="text-2xl sm:text-4xl lg:text-6xl text-gray-900 inline-block mt-2 sm:mt-0">{t.hero.title3}</span>}
           </h1>
           {/* Rotagal Logo showcase to reinforce brand identity */}
           <div className="flex justify-center items-center gap-4 sm:gap-6 mb-8">
@@ -409,15 +449,15 @@ export default function RotagalLanding() {
           <p className="text-lg sm:text-2xl font-bold text-gray-800 mb-8 sm:mb-10 max-w-5xl mx-auto leading-relaxed break-keep text-pretty">
             {t.hero.subtitle}
           </p>
-          <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4">
-            <a href="#inquiry" className="bg-emerald-700 hover:bg-emerald-800 text-white px-8 py-4.5 rounded-full font-black text-lg sm:text-xl transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1 flex items-center justify-center gap-2 break-keep">
+          <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 max-w-md sm:max-w-none mx-auto">
+            <a href="#inquiry" className="w-full sm:w-auto bg-emerald-700 hover:bg-emerald-800 text-white px-8 py-4 rounded-full font-black text-base sm:text-xl transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center justify-center gap-2 break-keep">
               {t.hero.btnInquiry}
             </a>
-            <a href="#video" className="bg-white hover:bg-gray-50 text-emerald-900 border-2 border-emerald-300 px-8 py-4.5 rounded-full font-black text-lg sm:text-xl transition-all shadow-sm hover:shadow-md flex items-center justify-center gap-2 break-keep">
+            <a href="#video" className="w-full sm:w-auto bg-white hover:bg-gray-50 text-emerald-900 border-2 border-emerald-300 px-8 py-4 rounded-full font-black text-base sm:text-xl transition-all shadow-sm hover:shadow-md flex items-center justify-center gap-2 break-keep">
               {t.hero.btnVideo}
             </a>
-            <a href="./rotagal_leaflet.pdf" target="_blank" rel="noopener noreferrer" className="bg-gradient-to-r from-amber-500 to-[#FFD700] hover:from-amber-600 hover:to-amber-500 text-gray-950 px-8 py-4.5 rounded-full font-black text-lg sm:text-xl transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1 flex items-center justify-center gap-2 break-keep border-2 border-amber-600/30">
-              <FileText className="w-6 h-6 shrink-0" />
+            <a href="./rotagal_leaflet.pdf" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto bg-gradient-to-r from-amber-500 to-[#FFD700] hover:from-amber-600 hover:to-amber-500 text-gray-950 px-8 py-4 rounded-full font-black text-base sm:text-xl transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center justify-center gap-2 break-keep border-2 border-amber-600/30">
+              <FileText className="w-5 h-5 sm:w-6 sm:h-6 shrink-0" />
               <span>{t.hero.btnLeaflet}</span>
             </a>
           </div>
@@ -1081,9 +1121,14 @@ export default function RotagalLanding() {
           <button
             onClick={() => setIsChatOpen(true)}
             aria-label={t.chatbot.headerTitle}
-            className="w-16 h-16 bg-emerald-600 hover:bg-emerald-700 text-white rounded-full shadow-2xl flex items-center justify-center transform transition-all hover:scale-110 hover:-translate-y-2 animate-bounce focus:outline-none focus:ring-2 focus:ring-emerald-300"
+            title={t.chatbot.headerTitle}
+            className="group relative flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white rounded-full shadow-2xl border-2 border-white/90 transition-all transform hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-emerald-400"
           >
-            <MessageCircle className="w-8 h-8" />
+            <MessageCircle className="w-6 h-6 sm:w-7 sm:h-7 stroke-[2.2] text-white" />
+            {/* Desktop Hover Tooltip */}
+            <span className="pointer-events-none absolute right-full mr-3 px-3 py-1.5 bg-emerald-950/95 text-white text-xs font-bold rounded-xl shadow-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity hidden sm:block border border-emerald-700/50">
+              {t.chatbot.headerTitle}
+            </span>
           </button>
         )}
       </div>
