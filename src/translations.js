@@ -319,6 +319,7 @@ export const translations = {
       placeholder: "수의사 AI에게 궁금한 점을 질문해보세요...",
       ttsListen: "답변 음성 듣기",
       ttsStop: "음성 중지",
+      sendMessage: "메시지 전송",
       ttsSpeaking: "음성 재생 중..."
     },
     a11y: {
@@ -666,6 +667,7 @@ export const translations = {
       placeholder: "Ask the AI veterinarian any questions...",
       ttsListen: "Listen to answer",
       ttsStop: "Stop voice",
+      sendMessage: "Send message",
       ttsSpeaking: "Speaking..."
     },
     a11y: {
@@ -1013,6 +1015,7 @@ export const translations = {
       placeholder: "Spýtajte sa AI veterinára na čokoľvek...",
       ttsListen: "Prehrať odpoveď",
       ttsStop: "Zastaviť",
+      sendMessage: "Odoslať správu",
       ttsSpeaking: "Prehráva sa..."
     },
     a11y: {
@@ -1360,6 +1363,7 @@ export const translations = {
       placeholder: "Запитайте в ШІ-ветеринара будь-що...",
       ttsListen: "Прослухати відповідь",
       ttsStop: "Зупинити голос",
+      sendMessage: "Надіслати повідомлення",
       ttsSpeaking: "Озвучується..."
     },
     a11y: {

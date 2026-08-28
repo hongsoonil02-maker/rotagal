@@ -61,7 +61,8 @@ html.a11y-high-contrast body {
 html.a11y-high-contrast section,
 html.a11y-high-contrast nav,
 html.a11y-high-contrast footer,
-html.a11y-high-contrast div:not(.keep-bg) {
+html.a11y-high-contrast main,
+html.a11y-high-contrast article {
   background-color: #0b0f0e !important;
   border-color: #ffd700 !important;
   color: #ffffff !important;

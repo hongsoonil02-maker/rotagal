@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Shield, Clock, Syringe, Award, MessageCircle, X, Send, ChevronDown, CheckCircle2, AlertCircle, ArrowRight, ExternalLink, FileText, Volume2, VolumeX, Eye } from 'lucide-react';
 import RotagalInfographic from './RotagalInfographic';
 import { translations } from './translations';
@@ -8,7 +8,7 @@ import AccessibilityToolbar from './components/AccessibilityToolbar';
 
 const LANGS = ['ko', 'en', 'sk', 'uk'];
 
-const FORM_ENDPOINT = '';
+const FORM_ENDPOINT = import.meta.env.VITE_FORM_ENDPOINT || '';
 
 const CHAT_API_URL = import.meta.env.VITE_CHAT_API_URL
   || 'https://vetacol.hongsoonil02.workers.dev/api/chat';
@@ -70,6 +70,13 @@ export default function RotagalLanding() {
   const [isChatLoading, setIsChatLoading] = useState(false);
   const [speakingMsgIndex, setSpeakingMsgIndex] = useState(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const chatEndRef = useRef(null);
+
+  useEffect(() => {
+    if (isChatOpen && chatEndRef.current) {
+      chatEndRef.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    }
+  }, [chatMessages, isChatLoading, isChatOpen]);
 
   const primaryDistributor = t.contact.distributors[0];
 
@@ -1111,12 +1118,24 @@ export default function RotagalLanding() {
                 </div>
               ))}
 
+              {isChatLoading && (
+                <div className="flex items-start" aria-hidden="true">
+                  <div className="bg-white border border-gray-200 rounded-2xl rounded-tl-sm shadow-sm px-4 py-3 flex items-center gap-1.5">
+                    <span className="w-2 h-2 bg-emerald-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></span>
+                    <span className="w-2 h-2 bg-emerald-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></span>
+                    <span className="w-2 h-2 bg-emerald-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></span>
+                  </div>
+                </div>
+              )}
+
               {/* Quick Replies */}
               <div className="flex flex-wrap gap-2 mt-4">
                 <button onClick={() => handleQuickReply(t.chatbot.quick1Question)} className="bg-white border border-emerald-200 text-emerald-700 text-xs sm:text-sm px-3.5 py-2.5 rounded-full hover:bg-emerald-50 transition-colors shadow-sm focus:outline-none focus:ring-2 focus:ring-emerald-500">{t.chatbot.quick1Label}</button>
                 <button onClick={() => handleQuickReply(t.chatbot.quick2Question)} className="bg-white border border-emerald-200 text-emerald-700 text-xs sm:text-sm px-3.5 py-2.5 rounded-full hover:bg-emerald-50 transition-colors shadow-sm focus:outline-none focus:ring-2 focus:ring-emerald-500">{t.chatbot.quick2Label}</button>
                 <button onClick={() => handleQuickReply(t.chatbot.quick3Question)} className="bg-white border border-emerald-200 text-emerald-700 text-xs sm:text-sm px-3.5 py-2.5 rounded-full hover:bg-emerald-50 transition-colors shadow-sm focus:outline-none focus:ring-2 focus:ring-emerald-500">{t.chatbot.quick3Label}</button>
               </div>
+
+              <div ref={chatEndRef} />
             </div>
 
             <form onSubmit={handleChatSubmit} className="p-4 bg-white border-t border-gray-100 flex gap-2">
@@ -1126,9 +1145,10 @@ export default function RotagalLanding() {
                 onChange={(e) => setChatInput(e.target.value)}
                 placeholder={t.chatbot.placeholder}
                 aria-label={t.chatbot.placeholder}
-                className="flex-1 min-w-0 bg-gray-100 rounded-full px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-emerald-500"
+                disabled={isChatLoading}
+                className="flex-1 min-w-0 bg-gray-100 rounded-full px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-emerald-500 disabled:opacity-60"
               />
-              <button type="submit" aria-label={lang === 'ko' ? '메시지 전송' : 'Send message'} className="w-11 h-11 bg-emerald-600 text-white rounded-full flex items-center justify-center hover:bg-emerald-700 transition-colors shrink-0 shadow-md focus:outline-none focus:ring-2 focus:ring-emerald-300">
+              <button type="submit" disabled={isChatLoading} aria-label={t.chatbot?.sendMessage || (lang === 'ko' ? '메시지 전송' : 'Send message')} className="w-11 h-11 bg-emerald-600 text-white rounded-full flex items-center justify-center hover:bg-emerald-700 transition-colors shrink-0 shadow-md focus:outline-none focus:ring-2 focus:ring-emerald-300 disabled:opacity-60 disabled:cursor-not-allowed">
                 <Send className="w-4 h-4 ml-1" />
               </button>
             </form>
