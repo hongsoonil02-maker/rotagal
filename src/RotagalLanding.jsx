@@ -422,8 +422,10 @@ export default function RotagalLanding() {
                   <div className="text-xs sm:text-sm font-black text-[#FFDF00] uppercase tracking-widest leading-none mb-1.5 flex items-center gap-1.5">
                     <span>{t.hero.bannerTitle}</span>
                   </div>
-                  <div className="text-base sm:text-xl font-black tracking-wide text-white break-keep text-balance">
-                    {t.hero.bannerDesc}
+                  <div className="text-sm sm:text-lg md:text-xl font-black tracking-wide text-white break-keep text-balance leading-snug">
+                    <span className="inline-block whitespace-nowrap">EU GMP 공식 인증</span>
+                    <span className="hidden sm:inline"> · </span>
+                    <span className="inline-block whitespace-nowrap sm:whitespace-normal">보비젠(Bovigen&nbsp;Scour) 동일 제조 기반 백신</span>
                   </div>
                 </div>
               </div>
@@ -432,19 +434,22 @@ export default function RotagalLanding() {
               </div>
             </div>
           </div>
-          <h1 className="text-3xl sm:text-5xl lg:text-7xl font-black text-gray-950 mb-6 leading-tight tracking-tight break-keep text-balance">
-            <span className="block mb-1 sm:mb-2">{t.hero.title1}</span>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-teal-600 to-green-600 block sm:inline-block">
-              {lang === 'ko' ? (
-                <>
-                  <span className="inline-block whitespace-nowrap">설사예방 3종(로타·코로나·대장균)</span>{' '}
-                  <span className="inline-block whitespace-nowrap">혼합 백신 로타갈</span>
-                </>
-              ) : (
-                t.hero.title2
-              )}
+          <h1 className="text-[1.45rem] sm:text-4xl md:text-5xl lg:text-6xl font-black text-gray-950 mb-6 leading-snug sm:leading-tight tracking-tight break-keep">
+            <span className="block mb-2 text-gray-950 text-balance">
+              {t.hero.title1}
             </span>
-            {t.hero.title3 && <span className="text-2xl sm:text-4xl lg:text-6xl text-gray-900 inline-block mt-2 sm:mt-0">{t.hero.title3}</span>}
+            {lang === 'ko' ? (
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-teal-600 to-green-600">
+                <span className="inline">설사예방 3종</span>
+                <span className="inline text-[0.82em] font-extrabold text-emerald-800" style={{WebkitTextFillColor: 'initial', color: '#065f46'}}>(로타·코로나·대장균)</span>{' '}
+                <span className="inline">혼합 백신 로타갈</span>
+              </span>
+            ) : (
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-teal-600 to-green-600 text-balance">
+                {t.hero.title2}
+              </span>
+            )}
+            {t.hero.title3 && <span className="block text-xl sm:text-3xl lg:text-5xl text-gray-900 mt-2 text-balance">{t.hero.title3}</span>}
           </h1>
           {/* Rotagal Logo showcase to reinforce brand identity */}
           <div className="flex justify-center items-center gap-4 sm:gap-6 mb-8">
@@ -452,8 +457,10 @@ export default function RotagalLanding() {
             <span className="text-sm sm:text-base font-medium text-gray-700 shrink-0">|</span>
             <img src="./eu_gmp_logo.svg" alt="EU GMP 인증 로고" className="h-8 sm:h-16 w-auto max-w-[40%] object-contain" />
           </div>
-          <p className="text-lg sm:text-2xl font-bold text-gray-800 mb-8 sm:mb-10 max-w-5xl mx-auto leading-relaxed break-keep text-pretty">
-            {t.hero.subtitle}
+          <p className="text-base sm:text-xl lg:text-2xl font-bold text-gray-800 mb-8 sm:mb-10 max-w-4xl mx-auto leading-relaxed break-keep text-balance">
+            <span className="inline-block">송아지 설사병 위험을 낮추고</span>{' '}
+            <span className="inline-block">농가 운영 부담을 줄여주는</span>{' '}
+            <span className="inline-block">3종 혼합 예방 백신입니다.</span>
           </p>
           <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 max-w-md sm:max-w-none mx-auto">
             <a href="#inquiry" className="w-full sm:w-auto bg-emerald-700 hover:bg-emerald-800 text-white px-8 py-4 rounded-full font-black text-base sm:text-xl transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center justify-center gap-2 break-keep">
@@ -469,15 +476,18 @@ export default function RotagalLanding() {
           </div>
 
           <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-4xl mx-auto">
-            <div className="bg-white/90 border border-emerald-200 rounded-2xl px-4 py-3 shadow-sm">
+            <div className="bg-white/90 border border-emerald-200 rounded-2xl px-4 py-3 shadow-sm text-center">
               <div className="text-xs font-black text-emerald-700 mb-1">{t.hero.proof1Label}</div>
               <div className="text-sm sm:text-base font-bold text-gray-900 break-keep">{t.hero.proof1Value}</div>
             </div>
-            <div className="bg-white/90 border border-emerald-200 rounded-2xl px-4 py-3 shadow-sm">
+            <div className="bg-white/90 border border-emerald-200 rounded-2xl px-4 py-3 shadow-sm text-center">
               <div className="text-xs font-black text-emerald-700 mb-1">{t.hero.proof2Label}</div>
-              <div className="text-sm sm:text-base font-bold text-gray-900 break-keep">{t.hero.proof2Value}</div>
+              <div className="text-sm sm:text-base font-bold text-gray-900 break-keep">
+                <span className="inline-block whitespace-nowrap">유럽 기준</span>{' '}
+                <span className="inline-block whitespace-nowrap">임신우 1회 원샷 접종</span>
+              </div>
             </div>
-            <div className="bg-white/90 border border-emerald-200 rounded-2xl px-4 py-3 shadow-sm">
+            <div className="bg-white/90 border border-emerald-200 rounded-2xl px-4 py-3 shadow-sm text-center">
               <div className="text-xs font-black text-emerald-700 mb-1">{t.hero.proof3Label}</div>
               <div className="text-sm sm:text-base font-bold text-gray-900 break-keep">{t.hero.proof3Value}</div>
             </div>
@@ -502,8 +512,8 @@ export default function RotagalLanding() {
       <section id="video" className="scroll-mt-20 sm:scroll-mt-24 pt-10 sm:pt-24 pb-6 sm:pb-10 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-8 sm:mb-12">
-            <h2 className="text-3xl sm:text-5xl font-black text-gray-950 mb-4 break-keep">{t.video.title}</h2>
-            <p className="text-lg sm:text-xl font-bold text-gray-800 break-keep">{t.video.subtitle}</p>
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-gray-950 mb-4 break-keep text-balance">{t.video.title}</h2>
+            <p className="text-base sm:text-lg lg:text-xl font-bold text-gray-800 break-keep text-balance max-w-2xl mx-auto">{t.video.subtitle}</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
@@ -561,7 +571,7 @@ export default function RotagalLanding() {
               <span>{t.qualityShowcase.badge}</span>
               <img src="./eu_gmp_badge.svg" alt="EU GMP" className="w-6 h-6 inline-block shrink-0" />
             </div>
-            <h2 className="text-3xl sm:text-5xl font-black text-gray-950 mb-6 break-keep">
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-gray-950 mb-6 break-keep text-balance">
               {t.qualityShowcase.title}
             </h2>
             <p className="text-xl sm:text-2xl font-bold text-gray-800 max-w-4xl mx-auto leading-relaxed break-keep">
@@ -728,8 +738,8 @@ export default function RotagalLanding() {
       <section id="features" className="scroll-mt-20 sm:scroll-mt-24 py-10 sm:py-24 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-8 sm:mb-16">
-            <h2 className="text-3xl sm:text-5xl font-black text-gray-950 mb-4 break-keep">{t.features.title}</h2>
-            <p className="text-xl sm:text-2xl font-bold text-gray-800 break-keep">{t.features.subtitle}</p>
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-gray-950 mb-4 break-keep text-balance">{t.features.title}</h2>
+            <p className="text-base sm:text-xl lg:text-2xl font-bold text-gray-800 break-keep text-balance max-w-2xl mx-auto">{t.features.subtitle}</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -772,8 +782,8 @@ export default function RotagalLanding() {
       <section id="reviews" className="py-10 sm:py-24 px-4 sm:px-6 lg:px-8 bg-emerald-900 text-white">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-8 sm:mb-16">
-            <h2 className="text-3xl sm:text-5xl font-black mb-4 break-keep">{t.reviews.title}</h2>
-            <p className="text-emerald-100 text-lg sm:text-xl font-bold break-keep">{t.reviews.subtitle}</p>
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black mb-4 break-keep text-balance">{t.reviews.title}</h2>
+            <p className="text-emerald-100 text-base sm:text-lg lg:text-xl font-bold break-keep text-balance max-w-2xl mx-auto">{t.reviews.subtitle}</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -813,8 +823,8 @@ export default function RotagalLanding() {
           </div>
 
           <div className="bg-white p-8 md:p-12 rounded-3xl shadow-xl border-2 border-gray-300">
-            <h2 className="text-3xl sm:text-5xl font-black text-center text-gray-950 mb-4 break-keep">{t.contact.title}</h2>
-            <p className="text-center text-lg sm:text-xl font-bold text-gray-800 mb-10 break-keep">{t.contact.subtitle}</p>
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-center text-gray-950 mb-4 break-keep text-balance">{t.contact.title}</h2>
+            <p className="text-center text-base sm:text-lg lg:text-xl font-bold text-gray-800 mb-10 break-keep text-balance max-w-2xl mx-auto">{t.contact.subtitle}</p>
 
             <div className="sm:hidden text-xs text-emerald-700 font-bold mb-3 text-center bg-emerald-50 py-2.5 rounded-xl border border-emerald-200 shadow-2xs">
               {t.contact.scrollNotice}

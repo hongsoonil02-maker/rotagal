@@ -35,6 +35,10 @@
     overflow-wrap: break-word;
     text-wrap: balance;
   }
+  p {
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
 }
 
 /* Accessibility (A11y) Modes */
