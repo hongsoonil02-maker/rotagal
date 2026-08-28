@@ -79,7 +79,7 @@ export default function VaccineCalculator({ isOpen, onClose, t, lang = 'ko' }) {
       >
         <button
           onClick={onClose}
-          aria-label="Close calculator"
+          aria-label={c.close || 'Close'}
           className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-2xl font-bold w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors focus:ring-2 focus:ring-emerald-500 focus:outline-none"
         >
           &times;

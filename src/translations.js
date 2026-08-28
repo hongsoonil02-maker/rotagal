@@ -30,7 +30,8 @@ export const translations = {
       windowTitle: "원샷 접종 추천 골든타임 (분만전 3~5주)",
       euRange: "유럽 보비젠(Bovigen Scour) 가이드라인 허용 범위: 분만전 3~12주",
       approvalNote: "※ 국내 허가 기준: 첫 접종(초임우)은 분만 6~5주 전 1차, 분만 3~2주 전 2차 접종 / 재접종은 분만 6~3주 전 1회 접종입니다. 정확한 농가별 일정은 고문수의사와 상담해 주세요.",
-      notice: "* 어미소 접종 시 초유를 통해 항체가 형성되어 송아지 로타·코로나·대장균 설사를 예방합니다."
+      notice: "* 어미소 접종 시 초유를 통해 항체가 형성되어 송아지 로타·코로나·대장균 설사를 예방합니다.",
+      close: "계산기 닫기"
     },
 
     hero: {
@@ -378,7 +379,8 @@ export const translations = {
       windowTitle: "Recommended Golden Window for 1-Shot Vaccination (3~5 Weeks Before Calving)",
       euRange: "European Bovigen Scour guideline allowed range: 3~12 weeks before calving",
       approvalNote: "※ Korean approved schedule: First vaccination (primiparous) - 1st dose 6~5 weeks, 2nd dose 3~2 weeks before calving / Revaccination - single dose 6~3 weeks before calving. For an exact farm-specific schedule, please consult your veterinarian.",
-      notice: "* Dam vaccination transfers maternal antibodies via colostrum to help prevent Rota, Corona, and E. coli diarrhea in calves."
+      notice: "* Dam vaccination transfers maternal antibodies via colostrum to help prevent Rota, Corona, and E. coli diarrhea in calves.",
+      close: "Close calculator"
     },
     hero: {
       badge: "Official European Import · 3-in-1 Calf Diarrhea Vaccine",
@@ -726,7 +728,8 @@ export const translations = {
       windowTitle: "Odporúčané zlaté okno (3~5 týždňov pred otelením)",
       euRange: "Povolené rozmedzie podľa európskych smerníc (Bovigen Scour): 3~12 týždňov pred otelením",
       approvalNote: "※ Schválený harmonogram v Kórei: Prvá vakcinácia (prvorodičky) - 1. dávka 6~5 týždňov, 2. dávka 3~2 týždne pred otelením / Revakcinácia - jedna dávka 6~3 týždne pred otelením. Presný harmonogram konzultujte so svojím veterinárom.",
-      notice: "* Vakcinácia matky vytvára protilátky v kolostre, ktoré pomáhajú predchádzať hnačke teliat spôsobenej rotavírusom, koronavírusom a E. coli."
+      notice: "* Vakcinácia matky vytvára protilátky v kolostre, ktoré pomáhajú predchádzať hnačke teliat spôsobenej rotavírusom, koronavírusom a E. coli.",
+      close: "Zavrieť kalkulačku"
     },
     hero: {
       badge: "Oficiálny európsky import · 3-kombinovaná vakcína proti hnačke teliat",
@@ -1074,7 +1077,8 @@ export const translations = {
       windowTitle: "Рекомендоване золоте вікно (за 3–5 тижнів до отелення)",
       euRange: "Дозволений діапазон за європейськими рекомендаціями (Bovigen Scour): за 3–12 тижнів до отелення",
       approvalNote: "※ Схема, затверджена в Кореї: Первинна вакцинація (первістки) - 1-ша доза за 6–5 тижнів, 2-га доза за 3–2 тижні до отелення / Ревакцинація - одноразово за 6–3 тижні до отелення. Точну схему для вашого господарства уточнюйте з ветеринаром.",
-      notice: "* Вакцинація матері формує антитіла в молозиві, які допомагають запобігати діареї телят, спричиненій ротавірусом, коронавірусом та E. coli."
+      notice: "* Вакцинація матері формує антитіла в молозиві, які допомагають запобігати діареї телят, спричиненій ротавірусом, коронавірусом та E. coli.",
+      close: "Закрити калькулятор"
     },
     hero: {
       badge: "Офіційний європейський імпорт · 3-в-1 комбінована вакцина проти діареї телят",
