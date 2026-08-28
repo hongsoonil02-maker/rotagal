@@ -281,29 +281,34 @@ export default function RotagalLanding() {
       {/* Navigation */}
       <nav aria-label="Main Navigation" className="fixed w-full z-50 glass transition-all duration-300">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16 sm:h-20">
-            <a href="#" className="flex items-center gap-3 sm:gap-5 md:gap-6 lg:gap-8 xl:gap-10 group py-1">
-              <div className="bg-white px-1.5 py-0.5 sm:px-2 sm:py-1 rounded-lg shadow-sm border border-emerald-200 group-hover:border-emerald-400 transition-all shrink-0 flex items-center">
-                <img src="./pharmagal_logo.jpg" alt="Pharmagal Bio Logo" className="h-5 sm:h-6 w-auto object-contain" />
+          <div className="flex justify-between items-center h-16 sm:h-20 gap-3 sm:gap-4">
+            {/* Brand Logo & Title Group */}
+            <a href="#" className="flex items-center gap-2.5 sm:gap-3 group py-1 shrink-0">
+              <div className="bg-white px-2 py-1 rounded-xl shadow-xs border border-emerald-200 group-hover:border-emerald-400 transition-all shrink-0 flex items-center">
+                <img src="./pharmagal_logo.jpg" alt="Pharmagal Bio Logo" className="h-6 sm:h-7 w-auto object-contain" />
               </div>
-              <div className="flex flex-col justify-center items-center text-center">
-                <div className="flex items-center justify-center gap-1.5 sm:gap-2">
+              <div className="flex flex-col justify-center items-start text-left shrink-0">
+                <div className="flex items-center gap-1.5">
                   <span className="text-xl sm:text-2xl font-black text-gray-950 tracking-tight leading-none group-hover:text-emerald-700 transition-colors">{t.header?.brandKo || '로타갈'}</span>
                   <span className="text-base sm:text-lg font-extrabold text-emerald-700 tracking-tight leading-none">{t.header?.brandEn || 'Rotagal'}</span>
                 </div>
-                <div className="flex justify-center mt-1">
-                  <span className="text-[10px] sm:text-xs font-black bg-gradient-to-r from-emerald-100 to-amber-100 text-emerald-900 px-2.5 py-0.5 rounded-full border border-emerald-300 shadow-2xs leading-none">{t.header?.badge || 'EU GMP 공식인증'}</span>
+                <div className="flex justify-start mt-1">
+                  <span className="text-[10px] font-black bg-gradient-to-r from-emerald-100 to-amber-100 text-emerald-900 px-2 py-0.5 rounded-full border border-emerald-300 shadow-2xs leading-none">{t.header?.badge || 'EU GMP 공식인증'}</span>
                 </div>
               </div>
             </a>
-            <div className="hidden md:flex gap-6 lg:gap-8 items-center">
-              <a href="#infographic" className="text-gray-600 hover:text-emerald-700 font-semibold transition-colors">{t.nav.infographic}</a>
-              <a href="#features" className="text-gray-600 hover:text-emerald-700 font-semibold transition-colors">{t.nav.features}</a>
-              <a href="#reviews" className="text-gray-600 hover:text-emerald-700 font-semibold transition-colors">{t.nav.reviews}</a>
-              <a href="#contact" className="text-gray-600 hover:text-emerald-700 font-semibold transition-colors">{t.nav.contact}</a>
+
+            {/* Desktop Navigation (Visible on lg: 1024px and up) */}
+            <div className="hidden lg:flex items-center gap-4 xl:gap-6 shrink-0">
+              <div className="flex items-center gap-3.5 xl:gap-5 text-sm font-bold text-gray-700">
+                <a href="#infographic" className="hover:text-emerald-700 transition-colors whitespace-nowrap">{t.nav.infographic}</a>
+                <a href="#features" className="hover:text-emerald-700 transition-colors whitespace-nowrap">{t.nav.features}</a>
+                <a href="#reviews" className="hover:text-emerald-700 transition-colors whitespace-nowrap">{t.nav.reviews}</a>
+                <a href="#contact" className="hover:text-emerald-700 transition-colors whitespace-nowrap">{t.nav.contact}</a>
+              </div>
 
               {/* Navbar Language Toggle */}
-              <div className="inline-flex items-center bg-gray-100 border border-gray-200 p-0.5 rounded-full shadow-2xs">
+              <div className="inline-flex items-center bg-gray-100 border border-gray-200 p-0.5 rounded-full shadow-2xs shrink-0">
                 <button onClick={() => handleSetLang('ko')} className={`px-2.5 py-1 rounded-full text-xs font-bold transition-all ${lang === 'ko' ? 'bg-emerald-700 text-white shadow-2xs' : 'text-gray-600 hover:text-emerald-800'}`}>KR</button>
                 <button onClick={() => handleSetLang('en')} className={`px-2.5 py-1 rounded-full text-xs font-bold transition-all ${lang === 'en' ? 'bg-emerald-700 text-white shadow-2xs' : 'text-gray-600 hover:text-emerald-800'}`}>EN</button>
                 <button onClick={() => handleSetLang('sk')} className={`px-2.5 py-1 rounded-full text-xs font-bold transition-all ${lang === 'sk' ? 'bg-emerald-700 text-white shadow-2xs' : 'text-gray-600 hover:text-emerald-800'}`}>SK</button>
@@ -316,26 +321,27 @@ export default function RotagalLanding() {
                 onClick={() => window.dispatchEvent(new CustomEvent('toggle-a11y-toolbar'))}
                 title={lang === 'ko' ? '웹 접근성 및 읽기 편의 설정' : 'Accessibility Settings'}
                 aria-label={lang === 'ko' ? '웹 접근성 및 읽기 편의 설정' : 'Accessibility Settings'}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-xs font-bold rounded-full border border-emerald-300 transition-colors shadow-2xs"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-xs font-bold rounded-full border border-emerald-300 transition-colors shadow-2xs shrink-0"
               >
                 <Eye className="w-3.5 h-3.5 stroke-[2.5]" />
                 <span>{lang === 'ko' ? '접근성' : 'A11y'}</span>
               </button>
 
-              <a href="#inquiry" className="bg-emerald-700 hover:bg-emerald-800 text-white px-6 py-2.5 rounded-full font-bold transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5">{t.nav.inquiry}</a>
+              <a href="#inquiry" className="bg-emerald-700 hover:bg-emerald-800 text-white px-5 py-2 rounded-full font-bold text-sm transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5 shrink-0 whitespace-nowrap">{t.nav.inquiry}</a>
             </div>
 
-            {/* Mobile Menu Button */}
-            <div className="md:hidden flex items-center gap-2">
+            {/* Tablet & Mobile Header Right Actions (Visible below lg: 1024px) */}
+            <div className="lg:hidden flex items-center gap-2 shrink-0">
               <button
                 type="button"
                 onClick={() => window.dispatchEvent(new CustomEvent('toggle-a11y-toolbar'))}
                 title={lang === 'ko' ? '웹 접근성' : 'A11y'}
                 aria-label={lang === 'ko' ? '웹 접근성' : 'A11y'}
-                className="p-2 text-emerald-800 bg-emerald-50 rounded-full border border-emerald-300"
+                className="p-2 text-emerald-800 bg-emerald-50 hover:bg-emerald-100 rounded-full border border-emerald-300 transition-colors"
               >
                 <Eye className="w-4 h-4 stroke-[2.5]" />
               </button>
+
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 aria-label={lang === 'ko' ? (isMobileMenuOpen ? '메뉴 닫기' : '메뉴 열기') : 'Toggle menu'}
@@ -352,10 +358,10 @@ export default function RotagalLanding() {
           </div>
         </div>
 
-        {/* Mobile Menu Dropdown */}
+        {/* Mobile & Tablet Menu Dropdown */}
         {isMobileMenuOpen && (
-          <div className="md:hidden bg-white/95 backdrop-blur-md border-t border-gray-100 shadow-lg absolute w-full left-0">
-            <div className="px-4 pt-2 pb-6 space-y-2 flex flex-col">
+          <div className="lg:hidden bg-white/98 backdrop-blur-md border-t border-gray-100 shadow-xl absolute w-full left-0">
+            <div className="px-4 pt-2 pb-6 space-y-2 flex flex-col max-w-lg mx-auto">
               <a href="#infographic" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-3 text-base font-bold text-gray-800 hover:bg-emerald-50 hover:text-emerald-700 rounded-lg">{t.nav.infographic}</a>
               <a href="#features" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-3 text-base font-bold text-gray-800 hover:bg-emerald-50 hover:text-emerald-700 rounded-lg">{t.nav.features}</a>
               <a href="#reviews" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-3 text-base font-bold text-gray-800 hover:bg-emerald-50 hover:text-emerald-700 rounded-lg">{t.nav.reviews}</a>
