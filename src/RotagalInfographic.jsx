@@ -249,16 +249,19 @@ export default function RotagalInfographic({ lang = 'ko', t: tProp }) {
                 {/* Comparison Table Box */}
                 <div className="w-full overflow-hidden rounded-2xl border-2 border-gray-300 bg-white shadow-sm flex flex-col justify-center">
                   <table className="w-full text-center border-collapse text-xs sm:text-base md:text-lg font-bold break-keep h-full">
+                    <caption className="sr-only">
+                      {lang === 'ko' ? '로타갈 백신과 기존 백신의 혈청형 방어율 및 성분 비교표' : 'Comparison Table: Rotagal vs Competitor Vaccine'}
+                    </caption>
                     <thead>
                       <tr className="bg-gray-100 border-b-2 border-gray-300">
-                        <th className="py-3.5 px-2 sm:py-4 sm:px-4 font-black text-gray-950 text-center w-[34%]">{t.colHeader1}</th>
-                        <th className="py-3.5 px-2 sm:py-4 sm:px-4 font-black text-emerald-950 bg-emerald-200 text-center text-sm sm:text-lg w-[33%]">{t.colHeader2}</th>
-                        <th className="py-3.5 px-2 sm:py-4 sm:px-4 font-black text-gray-700 text-center w-[33%]">{t.colHeader3}</th>
+                        <th scope="col" className="py-3.5 px-2 sm:py-4 sm:px-4 font-black text-gray-950 text-center w-[34%]">{t.colHeader1}</th>
+                        <th scope="col" className="py-3.5 px-2 sm:py-4 sm:px-4 font-black text-emerald-950 bg-emerald-200 text-center text-sm sm:text-lg w-[33%]">{t.colHeader2}</th>
+                        <th scope="col" className="py-3.5 px-2 sm:py-4 sm:px-4 font-black text-gray-700 text-center w-[33%]">{t.colHeader3}</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y-2 divide-gray-200">
                       <tr className="hover:bg-gray-100/50">
-                        <td className="py-3 px-1.5 sm:py-3.5 sm:px-3 font-extrabold text-gray-950 text-center">{t.row1Title}</td>
+                        <th scope="row" className="py-3 px-1.5 sm:py-3.5 sm:px-3 font-extrabold text-gray-950 text-center font-normal">{t.row1Title}</th>
                         <td className="py-3 px-1.5 sm:py-3.5 sm:px-3 text-center bg-emerald-50 font-black text-emerald-950 text-xs sm:text-lg">
                           <span className="inline-flex items-center justify-center gap-1 text-emerald-800 font-black"><CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0 stroke-[2.5]" /> {t.row1Rota}</span>
                         </td>
@@ -267,7 +270,7 @@ export default function RotagalInfographic({ lang = 'ko', t: tProp }) {
                         </td>
                       </tr>
                       <tr className="hover:bg-gray-100/50">
-                        <td className="py-3 px-1.5 sm:py-3.5 sm:px-3 font-extrabold text-gray-950 text-center">{t.row2Title}</td>
+                        <th scope="row" className="py-3 px-1.5 sm:py-3.5 sm:px-3 font-extrabold text-gray-950 text-center font-normal">{t.row2Title}</th>
                         <td className="py-3 px-1.5 sm:py-3.5 sm:px-3 text-center bg-emerald-50 font-black text-emerald-950 text-xs sm:text-lg">
                           <span className="inline-flex items-center justify-center gap-1 text-emerald-800 font-black"><CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0 stroke-[2.5]" /> {t.row2Rota}</span>
                         </td>
@@ -276,7 +279,7 @@ export default function RotagalInfographic({ lang = 'ko', t: tProp }) {
                         </td>
                       </tr>
                       <tr className="hover:bg-gray-100/50">
-                        <td className="py-3 px-1.5 sm:py-3.5 sm:px-3 font-extrabold text-gray-950 text-center">{t.row3Title}</td>
+                        <th scope="row" className="py-3 px-1.5 sm:py-3.5 sm:px-3 font-extrabold text-gray-950 text-center font-normal">{t.row3Title}</th>
                         <td className="py-3 px-1.5 sm:py-3.5 sm:px-3 text-center bg-emerald-50 font-black text-emerald-950 text-xs sm:text-lg">
                           <span className="inline-flex items-center justify-center gap-1 text-emerald-800 font-black"><CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0 stroke-[2.5]" /> {t.row3Rota}</span>
                         </td>

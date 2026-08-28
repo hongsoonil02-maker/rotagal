@@ -316,7 +316,34 @@ export const translations = {
       quick2Question: "접종 시기와 방법이 궁금합니다.",
       quick3Label: "유통기한?",
       quick3Question: "유통기한은 얼마나 되나요?",
-      placeholder: "수의사 AI에게 궁금한 점을 질문해보세요..."
+      placeholder: "수의사 AI에게 궁금한 점을 질문해보세요...",
+      ttsListen: "답변 음성 듣기",
+      ttsStop: "음성 중지",
+      ttsSpeaking: "음성 재생 중..."
+    },
+    a11y: {
+      skipToContent: "본문 바로가기",
+      openToolbar: "장애인 접근성 및 읽기 편의 설정",
+      closeToolbar: "접근성 설정 닫기",
+      title: "웹 접근성 및 읽기 편의 설정",
+      desc: "고령 축산인 및 시각/청각/운동 장애인을 위한 맞춤 편의 옵션입니다.",
+      fontSize: "글자 크기",
+      fontNormal: "기본 100%",
+      fontLarge: "크게 115%",
+      fontXLarge: "매우 크게 130%",
+      highContrast: "고대비 (흑백/선명도)",
+      highContrastDesc: "글자와 배경의 명암비를 극대화하여 또렷하게 표시합니다.",
+      highlightLinks: "링크 및 버튼 테두리 강조",
+      highlightLinksDesc: "클릭 가능한 모든 요소에 선명한 윤곽선을 부여합니다.",
+      readableFont: "가독성 폰트 및 행간 확대",
+      readableFontDesc: "난독증 방지 및 넓은 자간·행간으로 편안하게 읽습니다.",
+      reduceMotion: "화면 애니메이션 멈춤",
+      reduceMotionDesc: "화면 깜빡임 및 전환 움직임을 최소화합니다.",
+      speechRead: "🔊 화면 요약 음성 듣기",
+      speechReading: "🔊 음성 낭독 중 (클릭 시 중지)",
+      speechStop: "음성 멈춤",
+      reset: "설정 초기화",
+      speechSummary: "로타갈 백신 공식 홈페이지입니다. 유럽 파마갈 바이오 직수입, 임신우 1회 원샷 접종으로 송아지 로타, 코로나, 대장균 설사병 3종을 동시 예방합니다. EU GMP 인증 제품으로 1회 19,800원입니다. 상담 문의는 010-5407-5708로 연락 주시기 바랍니다."
     }
   },
   en: {
@@ -636,7 +663,34 @@ export const translations = {
       quick2Question: "I am curious about the vaccination schedule and method.",
       quick3Label: "Shelf life info?",
       quick3Question: "How long is the shelf life?",
-      placeholder: "Ask the AI veterinarian any questions..."
+      placeholder: "Ask the AI veterinarian any questions...",
+      ttsListen: "Listen to answer",
+      ttsStop: "Stop voice",
+      ttsSpeaking: "Speaking..."
+    },
+    a11y: {
+      skipToContent: "Skip to main content",
+      openToolbar: "Open accessibility and reading options",
+      closeToolbar: "Close accessibility options",
+      title: "Accessibility & Reading Options",
+      desc: "Inclusive browsing features for seniors, low-vision, and accessibility needs.",
+      fontSize: "Text Size",
+      fontNormal: "Default 100%",
+      fontLarge: "Large 115%",
+      fontXLarge: "Extra Large 130%",
+      highContrast: "High Contrast Mode",
+      highContrastDesc: "Maximizes contrast for high visual clarity and sharpness.",
+      highlightLinks: "Highlight Links & Buttons",
+      highlightLinksDesc: "Adds distinct outlines and underlines to all interactive controls.",
+      readableFont: "Enhanced Legibility & Spacing",
+      readableFontDesc: "Wider line height and character spacing for dyslexic and low-vision readers.",
+      reduceMotion: "Pause Animations",
+      reduceMotionDesc: "Disables pulsing, bouncy motion, and animated transitions.",
+      speechRead: "🔊 Read Page Summary (TTS)",
+      speechReading: "🔊 Reading aloud (Click to stop)",
+      speechStop: "Stop speech",
+      reset: "Reset Settings",
+      speechSummary: "Official Rotagal landing page. Imported from Pharmagal Bio in Europe. EU standard single one-shot dam vaccination protects newborn calves against Rotavirus, Coronavirus, and E. coli diarrhea. EU GMP certified. For inquiries, please call +82-10-5407-5708."
     }
   },
   sk: {
@@ -956,7 +1010,34 @@ export const translations = {
       quick2Question: "Zaujíma ma harmonogram a spôsob očkovania.",
       quick3Label: "Doba použiteľnosti?",
       quick3Question: "Aká je doba použiteľnosti vakcíny?",
-      placeholder: "Spýtajte sa AI veterinára na čokoľvek..."
+      placeholder: "Spýtajte sa AI veterinára na čokoľvek...",
+      ttsListen: "Prehrať odpoveď",
+      ttsStop: "Zastaviť",
+      ttsSpeaking: "Prehráva sa..."
+    },
+    a11y: {
+      skipToContent: "Preskočiť na hlavný obsah",
+      openToolbar: "Otvoriť nastavenia prístupnosti a čítania",
+      closeToolbar: "Zatvoriť nastavenia prístupnosti",
+      title: "Prístupnosť a pohodlné čítanie",
+      desc: "Špeciálne funkcie pre zrakovo znevýhodnených a seniorov.",
+      fontSize: "Veľkosť písma",
+      fontNormal: "Základná 100%",
+      fontLarge: "Veľká 115%",
+      fontXLarge: "Extra veľká 130%",
+      highContrast: "Vysoký kontrast",
+      highContrastDesc: "Zvyšuje kontrast textu a pozadia pre maximálnu čitateľnosť.",
+      highlightLinks: "Zvýrazniť odkazy a tlačidlá",
+      highlightLinksDesc: "Pridáva výrazné obrysy a podčiarknutie pre interaktívne prvky.",
+      readableFont: "Zvýšená čitateľnosť a riadkovanie",
+      readableFontDesc: "Širšie riadkovanie a optimalizovaný font pre pohodlné čítanie.",
+      reduceMotion: "Pozastaviť animácie",
+      reduceMotionDesc: "Vypína blikanie, animácie a plynulé prechody.",
+      speechRead: "🔊 Prečítať súhrn stránky nahlas",
+      speechReading: "🔊 Hlasové čítanie (kliknutím zastavíte)",
+      speechStop: "Zastaviť hlas",
+      reset: "Obnoviť nastavenia",
+      speechSummary: "Oficiálna stránka vakcíny Rotagal vyrábanej spoločnosťou Pharmagal Bio Košice, Slovensko. Jednorazové očkovanie gravidných kráv chráni telatá pred rotavírusovou, koronavírusovou a E. coli hnačkou. Certifikované EU GMP. Kontakt: +82-10-5407-5708."
     }
   },
   uk: {
@@ -1276,7 +1357,34 @@ export const translations = {
       quick2Question: "Мене цікавить схема та спосіб щеплення.",
       quick3Label: "Термін придатності?",
       quick3Question: "Який термін придатності препарату?",
-      placeholder: "Запитайте в ШІ-ветеринара будь-що..."
+      placeholder: "Запитайте в ШІ-ветеринара будь-що...",
+      ttsListen: "Прослухати відповідь",
+      ttsStop: "Зупинити голос",
+      ttsSpeaking: "Озвучується..."
+    },
+    a11y: {
+      skipToContent: "Перейти до основного вмісту",
+      openToolbar: "Відкрити панель доступності та комфортного читання",
+      closeToolbar: "Закрити налаштування доступності",
+      title: "Спеціальні можливості та доступність",
+      desc: "Зручні функції для людей з вадами зору, літніх фермерів та людей з інвалідністю.",
+      fontSize: "Розмір шрифту",
+      fontNormal: "Звичайний 100%",
+      fontLarge: "Великий 115%",
+      fontXLarge: "Дуже великий 130%",
+      highContrast: "Високий контраст",
+      highContrastDesc: "Збільшує контраст між текстом і фоном для кращої видимості.",
+      highlightLinks: "Виділити посилання та кнопки",
+      highlightLinksDesc: "Додає чіткі контури до всіх інтерактивних елементів.",
+      readableFont: "Покращена розбірливість та інтервал",
+      readableFontDesc: "Збільшений міжрядковий та міжсимвольний інтервал для комфортного читання.",
+      reduceMotion: "Призупинити анімації",
+      reduceMotionDesc: "Вимикає пульсацію та динамічні рухи на екрані.",
+      speechRead: "🔊 Озвучити короткий зміст (TTS)",
+      speechReading: "🔊 Триває озвучення (натисніть для зупинки)",
+      speechStop: "Зупинити голос",
+      reset: "Скинути налаштування",
+      speechSummary: "Офіційна сторінка вакцини Ротагал від європейського виробника Pharmagal Bio. Одноразова вакцинація тільних корів захищає новонароджених телят від ротавірусної, коронавірусної та кишкової діареї. Сертифіковано EU GMP. Контактний телефон: +82-10-5407-5708."
     }
   }
 };

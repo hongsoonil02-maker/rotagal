@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Shield, Clock, Syringe, Award, MessageCircle, X, Send, ChevronDown, CheckCircle2, AlertCircle, ArrowRight, ExternalLink, FileText } from 'lucide-react';
+import { Shield, Clock, Syringe, Award, MessageCircle, X, Send, ChevronDown, CheckCircle2, AlertCircle, ArrowRight, ExternalLink, FileText, Volume2, VolumeX, Eye } from 'lucide-react';
 import RotagalInfographic from './RotagalInfographic';
 import { translations } from './translations';
 import VaccineCalculator from './components/VaccineCalculator';
 import StickyBottomCTA from './components/StickyBottomCTA';
+import AccessibilityToolbar from './components/AccessibilityToolbar';
 
 const LANGS = ['ko', 'en', 'sk', 'uk'];
 
@@ -13,6 +14,19 @@ const CHAT_API_URL = import.meta.env.VITE_CHAT_API_URL
   || 'https://vetacol.hongsoonil02.workers.dev/api/chat';
 
 const getInitialLang = () => {
+  // 1. URL Query Parameter (?lang=en | ?lang=sk | ?lang=uk | ?lang=ua | ?lang=ko)
+  if (typeof window !== 'undefined') {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const urlLang = (params.get('lang') || '').toLowerCase();
+      if (urlLang === 'ua') return 'uk';
+      if (LANGS.includes(urlLang)) return urlLang;
+    } catch {
+      /* ignore */
+    }
+  }
+
+  // 2. Saved preference in localStorage
   try {
     const saved = localStorage.getItem('rotagal_lang');
     if (saved && translations[saved]) return saved;
@@ -20,28 +34,41 @@ const getInitialLang = () => {
     /* ignore */
   }
 
-  const browserLang = (typeof navigator !== 'undefined' ? (navigator.language || '') : '').toLowerCase();
-  if (browserLang.startsWith('ko')) return 'ko';
-  if (browserLang.startsWith('sk')) return 'sk';
-  if (browserLang.startsWith('uk')) return 'uk';
-  return 'en';
+  // 3. User's browser languages
+  try {
+    const browserLangs = typeof navigator !== 'undefined'
+      ? (navigator.languages || [navigator.language || ''])
+      : [];
+    for (const bLang of browserLangs) {
+      const l = (bLang || '').toLowerCase();
+      if (l.startsWith('ko')) return 'ko';
+      if (l.startsWith('sk')) return 'sk';
+      if (l.startsWith('uk') || l.startsWith('ru')) return 'uk';
+      if (l.startsWith('en')) return 'en';
+    }
+  } catch {
+    /* ignore */
+  }
+
+  return 'ko';
 };
 
 export default function RotagalLanding() {
   const [isCalcOpen, setIsCalcOpen] = useState(false);
 
   const [lang, setLang] = useState(getInitialLang);
-  const t = translations[lang];
+  const t = translations[lang] || translations.ko;
 
   const [formData, setFormData] = useState({ name: '', phone: '', farmSize: '', inquiry: '', region: '' });
   const [submitStatus, setSubmitStatus] = useState({ type: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [chatMessages, setChatMessages] = useState([
-    { role: 'ai', content: translations[getInitialLang()].chatbot.initialMsg }
+    { role: 'ai', content: (translations[getInitialLang()] || translations.ko).chatbot.initialMsg }
   ]);
   const [chatInput, setChatInput] = useState('');
   const [isChatLoading, setIsChatLoading] = useState(false);
+  const [speakingMsgIndex, setSpeakingMsgIndex] = useState(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const primaryDistributor = t.contact.distributors[0];
@@ -176,14 +203,83 @@ export default function RotagalLanding() {
     }
   };
 
+  // Close chat/mobile menu on Escape key and stop speech
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        if (isChatOpen) {
+          setIsChatOpen(false);
+          if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+            window.speechSynthesis.cancel();
+            setSpeakingMsgIndex(null);
+          }
+        }
+        if (isMobileMenuOpen) {
+          setIsMobileMenuOpen(false);
+        }
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isChatOpen, isMobileMenuOpen]);
+
+  // Clean up speech synthesis on unmount
+  useEffect(() => {
+    return () => {
+      if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+      }
+    };
+  }, []);
+
+  const handleSpeakChatMessage = (text, index) => {
+    if (typeof window === 'undefined' || !('speechSynthesis' in window)) return;
+
+    if (speakingMsgIndex === index) {
+      window.speechSynthesis.cancel();
+      setSpeakingMsgIndex(null);
+      return;
+    }
+
+    window.speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(text);
+    const langMap = {
+      ko: 'ko-KR',
+      en: 'en-US',
+      sk: 'sk-SK',
+      uk: 'uk-UA'
+    };
+    utterance.lang = langMap[lang] || 'ko-KR';
+    utterance.rate = 0.95;
+
+    utterance.onend = () => setSpeakingMsgIndex(null);
+    utterance.onerror = () => setSpeakingMsgIndex(null);
+
+    window.speechSynthesis.speak(utterance);
+    setSpeakingMsgIndex(index);
+  };
+
   const handleQuickReply = (question) => {
     setChatInput(question);
   };
 
+  // International phone number formatting
+  const mainPhoneDisplay = lang === 'ko' ? '010-5407-5708' : '+82-10-5407-5708';
+  const mainPhoneTel = '+82-10-5407-5708';
+  const primaryPhoneDisplay = lang === 'ko' ? primaryDistributor.phone : '+82-10-5407-5708';
+
   return (
     <div className="font-sans text-gray-900 bg-gray-50 min-h-screen">
+      {/* Accessibility Skip Link */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-6 focus:py-3 focus:bg-emerald-900 focus:text-amber-300 focus:font-black focus:rounded-2xl focus:shadow-2xl focus:border-2 focus:border-amber-400 focus:outline-none text-base transition-all"
+      >
+        {t.a11y?.skipToContent || '본문 바로가기'}
+      </a>
+
       {/* Navigation */}
-      <nav className="fixed w-full z-50 glass transition-all duration-300">
+      <nav aria-label="Main Navigation" className="fixed w-full z-50 glass transition-all duration-300">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16 sm:h-20">
             <a href="#" className="flex items-center gap-3 sm:gap-5 md:gap-6 lg:gap-8 xl:gap-10 group py-1">
@@ -257,6 +353,9 @@ export default function RotagalLanding() {
         )}
       </nav>
 
+      {/* Main Landmark for Accessibility */}
+      <main id="main-content" tabIndex="-1" className="outline-none">
+
       {/* Hero Section */}
       <section className="pt-20 sm:pt-28 pb-10 sm:pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-emerald-50 via-white to-green-50 overflow-hidden relative">
         <div className="absolute top-0 right-0 -mt-20 -mr-20 w-96 h-96 bg-emerald-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse"></div>
@@ -270,8 +369,8 @@ export default function RotagalLanding() {
               <a href="#inquiry" className="inline-flex items-center justify-center rounded-full bg-emerald-700 px-4 py-2 text-xs font-black text-white shadow-sm">
                 {t.hero.mobileQuickPrimary}
               </a>
-              <a href={`tel:${primaryDistributor.phone}`} className="inline-flex items-center justify-center rounded-full border border-emerald-300 bg-emerald-50 px-4 py-2 text-xs font-black text-emerald-900 shadow-sm">
-                {t.hero.mobileQuickSecondary}
+              <a href={`tel:${mainPhoneTel}`} className="inline-flex items-center justify-center rounded-full border border-emerald-300 bg-emerald-50 px-4 py-2 text-xs font-black text-emerald-900 shadow-sm">
+                {t.hero.mobileQuickSecondary} ({primaryPhoneDisplay})
               </a>
             </div>
           </div>
@@ -284,7 +383,7 @@ export default function RotagalLanding() {
                   <div className="text-xs sm:text-sm font-black text-[#FFDF00] uppercase tracking-widest leading-none mb-1.5 flex items-center gap-1.5">
                     <span>{t.hero.bannerTitle}</span>
                   </div>
-                  <div className="text-base sm:text-xl font-black tracking-wide text-white break-keep">
+                  <div className="text-base sm:text-xl font-black tracking-wide text-white break-keep text-balance">
                     {t.hero.bannerDesc}
                   </div>
                 </div>
@@ -294,11 +393,12 @@ export default function RotagalLanding() {
               </div>
             </div>
           </div>
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black text-gray-950 mb-6 leading-tight tracking-tight break-keep">
-            {t.hero.title1}<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-teal-600 to-green-600">
+          <h1 className="text-3xl sm:text-5xl lg:text-7xl font-black text-gray-950 mb-6 leading-tight tracking-tight break-keep text-balance">
+            <span className="inline-block">{t.hero.title1}</span><br className="hidden sm:inline" />{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-teal-600 to-green-600 inline-block">
               {t.hero.title2}
-            </span> {t.hero.title3 && <span className="text-3xl sm:text-5xl lg:text-6xl text-gray-900">{t.hero.title3}</span>}
+            </span>{' '}
+            {t.hero.title3 && <span className="text-2xl sm:text-4xl lg:text-6xl text-gray-900 inline-block">{t.hero.title3}</span>}
           </h1>
           {/* Rotagal Logo showcase to reinforce brand identity */}
           <div className="flex justify-center items-center gap-4 sm:gap-6 mb-8">
@@ -306,7 +406,7 @@ export default function RotagalLanding() {
             <span className="text-sm sm:text-base font-medium text-gray-700 shrink-0">|</span>
             <img src="./eu_gmp_logo.svg" alt="EU GMP 인증 로고" className="h-8 sm:h-16 w-auto max-w-[40%] object-contain" />
           </div>
-          <p className="text-xl sm:text-2xl font-bold text-gray-800 mb-10 max-w-5xl mx-auto leading-relaxed break-keep">
+          <p className="text-lg sm:text-2xl font-bold text-gray-800 mb-8 sm:mb-10 max-w-5xl mx-auto leading-relaxed break-keep text-pretty">
             {t.hero.subtitle}
           </p>
           <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4">
@@ -712,8 +812,8 @@ export default function RotagalLanding() {
               </div>
               <h3 className="text-2xl sm:text-3xl font-black mb-4 break-keep">{t.inquiry.advTitle1}<br /><span className="text-emerald-300">{t.inquiry.advTitle2}</span></h3>
               <p className="text-emerald-100 mb-8 opacity-100 font-bold text-lg sm:text-xl break-keep">{t.inquiry.advDesc}</p>
-              <a href="tel:010-5407-5708" className="inline-block bg-white text-emerald-950 text-2xl sm:text-3xl font-black py-4 px-10 rounded-full shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] transition-all transform hover:-translate-y-1">
-                010-5407-5708
+              <a href={`tel:${mainPhoneTel}`} className="inline-block bg-white text-emerald-950 text-2xl sm:text-3xl font-black py-4 px-10 rounded-full shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] transition-all transform hover:-translate-y-1">
+                {mainPhoneDisplay}
               </a>
               <p className="mt-4 text-base font-bold text-emerald-200">{t.inquiry.advTouch}</p>
             </div>
@@ -794,9 +894,10 @@ export default function RotagalLanding() {
           </div>
         </div>
       </section>
+      </main>
 
       {/* Premium Harmonious Footer */}
-      <footer className="bg-gradient-to-b from-emerald-950 via-[#061812] to-[#030d0a] text-emerald-100 pt-14 pb-28 sm:pb-14 px-4 sm:px-6 lg:px-8 border-t-4 border-emerald-600 shadow-2xl relative z-10">
+      <footer role="contentinfo" className="bg-gradient-to-b from-emerald-950 via-[#061812] to-[#030d0a] text-emerald-100 pt-14 pb-28 sm:pb-14 px-4 sm:px-6 lg:px-8 border-t-4 border-emerald-600 shadow-2xl relative z-10">
         <div className="max-w-6xl mx-auto">
           {/* Top Row: Brand & Tagline */}
           <div className="flex flex-col sm:flex-row items-center justify-between pb-8 border-b border-emerald-800/80 gap-6">
@@ -828,7 +929,7 @@ export default function RotagalLanding() {
                 <span>{t.footer.col1Title}</span>
               </div>
               <p><strong className="text-emerald-300">{t.footer.address.split(':')[0]}:</strong> {t.footer.address.split(':')[1] || t.footer.address}</p>
-              <p><strong className="text-emerald-300">TEL:</strong> 02-6949-5706 | <strong className="text-emerald-300">Mobile:</strong> 010-5407-5708</p>
+              <p><strong className="text-emerald-300">TEL:</strong> {lang === 'ko' ? '02-6949-5706' : '+82-2-6949-5706'} | <strong className="text-emerald-300">Mobile:</strong> {mainPhoneDisplay}</p>
               <p><strong className="text-emerald-300">Email:</strong> info@agrokorea.kr | <strong className="text-emerald-300">Web:</strong> <a href="http://www.agrokorea.kr" target="_blank" rel="noopener noreferrer" className="underline hover:text-white">www.agrokorea.kr</a></p>
               <p className="text-emerald-400 font-bold pt-1">{t.footer.col1Sub}</p>
             </div>
@@ -845,8 +946,16 @@ export default function RotagalLanding() {
             </div>
           </div>
 
+          {/* Cultural Partnership & Global Respect Note */}
+          <div className="mt-2 p-3.5 bg-emerald-900/40 rounded-2xl border border-emerald-700/60 text-center text-xs font-semibold text-emerald-200/95 break-keep leading-relaxed">
+            {lang === 'sk' && "🇸🇰 S úctou vyrobené v Košiciach na Slovensku spoločnosťou Pharmagal Bio s.r.o. a dodávané pre zdravie a prosperitu hospodárskych zvierat."}
+            {lang === 'uk' && "🇺🇦 Європейська якість Pharmagal Bio для підтримки фермерів та захисту здоров'я молодняку худоби."}
+            {lang === 'en' && "🌍 European Veterinary Bio-Technology by Pharmagal Bio s.r.o. (Košice, Slovakia) · Official Korean Import & Global Standard."}
+            {lang === 'ko' && "🌿 유럽 슬로바키아 명문 수의생물학 제조원 파마갈 바이오(Pharmagal Bio) 직수입 · EU GMP 공식 인증 백신"}
+          </div>
+
           {/* Bottom Banner Box */}
-          <div className="mt-2 pt-6 border-t border-emerald-800/80">
+          <div className="mt-6 pt-6 border-t border-emerald-800/80">
             <div className="bg-gradient-to-r from-emerald-900 via-[#063827] to-emerald-900 border-2 border-[#FFD700] rounded-2xl p-6 shadow-[0_0_30px_rgba(255,215,0,0.2)] flex flex-col sm:flex-row items-center justify-between gap-6 relative">
               <div className="absolute inset-0 overflow-hidden rounded-2xl pointer-events-none">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-[#FFD700]/10 rounded-full blur-2xl"></div>
@@ -896,7 +1005,11 @@ export default function RotagalLanding() {
       {/* AI Chatbot Floating Action Button & Window */}
       <div className="fixed bottom-20 right-3 sm:right-6 z-50 flex flex-col items-end">
         {isChatOpen ? (
-          <div className="bg-white w-[350px] max-w-[calc(100vw-1.5rem)] sm:max-w-[400px] sm:w-[400px] h-[60vh] sm:h-[550px] rounded-3xl shadow-2xl border border-gray-200 flex flex-col overflow-hidden transform transition-all duration-300 origin-bottom-right mb-4">
+          <div
+            role="dialog"
+            aria-label={t.chatbot.headerTitle}
+            className="bg-white w-[350px] max-w-[calc(100vw-1.5rem)] sm:max-w-[400px] sm:w-[400px] h-[60vh] sm:h-[550px] rounded-3xl shadow-2xl border border-gray-200 flex flex-col overflow-hidden transform transition-all duration-300 origin-bottom-right mb-4"
+          >
             <div className="bg-emerald-700 p-4 flex justify-between items-center text-white">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
@@ -914,12 +1027,30 @@ export default function RotagalLanding() {
 
             <div className="flex-1 p-4 overflow-y-auto bg-gray-50 flex flex-col gap-4" aria-live="polite">
               {chatMessages.map((msg, i) => (
-                <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                  <div className={`max-w-[85%] p-3 rounded-2xl text-sm leading-relaxed break-keep ${msg.role === 'user'
-                    ? 'bg-emerald-600 text-white rounded-tr-sm'
-                    : 'bg-white border border-gray-200 text-gray-800 rounded-tl-sm shadow-sm'
+                <div key={i} className={`flex flex-col ${msg.role === 'user' ? 'items-end' : 'items-start'}`}>
+                  <div className="flex items-center gap-1.5 max-w-[92%]">
+                    <div className={`p-3 rounded-2xl text-sm leading-relaxed break-keep ${
+                      msg.role === 'user'
+                        ? 'bg-emerald-600 text-white rounded-tr-sm shadow-sm'
+                        : 'bg-white border border-gray-200 text-gray-800 rounded-tl-sm shadow-sm'
                     }`}>
-                    {msg.content}
+                      {msg.content}
+                    </div>
+                    {msg.role === 'ai' && typeof window !== 'undefined' && 'speechSynthesis' in window && (
+                      <button
+                        type="button"
+                        onClick={() => handleSpeakChatMessage(msg.content, i)}
+                        title={speakingMsgIndex === i ? (t.chatbot?.ttsStop || '음성 멈춤') : (t.chatbot?.ttsListen || '답변 음성 듣기')}
+                        aria-label={speakingMsgIndex === i ? (t.chatbot?.ttsStop || '음성 멈춤') : (t.chatbot?.ttsListen || '답변 음성 듣기')}
+                        className={`p-2 rounded-full transition-all shrink-0 focus:outline-none focus:ring-2 focus:ring-emerald-500 ${
+                          speakingMsgIndex === i
+                            ? 'bg-amber-400 text-gray-950 animate-pulse shadow-sm'
+                            : 'text-gray-400 hover:text-emerald-700 hover:bg-emerald-50'
+                        }`}
+                      >
+                        {speakingMsgIndex === i ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
+                      </button>
+                    )}
                   </div>
                 </div>
               ))}
@@ -957,9 +1088,12 @@ export default function RotagalLanding() {
         )}
       </div>
 
+      {/* Accessibility Toolbar (Floating widget on bottom left) */}
+      <AccessibilityToolbar lang={lang} t={t} />
+
       {/* 모바일/데스크톱 공통 스티키 바 및 계산기 모달 */}
       <StickyBottomCTA onOpenCalc={() => setIsCalcOpen(true)} t={t} />
-      <VaccineCalculator isOpen={isCalcOpen} onClose={() => setIsCalcOpen(false)} t={t} />
+      <VaccineCalculator isOpen={isCalcOpen} onClose={() => setIsCalcOpen(false)} t={t} lang={lang} />
     </div>
   );
 }

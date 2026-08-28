@@ -21,8 +21,109 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     word-break: keep-all;
     overflow-wrap: break-word;
+    text-wrap: pretty;
+    -webkit-font-smoothing: antialiased;
   }
+  h1, h2, h3, h4, h5, h6 {
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    text-wrap: balance;
+  }
+}
+
+/* Accessibility (A11y) Modes */
+/* 1. Font Size Scaling */
+html.a11y-font-lg {
+  font-size: 115% !important;
+}
+html.a11y-font-xl {
+  font-size: 130% !important;
+}
+
+/* 2. High Contrast Mode (WCAG AAA Compliance) */
+html.a11y-high-contrast {
+  filter: contrast(140%) !important;
+}
+html.a11y-high-contrast body {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+html.a11y-high-contrast section,
+html.a11y-high-contrast nav,
+html.a11y-high-contrast footer,
+html.a11y-high-contrast div:not(.keep-bg) {
+  background-color: #0b0f0e !important;
+  border-color: #ffd700 !important;
+  color: #ffffff !important;
+}
+html.a11y-high-contrast h1,
+html.a11y-high-contrast h2,
+html.a11y-high-contrast h3,
+html.a11y-high-contrast h4 {
+  color: #ffd700 !important;
+  text-shadow: none !important;
+}
+html.a11y-high-contrast p,
+html.a11y-high-contrast span,
+html.a11y-high-contrast label,
+html.a11y-high-contrast td,
+html.a11y-high-contrast th {
+  color: #ffffff !important;
+}
+html.a11y-high-contrast a,
+html.a11y-high-contrast button {
+  border-color: #ffd700 !important;
+}
+html.a11y-high-contrast .bg-emerald-700,
+html.a11y-high-contrast .bg-emerald-600 {
+  background-color: #044b36 !important;
+  color: #ffd700 !important;
+  border: 2px solid #ffd700 !important;
+}
+
+/* 3. Link and Button Highlighting */
+html.a11y-highlight-links a,
+html.a11y-highlight-links button,
+html.a11y-highlight-links [role="button"] {
+  outline: 3px solid #eab308 !important;
+  outline-offset: 2px !important;
+  text-decoration: underline !important;
+  text-decoration-thickness: 2px !important;
+}
+
+/* 4. Readable Font & Spacing */
+html.a11y-readable-font body,
+html.a11y-readable-font * {
+  letter-spacing: 0.04em !important;
+  word-spacing: 0.1em !important;
+  line-height: 1.85 !important;
+}
+
+/* 5. Reduced Motion */
+html.a11y-reduce-motion *,
+html.a11y-reduce-motion *::before,
+html.a11y-reduce-motion *::after {
+  animation-duration: 0.001s !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001s !important;
+  scroll-behavior: auto !important;
+}
+
+/* Korean typography helper classes */
+.keep-all {
+  word-break: keep-all;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.text-pretty {
+  text-wrap: pretty;
 }

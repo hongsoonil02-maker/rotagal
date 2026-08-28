@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-export default function VaccineCalculator({ isOpen, onClose, t }) {
+export default function VaccineCalculator({ isOpen, onClose, t, lang = 'ko' }) {
   const [dueDate, setDueDate] = useState('');
   const [result, setResult] = useState(null);
 
@@ -30,6 +30,22 @@ export default function VaccineCalculator({ isOpen, onClose, t }) {
 
   if (!isOpen) return null;
 
+  const formatLocalizedDate = (d) => {
+    try {
+      const localeMap = { ko: 'ko-KR', en: 'en-US', sk: 'sk-SK', uk: 'uk-UA' };
+      return new Intl.DateTimeFormat(localeMap[lang] || 'ko-KR', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric'
+      }).format(d);
+    } catch {
+      const yyyy = d.getFullYear();
+      const mm = String(d.getMonth() + 1).padStart(2, '0');
+      const dd = String(d.getDate()).padStart(2, '0');
+      return `${yyyy}-${mm}-${dd}`;
+    }
+  };
+
   const handleCalculate = (e) => {
     e.preventDefault();
     if (!dueDate) return;
@@ -42,17 +58,10 @@ export default function VaccineCalculator({ isOpen, onClose, t }) {
     const endWindow = new Date(due);
     endWindow.setDate(due.getDate() - 21);
 
-    const formatDate = (d) => {
-      const yyyy = d.getFullYear();
-      const mm = String(d.getMonth() + 1).padStart(2, '0');
-      const dd = String(d.getDate()).padStart(2, '0');
-      return `${yyyy}-${mm}-${dd}`;
-    };
-
     setResult({
-      start: formatDate(startWindow),
-      end: formatDate(endWindow),
-      dueStr: formatDate(due)
+      start: formatLocalizedDate(startWindow),
+      end: formatLocalizedDate(endWindow),
+      dueStr: formatLocalizedDate(due)
     });
   };
 
