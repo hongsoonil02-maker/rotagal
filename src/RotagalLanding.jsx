@@ -411,18 +411,6 @@ export default function RotagalLanding() {
         <div className="absolute top-0 left-0 mt-20 -ml-20 w-72 h-72 bg-green-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse" style={{ animationDelay: '2s' }}></div>
 
         <div className="max-w-6xl mx-auto text-center relative z-10 pt-4 lg:pt-8">
-          <div className="sm:hidden mb-5 rounded-2xl border border-emerald-200 bg-white/95 shadow-md px-4 py-3 text-left">
-            <div className="text-[11px] font-black text-emerald-700 uppercase tracking-wider mb-1.5">{t.hero.mobileQuickLabel}</div>
-            <div className="text-sm font-black text-gray-950 break-keep">{t.hero.mobileQuickTitle}</div>
-            <div className="mt-2 flex flex-wrap gap-2">
-              <a href="#inquiry" className="inline-flex items-center justify-center rounded-full bg-emerald-700 px-4 py-2 text-xs font-black text-white shadow-sm">
-                {t.hero.mobileQuickPrimary}
-              </a>
-              <a href={`tel:${mainPhoneTel}`} className="inline-flex items-center justify-center rounded-full border border-emerald-300 bg-emerald-50 px-4 py-2 text-xs font-black text-emerald-900 shadow-sm">
-                {t.hero.mobileQuickSecondary} ({primaryPhoneDisplay})
-              </a>
-            </div>
-          </div>
 
           <div className="flex justify-center items-center mb-8">
             <div className="bg-gradient-to-r from-emerald-900 via-[#064e3b] to-emerald-900 text-white px-4 py-4 sm:px-8 sm:py-5 rounded-3xl border-2 border-[#FFD700] shadow-[0_0_30px_rgba(255,215,0,0.35)] flex flex-wrap md:flex-nowrap items-center justify-between gap-4 sm:gap-6 transform hover:scale-[1.01] transition-all w-full">
