@@ -10,6 +10,7 @@ export const translations = {
     nav: {
       infographic: "핵심기술",
       features: "제품특징",
+      faq: "자주묻는질문",
       reviews: "사용후기",
       contact: "총판안내",
       inquiry: "상담신청"
@@ -18,6 +19,7 @@ export const translations = {
       title: "로타갈(ROTAGAL) 명품 백신",
       sub: "유럽 기준 어미소 1회 접종으로 송아지 설사병 3종 예방",
       calcBtn: "📅 접종적기 계산기",
+      formBtn: "📋 상담신청",
       consultBtn: "📞 1회 19,800원 문의"
     },
     vaccineCalc: {
@@ -31,7 +33,8 @@ export const translations = {
       euRange: "유럽 보비젠(Bovigen Scour) 가이드라인 허용 범위: 분만전 3~12주",
       approvalNote: "※ 국내 허가 기준: 첫 접종(초임우)은 분만 6~5주 전 1차, 분만 3~2주 전 2차 접종 / 재접종은 분만 6~3주 전 1회 접종입니다. 정확한 농가별 일정은 고문수의사와 상담해 주세요.",
       notice: "* 어미소 접종 시 초유를 통해 항체가 형성되어 송아지 로타·코로나·대장균 설사를 예방합니다.",
-      close: "계산기 닫기"
+      close: "계산기 닫기",
+      inquiryBtn: "이 일정으로 백신 상담 접수"
     },
 
     hero: {
@@ -212,6 +215,33 @@ export const translations = {
       item4Title: "유럽 기준 편리한 원샷\u00A0접종",
       item4Desc: "유럽 보비젠(Bovigen) 가이드라인 기준 분만 전 3주~12주 사이 임신우에 1회 접종하는 방식으로, 다회 접종 대비 관리가 간편합니다."
     },
+    faq: {
+      badge: "축산 농가 궁금증 완벽 해결",
+      title: "자주 묻는 질문 (FAQ)",
+      subtitle: "로타갈 백신 접종 방법, 가격, 효능에 대해 농가에서 가장 많이 물어보시는 질문들입니다.",
+      items: [
+        {
+          q: "어미소(임신우)에게 왜 분만 전에 접종하나요?",
+          a: "갓 태어난 송아지는 면역계가 미숙하여 스스로 항체를 만들지 못합니다. 분만 전 어미 소에게 로타갈을 접종하면 어미 체내에서 강력한 IgG 항체가 생성되어 초유로 고농축 전달됩니다. 송아지가 태어나서 이 초유를 먹음으로써 즉각적이고 강력한 장관 방어벽이 형성되어 설사병과 폐사를 원천 차단합니다."
+        },
+        {
+          q: "유럽 원샷(1회) 접종과 국내 허가 기준의 차이는 무엇인가요?",
+          a: "유럽 보비젠(Bovigen Scour) 가이드라인은 분만 전 3주~12주 사이 임신우에게 1회(3mL) 원샷 접종을 권장하여 농가의 노동력을 혁신적으로 줄입니다. 국내 허가 기준은 첫 접종(초임우) 시 분만 6~5주 전 1차, 3~2주 전 2차이며 경산우 재접종은 분만 6~3주 전 1회 접종입니다. 농장 상황별 최적 접종 일정은 본사 고문수의사나 지역 총판과 상담해 주시기 바랍니다."
+        },
+        {
+          q: "1회 접종 비용(19,800원)의 경제적 이점은 어느 정도인가요?",
+          a: "기존 타사 백신은 2회 접종으로 두당 3만 원 이상의 비용과 2배의 보정 인건비가 소요됩니다. 로타갈은 1회 19,800원으로 두당 1만 원 이상의 약값 절감 효과가 있으며, 100두 규모 농가 기준 연간 100만 원 이상의 직간접 비용을 절감할 수 있습니다."
+        },
+        {
+          q: "국내 발생 82%를 차지하는 G6P5 혈청형에도 효과가 있나요?",
+          a: "네, 로타갈은 국내 분리 우세 균주를 기반으로 경상국립대학교 수의과대학에서 임상시험을 완료하여 안전성과 방어효과가 입증되었습니다. 또한 프랑스 SEPPIC사의 프리미엄 특수 부형제(Montanide ISA 206)를 사용하여 체내 고역가 항체를 오랜 기간 안정적으로 유지시킵니다."
+        },
+        {
+          q: "제품 주문과 배송은 어떻게 진행되나요?",
+          a: "전국 각 도별 전담 총판을 통해 2~8℃ 정온 콜드체인 시스템으로 신속하게 배송됩니다. 웹사이트 하단의 상담 신청 폼을 작성하시거나 가까운 도별 총판 또는 본사(010-5407-5708)로 전화 주시면 즉시 연결해 드립니다."
+        }
+      ]
+    },
     reviews: {
       title: "전국 농장 상담 현장의\u00A0반응 예시",
       subtitle: "상담 현장에서 들을 수 있는 대표적인 반응을 정리한 예시입니다",
@@ -359,6 +389,7 @@ export const translations = {
     nav: {
       infographic: "Technology",
       features: "Features",
+      faq: "FAQ",
       reviews: "Reviews",
       contact: "Distributors",
       inquiry: "Inquire"
@@ -367,6 +398,7 @@ export const translations = {
       title: "ROTAGAL Premium Vaccine",
       sub: "EU-standard 1-shot dam vaccination to prevent 3-in-1 calf diarrhea",
       calcBtn: "📅 Vaccine Timing Calculator",
+      formBtn: "📋 Inquire",
       consultBtn: "📞 Price & Order Inquiry"
     },
     vaccineCalc: {
@@ -380,7 +412,8 @@ export const translations = {
       euRange: "European Bovigen Scour guideline allowed range: 3~12 weeks before calving",
       approvalNote: "※ Korean approved schedule: First vaccination (primiparous) - 1st dose 6~5 weeks, 2nd dose 3~2 weeks before calving / Revaccination - single dose 6~3 weeks before calving. For an exact farm-specific schedule, please consult your veterinarian.",
       notice: "* Dam vaccination transfers maternal antibodies via colostrum to help prevent Rota, Corona, and E. coli diarrhea in calves.",
-      close: "Close calculator"
+      close: "Close calculator",
+      inquiryBtn: "Consult with This Vaccination Schedule"
     },
     hero: {
       badge: "Official European Import · 3-in-1 Calf Diarrhea Vaccine",
@@ -561,6 +594,33 @@ export const translations = {
       item4Title: "Convenient EU-Standard One-Shot Vaccination",
       item4Desc: "A single dose given 3 to 12 weeks before calving per the European Bovigen guideline makes vaccination management easier than multi-dose schedules."
     },
+    faq: {
+      badge: "Cattle Farmer Q&A",
+      title: "Frequently Asked Questions (FAQ)",
+      subtitle: "Essential questions and answers regarding Rotagal vaccination methods, pricing, and efficacy.",
+      items: [
+        {
+          q: "Why vaccinate the dam before calving instead of the calf directly?",
+          a: "Newborn calves are born with an immature immune system and cannot produce antibodies immediately. Vaccinating pregnant dams transfers high concentrations of protective IgG antibodies directly through maternal colostrum, establishing immediate intestinal defense from the first suckling."
+        },
+        {
+          q: "What is the difference between EU 1-shot protocol and Korean approval schedule?",
+          a: "The EU Bovigen Scour guideline recommends a single 3mL one-shot vaccination between 3 to 12 weeks before calving to minimize labor. The Korean approved schedule advises primiparous heifers receive 2 doses (6~5 weeks and 3~2 weeks before calving) and multiparous cows receive 1 dose (6~3 weeks before calving). Consult your veterinarian for tailored on-farm scheduling."
+        },
+        {
+          q: "What is the cost saving compared to conventional vaccines?",
+          a: "Conventional two-dose vaccines often cost over 30,000 KRW per head plus double restraint labor. Rotagal costs 19,800 KRW per dose, saving over 10,000 KRW per head in medicine expenses alone."
+        },
+        {
+          q: "Does it effectively protect against the G6P5 serotype?",
+          a: "Yes, Rotagal was clinically proven against domestic field strains in trials conducted with Gyeongsang National University College of Veterinary Medicine, and incorporates SEPPIC France Montanide ISA 206 adjuvant for long-lasting high titers."
+        },
+        {
+          q: "How are products ordered and shipped?",
+          a: "Orders are promptly dispatched through our nationwide authorized distributors under strict 2~8°C cold-chain maintenance. Fill out our online form or call directly for immediate delivery arrangements."
+        }
+      ]
+    },
     reviews: {
       title: "Farmer Feedback Examples from Farm Consultations",
       subtitle: "Representative example responses commonly heard during farm consultations",
@@ -708,6 +768,7 @@ export const translations = {
     nav: {
       infographic: "Infografika",
       features: "Vlastnosti",
+      faq: "Časté otázky",
       reviews: "Recenzie",
       contact: "Distribútori",
       inquiry: "Kontaktovať"
@@ -716,6 +777,7 @@ export const translations = {
       title: "ROTAGAL prémiová vakcína",
       sub: "Jednorazové očkovanie matky podľa európskych štandardov · prevencia hnačky teliat 3-v-1",
       calcBtn: "📅 Kalkulačka času očkovania",
+      formBtn: "📋 Kontaktovať",
       consultBtn: "📞 Konzultácia"
     },
     vaccineCalc: {
@@ -729,7 +791,8 @@ export const translations = {
       euRange: "Povolené rozmedzie podľa európskych smerníc (Bovigen Scour): 3~12 týždňov pred otelením",
       approvalNote: "※ Schválený harmonogram v Kórei: Prvá vakcinácia (prvorodičky) - 1. dávka 6~5 týždňov, 2. dávka 3~2 týždne pred otelením / Revakcinácia - jedna dávka 6~3 týždne pred otelením. Presný harmonogram konzultujte so svojím veterinárom.",
       notice: "* Vakcinácia matky vytvára protilátky v kolostre, ktoré pomáhajú predchádzať hnačke teliat spôsobenej rotavírusom, koronavírusom a E. coli.",
-      close: "Zavrieť kalkulačku"
+      close: "Zavrieť kalkulačku",
+      inquiryBtn: "Konzultovať tento harmonogram"
     },
     hero: {
       badge: "Oficiálny európsky import · 3-kombinovaná vakcína proti hnačke teliat",
@@ -910,6 +973,33 @@ export const translations = {
       item4Title: "Pohodlné jednorazové očkovanie",
       item4Desc: "Podľa európskych štandardných odporúčaní sa podáva jedna 3 ml dávka teľným kravám medzi 3. a 12. týždňom pred otelením. Odstránenie zložitého viacdávkového očkovania výrazne znižuje prácu a náklady."
     },
+    faq: {
+      badge: "Otázky a odpovede pre chovateľov",
+      title: "Často kladené otázky (FAQ)",
+      subtitle: "Dôležité informácie o spôsobe očkovania, cene a účinnosti vakcíny Rotagal.",
+      items: [
+        {
+          q: "Prečo očkovať matku pred otelením a nie priamo narodené teľa?",
+          a: "Novonarodené teľatá majú nezrelý imunitný systém a nedokážu si okamžite vytvoriť vlastné protilátky. Očkovanie teľných kráv pred otelením prenáša vysoké koncentrácie IgG protilátok priamo cez materské kolostrum, čím sa zabezpečí okamžitá ochrana črevného traktu."
+        },
+        {
+          q: "Aký je rozdiel medzi európskym jednorazovým očkovaním a kórejským harmonogramom?",
+          a: "Európske smernice Bovigen Scour odporúčajú jednorazové podanie (3 ml) v období 3 až 12 týždňov pred otelením pre maximálnu úsporu práce. Kórejský schválený harmonogram odporúča u prvorodičiek 2 dávky (6~5 týždňov a 3~2 týždne pred otelením) a u viacrodičiek 1 dávku (6~3 týždne pred otelením)."
+        },
+        {
+          q: "Aká je ekonomická úspora oproti bežným vakcínam?",
+          a: "Bežné dvojdávkové vakcíny stoja viac ako 30 000 KRW na kus a vyžadujú dvojnásobnú fixáciu zvierat. Rotagal pri cene 19 800 KRW prináša priamu úsporu na liekoch viac ako 10 000 KRW na dobytča."
+        },
+        {
+          q: "Chráni účinne aj proti sérotypu G6P5?",
+          a: "Áno, účinnosť a bezpečnosť proti kmeňom cirkulujúcim na farmách bola klinicky potvrdená a vakcína využíva špeciálny adjuvant Montanide ISA 206 francúzskej spoločnosti SEPPIC na dlhodobé udržanie vysokých titrov."
+        },
+        {
+          q: "Ako prebieha objednávka a doručenie?",
+          a: "Dodávky zabezpečujú naši regionálni distribútori v nepretržitom chladiacom reťazci 2~8°C. Vyplňte formulár na webe alebo kontaktujte priamo distribútora."
+        }
+      ]
+    },
     reviews: {
       title: "Príkladové skúsenosti chovateľov dobytka",
       subtitle: "Príkladové reakcie bežne ozývajúce sa pri konzultáciách na farmách",
@@ -1057,6 +1147,7 @@ export const translations = {
     nav: {
       infographic: "Інфографіка",
       features: "Переваги",
+      faq: "Часті запитання",
       reviews: "Відгуки",
       contact: "Дистриб'ютори",
       inquiry: "Консультація"
@@ -1065,6 +1156,7 @@ export const translations = {
       title: "РОТАГАЛ — преміальна вакцина",
       sub: "Одноразова вакцинація матері за європейськими стандартами · профілактика діареї телят 3-в-1",
       calcBtn: "📅 Калькулятор часу вакцинації",
+      formBtn: "📋 Консультація",
       consultBtn: "📞 Консультація"
     },
     vaccineCalc: {
@@ -1078,7 +1170,8 @@ export const translations = {
       euRange: "Дозволений діапазон за європейськими рекомендаціями (Bovigen Scour): за 3–12 тижнів до отелення",
       approvalNote: "※ Схема, затверджена в Кореї: Первинна вакцинація (первістки) - 1-ша доза за 6–5 тижнів, 2-га доза за 3–2 тижні до отелення / Ревакцинація - одноразово за 6–3 тижні до отелення. Точну схему для вашого господарства уточнюйте з ветеринаром.",
       notice: "* Вакцинація матері формує антитіла в молозиві, які допомагають запобігати діареї телят, спричиненій ротавірусом, коронавірусом та E. coli.",
-      close: "Закрити калькулятор"
+      close: "Закрити калькулятор",
+      inquiryBtn: "Консультація за цим графіком"
     },
     hero: {
       badge: "Офіційний європейський імпорт · 3-в-1 комбінована вакцина проти діареї телят",
@@ -1258,6 +1351,33 @@ export const translations = {
       item3Desc: "Термін придатності 24 місяці від дати виготовлення (36 місяців за стандартами ЄС) значно спрощує зберігання та облік ветеринарних препаратів на господарстві.",
       item4Title: "Зручна схема застосування (1 ін'єкція)",
       item4Desc: "Відповідно до європейських стандартів, вводиться всього 1 доза (3 мл) тільним коровам за 3–12 тижнів до отелення. Відмова від складних багатократних щеплень заощаджує час, працю та кошти фермера."
+    },
+    faq: {
+      badge: "Відповіді на запитання фермерів",
+      title: "Часті запитання (FAQ)",
+      subtitle: "Основна інформація щодо застосування, вартості та переваг вакцини Ротагал.",
+      items: [
+        {
+          q: "Чому вакцинують матір перед отеленням, а не новонароджене теля?",
+          a: "Новонароджені телята мають несформовану імунну систему та не здатні самостійно виробляти антитіла. Вакцинація тільних корів перед отеленням передає високу концентрацію захисних IgG-антитіл через перше молозиво, забезпечуючи миттєвий захист травного тракту."
+        },
+        {
+          q: "У чому різниця між європейською 1-дозовою схемою та корейськими стандартами?",
+          a: "Європейські рекомендації Bovigen Scour передбачають введення 1 дози (3 мл) за 3–12 тижнів до отелення для економії праці фермера. Корейська схема рекомендує первісткам 2 дози (за 6–5 та за 3–2 тижні до отелення), а повновіковим коровам — 1 дозу (за 6–3 тижні)."
+        },
+        {
+          q: "Яка фінансова вигода порівняно зі звичайними вакцинами?",
+          a: "Звичайні 2-дозові вакцини коштують понад 30 000 вон на голову плюс подвійні витрати праці на фіксацію тварини. Ротагал за ціною 19 800 вон заощаджує понад 10 000 вон на кожній тільній корові."
+        },
+        {
+          q: "Чи ефективна вакцина проти поширеного серотипу G6P5?",
+          a: "Так, ефективність проти циркулюючих польових штамів клінічно доведена, а французький ад'ювант Montanide ISA 206 компанії SEPPIC підтримує високий титр антитіл протягом тривалого періоду."
+        },
+        {
+          q: "Як замовити препарат та організувати доставку?",
+          a: "Постачання здійснюється регіональними представниками за суворого дотримання холодового ланцюга 2~8°C. Заповніть онлайн-форму або зателефонуйте для швидкого зв'язку."
+        }
+      ]
     },
     reviews: {
       title: "Приклади відгуків фермерів із консультацій",

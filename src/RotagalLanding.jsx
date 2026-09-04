@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Shield, Clock, Syringe, Award, MessageCircle, X, Send, ChevronDown, CheckCircle2, AlertCircle, ArrowRight, ExternalLink, FileText, Volume2, VolumeX, Eye } from 'lucide-react';
+import { Shield, Clock, Syringe, Award, MessageCircle, X, Send, ChevronDown, CheckCircle2, AlertCircle, ArrowRight, ExternalLink, FileText, Volume2, VolumeX, Eye, HelpCircle } from 'lucide-react';
 import RotagalInfographic from './RotagalInfographic';
 import { translations } from './translations';
 import VaccineCalculator from './components/VaccineCalculator';
@@ -55,6 +55,7 @@ const getInitialLang = () => {
 
 export default function RotagalLanding() {
   const [isCalcOpen, setIsCalcOpen] = useState(false);
+  const [openFaqIndex, setOpenFaqIndex] = useState(0);
 
   const [lang, setLang] = useState(getInitialLang);
   const t = translations[lang] || translations.ko;
@@ -310,6 +311,7 @@ export default function RotagalLanding() {
               <div className="flex items-center gap-3.5 xl:gap-5 text-sm font-bold text-gray-700">
                 <a href="#infographic" className="hover:text-emerald-700 transition-colors whitespace-nowrap">{t.nav.infographic}</a>
                 <a href="#features" className="hover:text-emerald-700 transition-colors whitespace-nowrap">{t.nav.features}</a>
+                <a href="#faq" className="hover:text-emerald-700 transition-colors whitespace-nowrap">{t.nav.faq || (lang === 'ko' ? 'FAQ' : 'FAQ')}</a>
                 <a href="#reviews" className="hover:text-emerald-700 transition-colors whitespace-nowrap">{t.nav.reviews}</a>
                 <a href="#contact" className="hover:text-emerald-700 transition-colors whitespace-nowrap">{t.nav.contact}</a>
               </div>
@@ -371,6 +373,7 @@ export default function RotagalLanding() {
             <div className="px-4 pt-2 pb-6 space-y-2 flex flex-col max-w-lg mx-auto">
               <a href="#infographic" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-3 text-base font-bold text-gray-800 hover:bg-emerald-50 hover:text-emerald-700 rounded-lg">{t.nav.infographic}</a>
               <a href="#features" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-3 text-base font-bold text-gray-800 hover:bg-emerald-50 hover:text-emerald-700 rounded-lg">{t.nav.features}</a>
+              <a href="#faq" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-3 text-base font-bold text-gray-800 hover:bg-emerald-50 hover:text-emerald-700 rounded-lg">{t.nav.faq || (lang === 'ko' ? '자주 묻는 질문' : 'FAQ')}</a>
               <a href="#reviews" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-3 text-base font-bold text-gray-800 hover:bg-emerald-50 hover:text-emerald-700 rounded-lg">{t.nav.reviews}</a>
               <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-3 text-base font-bold text-gray-800 hover:bg-emerald-50 hover:text-emerald-700 rounded-lg">{t.nav.contact}</a>
 
@@ -473,11 +476,18 @@ export default function RotagalLanding() {
             <a href="#inquiry" className="w-full sm:w-auto bg-emerald-700 hover:bg-emerald-800 text-white px-8 py-4 rounded-full font-black text-base sm:text-xl transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center justify-center gap-2 break-keep">
               {t.hero.btnInquiry}
             </a>
-            <a href="#video" className="w-full sm:w-auto bg-white hover:bg-gray-50 text-emerald-900 border-2 border-emerald-300 px-8 py-4 rounded-full font-black text-base sm:text-xl transition-all shadow-sm hover:shadow-md flex items-center justify-center gap-2 break-keep">
+            <button
+              onClick={() => setIsCalcOpen(true)}
+              type="button"
+              className="w-full sm:w-auto bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-700 hover:to-teal-800 text-white px-8 py-4 rounded-full font-black text-base sm:text-xl transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center justify-center gap-2 break-keep"
+            >
+              <span>💉 {lang === 'ko' ? '어미소 접종적기 계산' : 'Vaccine Calculator'}</span>
+            </button>
+            <a href="#video" className="w-full sm:w-auto bg-white hover:bg-gray-50 text-emerald-900 border-2 border-emerald-300 px-7 py-4 rounded-full font-black text-base sm:text-lg transition-all shadow-sm hover:shadow-md flex items-center justify-center gap-2 break-keep">
               {t.hero.btnVideo}
             </a>
-            <a href="./rotagal_leaflet.pdf" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto bg-gradient-to-r from-amber-500 to-[#FFD700] hover:from-amber-600 hover:to-amber-500 text-gray-950 px-8 py-4 rounded-full font-black text-base sm:text-xl transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center justify-center gap-2 break-keep border-2 border-amber-600/30">
-              <FileText className="w-5 h-5 sm:w-6 sm:h-6 shrink-0" />
+            <a href="./rotagal_leaflet.pdf" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto bg-gradient-to-r from-amber-500 to-[#FFD700] hover:from-amber-600 hover:to-amber-500 text-gray-950 px-7 py-4 rounded-full font-black text-base sm:text-lg transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center justify-center gap-2 break-keep border-2 border-amber-600/30">
+              <FileText className="w-5 h-5 shrink-0" />
               <span>{t.hero.btnLeaflet}</span>
             </a>
           </div>
@@ -784,6 +794,96 @@ export default function RotagalLanding() {
           </div>
         </div>
       </section>
+
+      {/* FAQ Accordion Section */}
+      {t.faq && (
+        <section id="faq" className="scroll-mt-20 sm:scroll-mt-24 py-12 sm:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 via-emerald-50/20 to-white border-t border-gray-200">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-10 sm:mb-16">
+              <div className="inline-flex items-center gap-2 bg-emerald-100 text-emerald-900 font-extrabold px-5 py-2 rounded-full text-xs sm:text-sm mb-4 border border-emerald-300 shadow-2xs">
+                <HelpCircle className="w-4 h-4 text-emerald-700 shrink-0" />
+                <span>{t.faq.badge}</span>
+              </div>
+              <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-gray-950 mb-4 break-keep text-balance">
+                {t.faq.title}
+              </h2>
+              <p className="text-base sm:text-lg lg:text-xl font-bold text-gray-700 max-w-2xl mx-auto break-keep text-balance">
+                {t.faq.subtitle}
+              </p>
+            </div>
+
+            <div className="space-y-4">
+              {t.faq.items.map((item, idx) => {
+                const isOpen = openFaqIndex === idx;
+                return (
+                  <div
+                    key={idx}
+                    className={`rounded-2xl border-2 transition-all duration-200 overflow-hidden bg-white shadow-xs ${
+                      isOpen ? 'border-emerald-500 shadow-md ring-1 ring-emerald-500/20' : 'border-gray-200 hover:border-emerald-300'
+                    }`}
+                  >
+                    <button
+                      type="button"
+                      onClick={() => setOpenFaqIndex(isOpen ? -1 : idx)}
+                      aria-expanded={isOpen}
+                      className="w-full text-left px-5 sm:px-7 py-5 flex items-center justify-between gap-4 focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-white"
+                    >
+                      <div className="flex items-center gap-3.5">
+                        <span className={`w-8 h-8 rounded-xl font-black text-sm flex items-center justify-center shrink-0 transition-colors ${
+                          isOpen ? 'bg-emerald-600 text-white' : 'bg-emerald-50 text-emerald-800 border border-emerald-200'
+                        }`}>
+                          Q{idx + 1}
+                        </span>
+                        <span className="text-base sm:text-lg font-black text-gray-950 break-keep">
+                          {item.q}
+                        </span>
+                      </div>
+                      <ChevronDown
+                        className={`w-5 h-5 text-gray-500 shrink-0 stroke-[2.5] transition-transform duration-200 ${
+                          isOpen ? 'rotate-180 text-emerald-700' : ''
+                        }`}
+                      />
+                    </button>
+                    {isOpen && (
+                      <div className="px-5 sm:px-7 pb-6 pt-1 text-sm sm:text-base font-bold text-gray-800 leading-relaxed break-keep border-t border-emerald-100 bg-emerald-50/40">
+                        <p className="pl-11 pr-2">
+                          {item.a}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Quick Consultation Banner under FAQ */}
+            <div className="mt-10 p-6 rounded-2xl bg-emerald-900 text-white flex flex-col sm:flex-row items-center justify-between gap-4 shadow-lg border border-emerald-700">
+              <div className="text-center sm:text-left">
+                <div className="text-amber-300 text-xs font-black uppercase tracking-wider mb-1">
+                  {lang === 'ko' ? '궁금한 점이 더 있으신가요?' : 'Still Have Questions?'}
+                </div>
+                <div className="text-base sm:text-lg font-black">
+                  {lang === 'ko' ? '고문수의사 1:1 직통 상담 및 전국 총판 다이렉트 연결' : 'Direct Consultations with Veterinarian & Local Distributors'}
+                </div>
+              </div>
+              <div className="flex items-center gap-2 shrink-0 w-full sm:w-auto">
+                <a
+                  href="#inquiry"
+                  className="flex-1 sm:flex-initial px-5 py-3 bg-amber-400 hover:bg-amber-300 text-gray-950 font-black text-xs sm:text-sm rounded-xl text-center transition-colors shadow-sm whitespace-nowrap"
+                >
+                  {lang === 'ko' ? '상담 신청하기' : 'Request Consultation'}
+                </a>
+                <a
+                  href="tel:+82-10-5407-5708"
+                  className="flex-1 sm:flex-initial px-5 py-3 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-black text-xs sm:text-sm rounded-xl text-center transition-colors whitespace-nowrap"
+                >
+                  📞 010-5407-5708
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Reviews Section */}
       <section id="reviews" className="py-10 sm:py-24 px-4 sm:px-6 lg:px-8 bg-emerald-900 text-white">

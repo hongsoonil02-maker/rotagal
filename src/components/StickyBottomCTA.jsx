@@ -24,19 +24,27 @@ export default function StickyBottomCTA({ onOpenCalc, t }) {
           </div>
         </div>
 
-        <div className="flex items-center gap-2 w-full md:w-auto">
+        <div className="flex items-center gap-1.5 sm:gap-2 w-full md:w-auto">
           <button
             onClick={onOpenCalc}
             aria-label={s.calcBtn}
-            className="flex-1 md:flex-initial px-2.5 sm:px-4 py-2.5 sm:py-3 bg-emerald-50 hover:bg-emerald-100 text-emerald-900 font-extrabold text-xs sm:text-sm rounded-xl border border-emerald-300 transition-colors flex items-center justify-center gap-1.5 focus:outline-none focus:ring-2 focus:ring-emerald-500 shadow-2xs"
+            className="flex-1 md:flex-initial px-2.5 sm:px-3.5 py-2.5 sm:py-3 bg-emerald-50 hover:bg-emerald-100 text-emerald-900 font-extrabold text-xs sm:text-sm rounded-xl border border-emerald-300 transition-colors flex items-center justify-center gap-1 focus:outline-none focus:ring-2 focus:ring-emerald-500 shadow-2xs"
           >
             <span className="whitespace-nowrap break-keep">{s.calcBtn}</span>
           </button>
 
           <a
+            href="#inquiry"
+            aria-label={s.formBtn || "📋 상담접수"}
+            className="flex-1 md:flex-initial px-2.5 sm:px-3.5 py-2.5 sm:py-3 bg-amber-500 hover:bg-amber-600 text-gray-950 font-black text-xs sm:text-sm rounded-xl shadow-xs transition-all flex items-center justify-center gap-1 focus:outline-none focus:ring-2 focus:ring-amber-400 border border-amber-600/30"
+          >
+            <span className="whitespace-nowrap break-keep">{s.formBtn || "📋 상담접수"}</span>
+          </a>
+
+          <a
             href="tel:+82-10-5407-5708"
             aria-label={s.consultBtn}
-            className="flex-1 md:flex-initial px-2.5 sm:px-4 py-2.5 sm:py-3 bg-emerald-700 hover:bg-emerald-800 text-white font-black text-xs sm:text-sm rounded-xl shadow-md transition-all flex items-center justify-center gap-1.5 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+            className="flex-1 md:flex-initial px-2.5 sm:px-4 py-2.5 sm:py-3 bg-emerald-700 hover:bg-emerald-800 text-white font-black text-xs sm:text-sm rounded-xl shadow-md transition-all flex items-center justify-center gap-1 focus:outline-none focus:ring-2 focus:ring-emerald-500"
           >
             <span className="whitespace-nowrap break-keep">{s.consultBtn}</span>
           </a>

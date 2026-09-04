@@ -97,47 +97,99 @@ export default function VaccineCalculator({ isOpen, onClose, t, lang = 'ko' }) {
 
         <form onSubmit={handleCalculate} className="space-y-4">
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-1">
-              {c.selectLabel}
-            </label>
+            <div className="flex items-center justify-between mb-1.5">
+              <label className="block text-sm font-bold text-gray-700">
+                {c.selectLabel}
+              </label>
+              <div className="flex items-center gap-1">
+                <button
+                  type="button"
+                  onClick={() => {
+                    const d = new Date();
+                    d.setDate(d.getDate() + 30);
+                    setDueDate(d.toISOString().split('T')[0]);
+                  }}
+                  className="px-2 py-0.5 text-[11px] font-bold bg-emerald-50 hover:bg-emerald-100 text-emerald-800 rounded-md border border-emerald-200 transition-colors"
+                >
+                  +30일
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    const d = new Date();
+                    d.setDate(d.getDate() + 45);
+                    setDueDate(d.toISOString().split('T')[0]);
+                  }}
+                  className="px-2 py-0.5 text-[11px] font-bold bg-emerald-50 hover:bg-emerald-100 text-emerald-800 rounded-md border border-emerald-200 transition-colors"
+                >
+                  +45일
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    const d = new Date();
+                    d.setDate(d.getDate() + 60);
+                    setDueDate(d.toISOString().split('T')[0]);
+                  }}
+                  className="px-2 py-0.5 text-[11px] font-bold bg-emerald-50 hover:bg-emerald-100 text-emerald-800 rounded-md border border-emerald-200 transition-colors"
+                >
+                  +60일
+                </button>
+              </div>
+            </div>
             <input
               type="date"
               value={dueDate}
               onChange={(e) => setDueDate(e.target.value)}
-              className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 text-gray-800 font-medium"
+              className="w-full px-4 py-3 border-2 border-emerald-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 text-gray-900 font-bold bg-white text-base shadow-xs"
               required
             />
           </div>
 
           <button
             type="submit"
-            className="w-full py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl shadow-lg hover:shadow-emerald-600/30 transition-all text-base focus:ring-2 focus:ring-emerald-500"
+            className="w-full py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-black rounded-xl shadow-lg hover:shadow-emerald-600/30 transition-all text-base focus:ring-2 focus:ring-emerald-500 transform active:scale-[0.99]"
           >
             {c.submitBtn}
           </button>
         </form>
 
         {result && (
-          <div className="mt-5 p-4 bg-emerald-50 rounded-xl border border-emerald-200" aria-live="polite">
-            <p className="text-xs font-bold text-emerald-700 uppercase tracking-wider mb-1">{c.resultTag}</p>
-            <p className="text-sm text-gray-700 mb-2">
-              {c.dueLabel}: <span className="font-semibold">{result.dueStr}</span>
+          <div className="mt-5 p-4 bg-emerald-50 rounded-xl border-2 border-emerald-300" aria-live="polite">
+            <p className="text-xs font-black text-emerald-800 uppercase tracking-wider mb-1">{c.resultTag}</p>
+            <p className="text-sm text-gray-800 mb-2">
+              {c.dueLabel}: <span className="font-extrabold text-emerald-950">{result.dueStr}</span>
             </p>
-            <div className="bg-white p-3 rounded-lg border border-emerald-300 text-center">
-              <span className="text-xs text-gray-500 block mb-1">{c.windowTitle}</span>
-              <span className="text-base sm:text-lg font-black text-emerald-900">
+            <div className="bg-white p-3.5 rounded-xl border-2 border-emerald-400 text-center shadow-xs">
+              <span className="text-xs text-gray-600 font-bold block mb-1">{c.windowTitle}</span>
+              <span className="text-base sm:text-xl font-black text-emerald-950">
                 {result.start} ~ {result.end}
               </span>
             </div>
-            <div className="bg-amber-50 border border-amber-300 rounded-lg p-2.5 mt-2">
-              <p className="text-[11px] sm:text-xs text-amber-900 font-semibold">{c.euRange}</p>
+            <div className="bg-amber-50 border border-amber-300 rounded-lg p-2.5 mt-2.5">
+              <p className="text-[11px] sm:text-xs text-amber-950 font-bold">{c.euRange}</p>
             </div>
             <div className="bg-amber-50 border border-amber-300 rounded-lg p-2.5 mt-2">
-              <p className="text-[11px] sm:text-xs text-amber-900 font-semibold leading-relaxed">{c.approvalNote}</p>
+              <p className="text-[11px] sm:text-xs text-amber-950 font-bold leading-relaxed">{c.approvalNote}</p>
             </div>
-            <p className="text-xs text-emerald-800 mt-2">
+            <p className="text-xs text-emerald-900 font-semibold mt-2.5">
               {c.notice}
             </p>
+            <div className="mt-3.5 pt-3 border-t border-emerald-200 flex gap-2">
+              <a
+                href="#inquiry"
+                onClick={onClose}
+                className="flex-1 py-2.5 bg-emerald-700 hover:bg-emerald-800 text-white text-xs sm:text-sm font-extrabold rounded-lg text-center transition-colors shadow-xs"
+              >
+                {c.inquiryBtn || "이 일정으로 백신 상담 문의"}
+              </a>
+              <a
+                href="tel:+82-10-5407-5708"
+                className="px-3 py-2.5 bg-white border border-emerald-300 hover:bg-emerald-50 text-emerald-900 text-xs sm:text-sm font-bold rounded-lg text-center transition-colors shrink-0"
+              >
+                📞 전화문의
+              </a>
+            </div>
           </div>
         )}
       </div>
