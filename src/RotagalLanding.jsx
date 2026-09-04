@@ -277,7 +277,7 @@ export default function RotagalLanding() {
   const primaryPhoneDisplay = lang === 'ko' ? primaryDistributor.phone : '+82-10-5407-5708';
 
   return (
-    <div className="font-sans text-gray-900 bg-gray-50 min-h-screen">
+    <div className="font-sans text-gray-900 bg-gray-50 min-h-screen overflow-x-hidden w-full">
       {/* Accessibility Skip Link */}
       <a
         href="#main-content"
@@ -425,17 +425,15 @@ export default function RotagalLanding() {
           </div>
 
           <div className="flex justify-center items-center mb-8">
-            <div className="bg-gradient-to-r from-emerald-900 via-[#064e3b] to-emerald-900 text-white px-6 sm:px-10 py-5 rounded-3xl border-2 border-[#FFD700] shadow-[0_0_30px_rgba(255,215,0,0.35)] flex flex-wrap md:flex-nowrap items-center justify-between gap-6 transform hover:scale-[1.01] transition-all w-full">
-              <div className="flex items-center gap-4 text-left">
-                <img src="./eu_gmp_badge.svg" alt="EU GMP 공식 인증 마크" className="w-14 h-14 sm:w-16 sm:h-16 shrink-0 drop-shadow-md" />
-                <div>
-                  <div className="text-xs sm:text-sm font-black text-[#FFDF00] uppercase tracking-widest leading-none mb-1.5 flex items-center gap-1.5">
+            <div className="bg-gradient-to-r from-emerald-900 via-[#064e3b] to-emerald-900 text-white px-4 py-4 sm:px-8 sm:py-5 rounded-3xl border-2 border-[#FFD700] shadow-[0_0_30px_rgba(255,215,0,0.35)] flex flex-wrap md:flex-nowrap items-center justify-between gap-4 sm:gap-6 transform hover:scale-[1.01] transition-all w-full">
+              <div className="flex items-center gap-3 sm:gap-4 text-left min-w-0 flex-1">
+                <img src="./eu_gmp_badge.svg" alt="EU GMP 공식 인증 마크" className="w-12 h-12 sm:w-16 sm:h-16 shrink-0 drop-shadow-md" />
+                <div className="min-w-0 flex-1">
+                  <div className="text-[11px] sm:text-sm font-black text-[#FFDF00] uppercase tracking-wider leading-none mb-1.5 flex items-center gap-1.5 break-keep">
                     <span>{t.hero.bannerTitle}</span>
                   </div>
                   <div className="text-sm sm:text-lg md:text-xl font-black tracking-wide text-white break-keep text-balance leading-snug">
-                    <span className="inline-block whitespace-nowrap">EU GMP 공식 인증</span>
-                    <span className="hidden sm:inline"> · </span>
-                    <span className="inline-block whitespace-nowrap sm:whitespace-normal">보비젠(Bovigen&nbsp;Scour) 동일 제조 기반 백신</span>
+                    {t.hero.bannerDesc || "EU GMP 공식 인증 · 보비젠(Bovigen Scour) 동일 제조 기반 백신"}
                   </div>
                 </div>
               </div>

@@ -23,12 +23,16 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
+    max-width: 100vw;
   }
   body {
     word-break: keep-all;
     overflow-wrap: break-word;
     text-wrap: pretty;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    max-width: 100vw;
   }
   h1, h2, h3, h4, h5, h6 {
     word-break: keep-all;
