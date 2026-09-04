@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[로타갈] 한우협회 대의원 전용 - 송아지 설사병 1회 원샷 예방 안내</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #f3f4f6;
+      color: #1f2937;
+      line-height: 1.6;
+      display: flex;
+      justify-content: center;
+      padding: 0;
+    }
+    .dm-container {
+      width: 100%;
+      max-width: 480px;
+      background-color: #ffffff;
+      min-height: 100vh;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      position: relative;
+      overflow: hidden;
+    }
+    /* 상단 배너 헤더 */
+    .header-banner {
+      background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+      color: white;
+      padding: 24px 20px;
+      text-align: center;
+      position: relative;
+    }
+    .header-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(4px);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      margin-bottom: 12px;
+      border: 1px solid rgba(255,255,255,0.4);
+    }
+    .header-title {
+      font-size: 24px;
+      font-weight: 900;
+      line-height: 1.35;
+      margin-bottom: 8px;
+      word-break: keep-all;
+    }
+    .header-title span {
+      color: #fef08a;
+    }
+    .header-sub {
+      font-size: 15px;
+      opacity: 0.95;
+      font-weight: 500;
+      word-break: keep-all;
+    }
+    /* 메인 이미지 & VIP 안내 박스 */
+    .vip-box {
+      background: #fffbeb;
+      border-left: 4px solid #f59e0b;
+      margin: 20px;
+      padding: 18px;
+      border-radius: 8px;
+    }
+    .vip-box h3 {
+      font-size: 16px;
+      color: #92400e;
+      font-weight: 800;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .vip-box p {
+      font-size: 14px;
+      color: #78350f;
+      line-height: 1.5;
+      word-break: keep-all;
+    }
+    /* 핵심 수치 및 3대 강점 */
+    .section-title {
+      font-size: 19px;
+      font-weight: 800;
+      color: #111827;
+      margin: 28px 20px 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .section-title::before {
+      content: '';
+      width: 6px;
+      height: 20px;
+      background-color: #d97706;
+      border-radius: 3px;
+    }
+    .grid-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 0 20px;
+    }
+    .stat-card {
+      background: #fdf8f6;
+      border: 1px solid #fed7aa;
+      border-radius: 12px;
+      padding: 16px 12px;
+      text-align: center;
+    }
+    .stat-card .num {
+      font-size: 24px;
+      font-weight: 900;
+      color: #d97706;
+      line-height: 1.2;
+      margin-bottom: 4px;
+    }
+    .stat-card .desc {
+      font-size: 13px;
+      color: #4b5563;
+      font-weight: 600;
+    }
+    /* 3대 핵심 포인트 카드 */
+    .point-card {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 14px;
+      padding: 18px;
+      margin: 14px 20px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.03);
+      position: relative;
+    }
+    .point-card .badge-num {
+      display: inline-block;
+      background: #f59e0b;
+      color: white;
+      font-size: 12px;
+      font-weight: 800;
+      padding: 3px 10px;
+      border-radius: 12px;
+      margin-bottom: 8px;
+    }
+    .point-card h4 {
+      font-size: 17px;
+      font-weight: 800;
+      color: #1f2937;
+      margin-bottom: 6px;
+    }
+    .point-card p {
+      font-size: 14px;
+      color: #4b5563;
+      word-break: keep-all;
+    }
+    .point-card .highlight {
+      background: #fef3c7;
+      color: #92400e;
+      font-weight: 700;
+      padding: 1px 4px;
+      border-radius: 4px;
+    }
+    /* 비교 테이블 */
+    .compare-table {
+      width: calc(100% - 40px);
+      margin: 20px 20px;
+      border-collapse: collapse;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    .compare-table th, .compare-table td {
+      padding: 12px 10px;
+      text-align: center;
+      font-size: 13px;
+    }
+    .compare-table th {
+      background: #374151;
+      color: white;
+      font-weight: 700;
+    }
+    .compare-table td {
+      background: #ffffff;
+      border-bottom: 1px solid #f3f4f6;
+    }
+    .compare-table .rotagal-col {
+      background: #fffbeb;
+      color: #b45309;
+      font-weight: 800;
+      border-left: 2px solid #f59e0b;
+      border-right: 2px solid #f59e0b;
+    }
+    .compare-table th.rotagal-col {
+      background: #d97706;
+      color: white;
+      font-size: 14px;
+    }
+    /* 하단 CTA 바 */
+    .cta-section {
+      background: #111827;
+      color: white;
+      padding: 36px 20px;
+      text-align: center;
+      margin-top: 40px;
+    }
+    .cta-section h3 {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    .cta-section p {
+      font-size: 14px;
+      color: #9ca3af;
+      margin-bottom: 24px;
+      word-break: keep-all;
+    }
+    .btn-call {
+      display: block;
+      width: 100%;
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+      color: white;
+      text-decoration: none;
+      padding: 16px;
+      border-radius: 50px;
+      font-size: 18px;
+      font-weight: 800;
+      box-shadow: 0 4px 15px rgba(217, 119, 6, 0.4);
+      margin-bottom: 12px;
+      transition: transform 0.2s;
+    }
+    .btn-call:active {
+      transform: scale(0.98);
+    }
+    .btn-kakao {
+      display: block;
+      width: 100%;
+      background: #FEE500;
+      color: #191919;
+      text-decoration: none;
+      padding: 14px;
+      border-radius: 50px;
+      font-size: 16px;
+      font-weight: 800;
+    }
+    .dist-info {
+      margin-top: 24px;
+      font-size: 13px;
+      color: #d1d5db;
+      background: rgba(255,255,255,0.05);
+      padding: 14px;
+      border-radius: 10px;
+      text-align: left;
+    }
+    .dist-info div {
+      margin-bottom: 6px;
+    }
+    .dist-info strong { color: #fcd34d; }
+  </style>
+</head>
+<body>
+  <div class="dm-container">
+    <!-- 헤더 -->
+    <div class="header-banner">
+      <div class="header-badge">전국 한우협회 대의원 및 우수 한우농가 특별 안내</div>
+      <h1 class="header-title">우리 송아지 설사병 걱정 뚝!<br /><span>로타갈</span>로 1회 원샷 해결</h1>
+      <p class="header-sub">유럽 EU GMP 인증 오리지널 3종 혼합백신</p>
+    </div>
+
+    <!-- VIP 인사말 박스 -->
+    <div class="vip-box">
+      <h3>👨‍🌾 전국 한우협회 대의원님, 안녕하십니까!</h3>
+      <p>한우산업 발전과 송아지 육성에 앞장서 계신 대의원님께 감사의 마음을 전합니다. 최근 잦은 일교차와 바이러스성 설사병(배앓이)으로 인한 송아지 폐사와 성장 지연을 <strong>단 1회의 어미소 접종</strong>과 <strong>19,800원의 압도적 가성비</strong>로 확실히 막아주는 프리미엄 3종 백신 <strong>'로타갈'</strong>을 안내해 드립니다.</p>
+    </div>
+
+    <!-- 핵심 수치 -->
+    <div class="grid-stats">
+      <div class="stat-card">
+        <div class="num">19,800원</div>
+        <div class="desc">타사 대비 약 1만원 절감</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">어미소 1회</div>
+        <div class="desc">원샷 접종 (노동력 50%↓)</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">3종 혼합</div>
+        <div class="desc">로타·코로나·대장균 동시방어</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">EU GMP</div>
+        <div class="desc">유럽 파마갈바이오 제조</div>
+      </div>
+    </div>
+
+    <!-- 왜 한우협회 대의원님들이 로타갈을 선택할까요? -->
+    <div class="section-title">로타갈 3대 핵심 경쟁력</div>
+
+    <div class="point-card">
+      <span class="badge-num">POINT 01</span>
+      <h4>어미소 단 1회 접종으로 끝나는 편리함!</h4>
+      <p>타사 제품처럼 2번씩 주사하느라 소 스트레스 주고 고생하실 필요 없습니다. <span class="highlight">임신 어미소 분만 전 딱 1회 접종</span>으로 양질의 고농도 항체가 초유를 통해 송아지에게 전달되는 선진국형 원샷 시스템입니다.</p>
+    </div>
+
+    <div class="point-card">
+      <span class="badge-num">POINT 02</span>
+      <h4>19,800원의 압도적 가성비 & 3종 동시 예방</h4>
+      <p>로타바이러스, 코로나바이러스, 대장균(K99)까지 가장 치명적인 3대 설사 원인균을 한 번에 차단합니다. 2회 접종하는 타사 약값(약 3만원대) 대비 <span class="highlight">마리당 1만 원 이상의 비용 절감</span> 효과를 누리세요.</p>
+    </div>
+
+    <div class="point-card">
+      <span class="badge-num">POINT 03</span>
+      <h4>경상국립대 수의과대학 임상시험 효능 검증</h4>
+      <p>유럽 EU GMP 최고 등급 제조시설 생산은 물론, 국내 분리 균주로 <span class="highlight">국내 임상시험을 완벽하게 통과</span>하여 우리 한우 농가 환경에서 탁월한 방어력을 입증했습니다.</p>
+    </div>
+
+    <!-- 비교 테이블 -->
+    <div class="section-title">타사 백신과의 비교</div>
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>구분</th>
+          <th class="rotagal-col">로타갈 (ROTAGAL)</th>
+          <th>기존 T사/S사 등</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>접종 횟수</strong></td>
+          <td class="rotagal-col">임신우 단 1회 원샷</td>
+          <td>임신우 2회 접종</td>
+        </tr>
+        <tr>
+          <td><strong>예상 약값</strong></td>
+          <td class="rotagal-col">19,800원 (합리적)</td>
+          <td>약 30,000원 이상</td>
+        </tr>
+        <tr>
+          <td><strong>예방 질환</strong></td>
+          <td class="rotagal-col">로타+코로나+대장균</td>
+          <td>로타+코로나+대장균</td>
+        </tr>
+        <tr>
+          <td><strong>면역 부형제</strong></td>
+          <td class="rotagal-col">몬타나이드 ISA 206<br />(장기 항체 지속)</td>
+          <td>일반 부형제</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 하단 상담 및 주문 버튼 -->
+    <div class="cta-section">
+      <h3>대의원님 농장과 소속 지역 농가에<br />로타갈 공동구매 및 공급 상담</h3>
+      <p>전화 한 통이면 전국 도별 총판 담당자가<br />친절하고 빠르게 직통 상담해 드립니다.</p>
+      
+      <a href="tel:010-5407-5708" class="btn-call">📞 직통 전화 상담 / 주문하기</a>
+      <a href="https://rotagal.co.kr" target="_blank" class="btn-kakao">💬 로타갈 공식 웹사이트 둘러보기</a>
+
+      <div class="dist-info">
+        <div><strong>[본사 및 총판 안내]</strong></div>
+        <div>• <strong>본사 직통:</strong> 010-5407-5708</div>
+        <div>• <strong>경북 총판 ((주)대경):</strong> 010-3506-3040</div>
+        <div>• <strong>경남 총판 (경남수의약품):</strong> 010-5270-6498</div>
+        <div style="margin-top: 8px; font-size: 11px; color: #9ca3af;">※ 전국 한우협회 지부 공동구매/대량 처방 상담 환영</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

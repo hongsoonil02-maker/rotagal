@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="로타갈® 신문광고 배너 쇼케이스 - 가로형/세로형 광고 디자인">
+  <title>로타갈® 신문광고 배너 쇼케이스</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&family=Montserrat:wght@600;700;800;900&display=swap"
+    rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background: #1a1a1a;
+      color: #fff;
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+
+    .page-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .page-header h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      color: #7AE65C;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .page-header h2 {
+      font-size: 28px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .page-header p {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.5);
+      font-weight: 300;
+    }
+
+    .section-label {
+      text-align: center;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      color: rgba(255, 255, 255, 0.4);
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      max-width: 960px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .section-label::before,
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .banner-section {
+      max-width: 960px;
+      margin: 0 auto 60px;
+    }
+
+    .banner-preview {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    /* ─── HORIZONTAL BANNER ─── */
+    .banner-h {
+      width: 900px;
+      height: 320px;
+      display: flex;
+      position: relative;
+      overflow: hidden;
+      border-radius: 6px;
+      box-shadow: 0 16px 60px rgba(0, 0, 0, 0.5);
+    }
+
+    .bh-left {
+      flex: 0 0 420px;
+      background: linear-gradient(145deg, #0d3d1c 0%, #1a5c2a 40%, #0f4820 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 28px 36px 48px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bh-left::before {
+      content: '';
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(255, 255, 255, 0.06);
+      top: -90px;
+      right: -70px;
+    }
+
+    .bh-left::after {
+      content: '';
+      position: absolute;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(255, 255, 255, 0.06);
+      bottom: -60px;
+      left: -30px;
+    }
+
+    .eu-badge {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.11);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 20px;
+      padding: 5px 14px;
+      margin-bottom: 14px;
+      width: fit-content;
+    }
+
+    .eu-badge span {
+      font-size: 9px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .bh-headline {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.8);
+      font-weight: 400;
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
+
+    .bh-headline strong {
+      color: #7AE65C;
+      font-weight: 700;
+    }
+
+    .bh-logo-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    /* Styled text logo — no background box */
+    .bh-logo-text {
+      display: inline-block;
+      background: transparent;
+      color: #ffffff;
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 30px;
+      font-weight: 900;
+      padding: 0;
+      letter-spacing: -0.5px;
+    }
+
+    .bv-logo-text {
+      display: inline-block;
+      background: transparent;
+      color: #ffffff;
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 28px;
+      font-weight: 900;
+      padding: 0;
+      letter-spacing: -0.5px;
+    }
+
+    /* ROTAGAL® side label */
+    .logo-name-group {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+
+    .logo-en {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      color: #7AE65C;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      opacity: 0.95;
+    }
+
+    .bh-tagline {
+      font-size: 19px;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.3;
+      margin-bottom: 4px;
+    }
+
+    .bh-tagline .acc {
+      color: #7AE65C;
+    }
+
+    /* Middle */
+    .bh-mid {
+      flex: 0 0 200px;
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bh-mid::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, #ffffff 40%, #e8f7e0 100%);
+      pointer-events: none;
+    }
+
+    .bh-mid::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 0;
+      height: 0;
+      border-top: 320px solid #1a5c2a;
+      border-right: 36px solid transparent;
+    }
+
+    .bh-vial {
+      height: 195px;
+      width: auto;
+      object-fit: contain;
+      position: relative;
+      z-index: 2;
+      filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.12));
+      transform: rotate(-5deg);
+      transition: transform 0.4s ease;
+    }
+
+    .banner-h:hover .bh-vial {
+      transform: rotate(0deg) scale(1.05);
+    }
+
+    /* Right QR */
+    .bh-right {
+      flex: 1;
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px 18px 36px;
+      position: relative;
+      overflow: hidden;
+      border-left: 1px solid #e0e0e0;
+      color: #000;
+    }
+
+    .bh-right::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #7AE65C, #3db34a, #7AE65C);
+      background-size: 200% 100%;
+      animation: shimmer 3s linear infinite;
+    }
+
+    .bh-right-slope {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 0;
+      height: 0;
+      border-bottom: 320px solid #e8f7e0;
+      border-right: 28px solid transparent;
+    }
+
+    .bh-qr-label {
+      font-size: 10px;
+      font-weight: 700;
+      color: #1a5c2a;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .bh-qr-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 9px;
+    }
+
+    .bh-qr-pulse {
+      position: absolute;
+      inset: -7px;
+      border-radius: 16px;
+      border: 2px solid rgba(122, 230, 92, 0.5);
+      animation: pulse-ring 2.5s ease-in-out infinite;
+    }
+
+    @keyframes pulse-ring {
+
+      0%,
+      100% {
+        opacity: 0.55;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.15;
+        transform: scale(1.05);
+      }
+    }
+
+    .bh-qr-frame {
+      width: 118px;
+      height: 118px;
+      border: 3px solid #1a5c2a;
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .bh-qr-frame::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #7AE65C, transparent);
+      animation: scan-line 2s ease-in-out infinite;
+      z-index: 5;
+    }
+
+    @keyframes scan-line {
+      0% {
+        top: 0;
+        opacity: 0;
+      }
+
+      10% {
+        opacity: 1;
+      }
+
+      90% {
+        opacity: 1;
+      }
+
+      100% {
+        top: 100%;
+        opacity: 0;
+      }
+    }
+
+    .qr-corner-d {
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      border-color: #f5c800;
+      border-style: solid;
+      border-width: 0;
+      z-index: 6;
+    }
+
+    .qr-corner-d.tl {
+      top: 3px;
+      left: 3px;
+      border-top-width: 3px;
+      border-left-width: 3px;
+    }
+
+    .qr-corner-d.tr {
+      top: 3px;
+      right: 3px;
+      border-top-width: 3px;
+      border-right-width: 3px;
+    }
+
+    .qr-corner-d.bl {
+      bottom: 3px;
+      left: 3px;
+      border-bottom-width: 3px;
+      border-left-width: 3px;
+    }
+
+    .qr-corner-d.br {
+      bottom: 3px;
+      right: 3px;
+      border-bottom-width: 3px;
+      border-right-width: 3px;
+    }
+
+    .bh-qr-frame img {
+      width: 108px;
+      height: 108px;
+      object-fit: contain;
+    }
+
+    .bh-qr-cta {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #1a5c2a;
+      text-align: center;
+      line-height: 1.4;
+      margin-bottom: 10px;
+    }
+
+    /* Bottom bar for horizontal */
+    .bh-footer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 28px;
+      background: linear-gradient(90deg, #0d3d1c, #1a5c2a);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 18px 0 36px;
+      z-index: 10;
+    }
+
+    .bh-footer .co {
+      font-size: 8.5px;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.65);
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    /* ─── VERTICAL BANNER ── */
+    .banner-v {
+      width: 360px;
+      height: 640px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      border-radius: 6px;
+      box-shadow: 0 16px 60px rgba(0, 0, 0, 0.5);
+    }
+
+    .bv-top {
+      background: linear-gradient(160deg, #0d3d1c 0%, #1a5c2a 60%, #0f4820 100%);
+      padding: 22px 26px 18px;
+      position: relative;
+      overflow: hidden;
+      flex: 0 0 auto;
+    }
+
+    .bv-top::before {
+      content: '';
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(255, 255, 255, 0.06);
+      top: -120px;
+      right: -80px;
+    }
+
+    .bv-headline {
+      font-size: 12.5px;
+      color: rgba(255, 255, 255, 0.8);
+      font-weight: 400;
+      line-height: 1.55;
+      margin-bottom: 10px;
+    }
+
+    .bv-headline strong {
+      color: #7AE65C;
+      font-weight: 700;
+    }
+
+    .bv-logo-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .bv-key-claim {
+      font-size: 20px;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.3;
+      margin-bottom: 5px;
+    }
+
+    .bv-key-claim .acc {
+      color: #7AE65C;
+    }
+
+    /* Vertical mid */
+    .bv-mid {
+      background: #ffffff;
+      flex: 0 0 196px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bv-mid::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, #ffffff 40%, #e8f7e0 100%);
+      pointer-events: none;
+    }
+
+    .bv-vial {
+      height: 164px;
+      width: auto;
+      object-fit: contain;
+      position: relative;
+      z-index: 2;
+      filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.12));
+      transform: rotate(-6deg);
+      transition: transform 0.5s ease;
+    }
+
+    .banner-v:hover .bv-vial {
+      transform: rotate(0deg) scale(1.05);
+    }
+
+    /* Vertical bottom QR */
+    .bv-bottom {
+      background: #fff;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 18px 22px 12px;
+      position: relative;
+      overflow: hidden;
+      color: #000;
+    }
+
+    .bv-bottom::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #7AE65C, #3db34a, #7AE65C);
+      background-size: 200% 100%;
+      animation: shimmer 3s linear infinite;
+    }
+
+    @keyframes shimmer {
+      0% {
+        background-position: 0% 0%;
+      }
+
+      100% {
+        background-position: 200% 0%;
+      }
+    }
+
+    .bv-scan-prompt {
+      font-size: 11px;
+      font-weight: 700;
+      color: #1a5c2a;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+    }
+
+    .bv-scan-prompt::before,
+    .bv-scan-prompt::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #e0e0e0;
+    }
+
+    .bv-qr-wrap {
+      position: relative;
+      margin-bottom: 10px;
+    }
+
+    .bv-qr-pulse {
+      position: absolute;
+      inset: -8px;
+      border-radius: 18px;
+      border: 2px solid rgba(122, 230, 92, 0.5);
+      animation: pulse-ring 2.5s ease-in-out infinite;
+    }
+
+    .bv-qr-box {
+      width: 136px;
+      height: 136px;
+      border: 3px solid #1a5c2a;
+      border-radius: 13px;
+      overflow: hidden;
+      position: relative;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .bv-qr-box::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #7AE65C, transparent);
+      animation: scan-line 2s ease-in-out infinite;
+      z-index: 5;
+    }
+
+    .bv-qr-box img {
+      width: 126px;
+      height: 126px;
+      object-fit: contain;
+    }
+
+    .bv-qr-info {
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    .bv-qr-info .main {
+      font-size: 12.5px;
+      font-weight: 800;
+      color: #1a5c2a;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .bv-qr-info .sub {
+      font-size: 8.5px;
+      color: #aaa;
+      font-family: 'Montserrat', sans-serif;
+      letter-spacing: 0.5px;
+    }
+
+    /* Vertical footer */
+    .bv-footer {
+      background: linear-gradient(90deg, #0d3d1c, #1a5c2a);
+      padding: 8px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex: 0 0 auto;
+    }
+
+    .bv-footer .co {
+      font-size: 7.5px;
+      color: rgba(255, 255, 255, 0.55);
+      font-family: 'Montserrat', sans-serif;
+      letter-spacing: 0.8px;
+    }
+
+    /* ─── DESCRIPTION ─── */
+    .banner-meta {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .meta-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 6px 14px;
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .meta-tag .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #7AE65C;
+    }
+
+    .page-footer {
+      text-align: center;
+      margin-top: 60px;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.3);
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="page-header">
+    <h1>Rotagal®</h1>
+    <h2>신문 광고 배너 — Dynamic QR Code Edition</h2>
+    <p>2026년 하반기 광고 집행용 · PHARMAGAL-BIO × 아그로코리아</p>
+  </div>
+
+  <!-- ═══ HORIZONTAL ═══ -->
+  <div class="banner-section">
+    <div class="section-label">가로형 · 신문 하단/중단 광고</div>
+
+    <div class="banner-preview">
+      <div class="banner-h">
+
+        <!-- LEFT -->
+        <div class="bh-left">
+          <div class="eu-badge">
+            <span>✦ EU GMP 인증 제품</span>
+          </div>
+
+          <p class="bh-headline">
+            송아지 설사·폐사율 감소의 핵심<br>
+            <strong>로타·코로나·대장균(K99) 3종 혼합 백신</strong>
+          </p>
+
+          <div class="bh-logo-row">
+            <div class="logo-name-group">
+              <div class="bh-logo-text">로타갈</div>
+              <span class="logo-en">ROTAGAL®</span>
+            </div>
+          </div>
+
+          <div class="bh-tagline">
+            송아지 설사 폐사<br>
+            <span class="acc">제로 도전</span>
+          </div>
+        </div>
+
+        <!-- MIDDLE -->
+        <div class="bh-mid">
+          <img src="product_from_pdf_p1_3.jpeg" alt="로타갈 제품" class="bh-vial">
+        </div>
+
+        <!-- RIGHT QR -->
+        <div class="bh-right">
+          <div class="bh-right-slope"></div>
+
+          <div class="bh-qr-wrap">
+            <div class="bh-qr-pulse"></div>
+            <div class="bh-qr-frame">
+              <div class="qr-corner-d tl"></div>
+              <div class="qr-corner-d tr"></div>
+              <div class="qr-corner-d bl"></div>
+              <div class="qr-corner-d br"></div>
+              <img src="/rotagal/rotagal_qrcode_logo.png" alt="로타갈® 제품 정보 QR 코드">
+            </div>
+          </div>
+
+          <div class="bh-qr-cta">
+            QR 스캔하여<br>제품 정보 확인
+          </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="bh-footer">
+          <span class="co">파마갈 바이오 | 한국총판: (주)한국아그로</span>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="banner-meta">
+      <span class="meta-tag"><span class="dot"></span> 신문 하단/중단 광고 최적화</span>
+      <span class="meta-tag"><span class="dot"></span> Dynamic QR 스캔 애니메이션</span>
+      <span class="meta-tag"><span class="dot"></span> EU GMP 인증 강조</span>
+    </div>
+  </div>
+
+  <!-- ═══ VERTICAL ═══ -->
+  <div class="banner-section">
+    <div class="section-label">세로형 · 신문 사이드/칼럼 광고</div>
+
+    <div class="banner-preview">
+      <div class="banner-v">
+
+        <!-- TOP -->
+        <div class="bv-top">
+          <div class="bv-badge-eu">
+            <span>✦ EU GMP 인증</span>
+          </div>
+
+          <p class="bv-headline">
+            송아지 설사·폐사율 감소의 핵심<br>
+            <strong>로타·코로나·대장균 K99 3종 혼합 백신</strong>
+          </p>
+
+          <div class="bv-logo-row">
+            <div class="logo-name-group">
+              <div class="bv-logo-text">로타갈</div>
+              <span class="bv-logo-en">ROTAGAL®</span>
+            </div>
+          </div>
+
+          <div class="bv-key-claim">
+            송아지 설사 폐사<br>
+            <span class="acc">제로 도전</span>
+          </div>
+        </div>
+
+        <!-- PRODUCT IMAGE -->
+        <div class="bv-mid">
+          <img src="product_from_pdf_p1_3.jpeg" alt="로타갈 제품" class="bv-vial">
+        </div>
+
+        <!-- QR BOTTOM -->
+        <div class="bv-bottom">
+          <div class="bv-qr-wrap">
+            <div class="bv-qr-pulse"></div>
+            <div class="bv-qr-box">
+              <div class="qr-corner-d tl"></div>
+              <div class="qr-corner-d tr"></div>
+              <div class="qr-corner-d bl"></div>
+              <div class="qr-corner-d br"></div>
+              <img src="/rotagal/rotagal_qrcode_logo.png" alt="로타갈® 제품 정보 QR 코드">
+            </div>
+          </div>
+
+          <div class="bv-qr-info">
+            <span class="main">QR 스캔하여 제품 정보 확인</span>
+          </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="bv-footer">
+          <span class="co">파마갈 바이오 | (주)한국아그로</span>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="banner-meta">
+      <span class="meta-tag"><span class="dot"></span> 신문 사이드 칼럼 광고 최적화</span>
+      <span class="meta-tag"><span class="dot"></span> 동적 스캔 라인 애니메이션</span>
+      <span class="meta-tag"><span class="dot"></span> 플로팅 정보 카드</span>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    로타갈® · 파마갈 바이오 · 한국총판 아그로코리아
+  </div>
+
+</body>
+
+</html>

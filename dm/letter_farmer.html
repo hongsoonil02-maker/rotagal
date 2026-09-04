@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[우편 발송 편지] 전국 한우협회 대의원님 귀하 - 로타갈 백신 안내</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800;900&family=Nanum+Myeongjo:wght@700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #e5e7eb;
+      color: #1f2937;
+      line-height: 1.7;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+    }
+    /* A4 용지 규격 (210mm x 297mm 최적화) */
+    .a4-letter {
+      width: 210mm;
+      min-height: 297mm;
+      background: #ffffff;
+      padding: 22mm 20mm;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    @media print {
+      body { background: transparent; padding: 0; }
+      .a4-letter { width: 100%; box-shadow: none; padding: 15mm 15mm; }
+      .no-print { display: none !important; }
+    }
+    /* 헤더 / 레터헤드 */
+    .letterheader {
+      border-bottom: 2px solid #d97706;
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    .letterheader .logo-area {
+      font-size: 26px;
+      font-weight: 900;
+      color: #b45309;
+      letter-spacing: -0.5px;
+    }
+    .letterheader .logo-area span {
+      font-size: 13px;
+      font-weight: 600;
+      color: #6b7280;
+      display: block;
+    }
+    .letterheader .date-doc {
+      text-align: right;
+      font-size: 13px;
+      color: #4b5563;
+    }
+    /* 수신자란 */
+    .recipient-box {
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      border-left: 5px solid #d97706;
+      padding: 14px 18px;
+      margin-bottom: 24px;
+      border-radius: 4px;
+    }
+    .recipient-box .to-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: #92400e;
+    }
+    .recipient-box .subject {
+      font-size: 15px;
+      font-weight: 700;
+      color: #1f2937;
+      margin-top: 4px;
+    }
+    /* 편지 본문 */
+    .letter-body {
+      font-size: 14.5px;
+      color: #374151;
+      text-align: justify;
+      margin-bottom: 20px;
+    }
+    .letter-body p {
+      margin-bottom: 14px;
+      word-break: keep-all;
+    }
+    .letter-body strong {
+      color: #b45309;
+      font-weight: 700;
+    }
+    /* 핵심 3대 포인트 요약 박스 */
+    .summary-box {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 16px 0 24px;
+    }
+    .summary-box h4 {
+      font-size: 15px;
+      color: #111827;
+      font-weight: 800;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .summary-list {
+      list-style: none;
+    }
+    .summary-list li {
+      font-size: 13.5px;
+      margin-bottom: 8px;
+      padding-left: 20px;
+      position: relative;
+    }
+    .summary-list li::before {
+      content: '✔';
+      position: absolute;
+      left: 0;
+      color: #d97706;
+      font-weight: 900;
+    }
+    /* QR 코드 및 모바일 안내 박스 (가장 핵심 Highlight) */
+    .qr-highlight-section {
+      background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+      border: 2px solid #f59e0b;
+      border-radius: 12px;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 12px rgba(217, 119, 6, 0.1);
+    }
+    .qr-code-box {
+      background: #ffffff;
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid #fcd34d;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 130px;
+    }
+    .qr-code-box .qr-label {
+      font-size: 11px;
+      font-weight: 800;
+      color: #d97706;
+      margin-top: 6px;
+      text-align: center;
+    }
+    .qr-text-area {
+      flex: 1;
+    }
+    .qr-text-area .tag {
+      display: inline-block;
+      background: #d97706;
+      color: white;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 12px;
+      margin-bottom: 6px;
+    }
+    .qr-text-area h3 {
+      font-size: 17px;
+      font-weight: 900;
+      color: #78350f;
+      margin-bottom: 6px;
+    }
+    .qr-text-area p {
+      font-size: 13px;
+      color: #92400e;
+      line-height: 1.5;
+      word-break: keep-all;
+    }
+    /* 하단 연락처 배너 */
+    .footer-contact {
+      border-top: 2px solid #374151;
+      padding-top: 16px;
+      font-size: 13px;
+      color: #4b5563;
+    }
+    .footer-contact .title {
+      font-weight: 800;
+      color: #111827;
+      margin-bottom: 6px;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 8px;
+    }
+    .contact-item {
+      background: #f3f4f6;
+      padding: 10px;
+      border-radius: 6px;
+      text-align: center;
+    }
+    .contact-item strong {
+      display: block;
+      color: #1f2937;
+      font-size: 13px;
+    }
+    .contact-item span {
+      color: #d97706;
+      font-weight: 800;
+      font-size: 14px;
+    }
+    /* 상단 인쇄 버튼 (웹 화면에서만 표시) */
+    .print-bar {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #111827;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 30px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      border: none;
+      font-size: 14px;
+      z-index: 1000;
+    }
+    .print-bar:hover { background: #374151; }
+  </style>
+</head>
+<body>
+  <button class="print-bar no-print" onclick="window.print()">🖨️ 이 편지 인쇄하기 (A4)</button>
+
+  <div class="a4-letter">
+    <div>
+      <!-- 레터헤드 -->
+      <div class="letterheader">
+        <div class="logo-area">
+          <span>유럽 파마갈바이오 공식 수입 · 한국아그로 공급</span>
+          ROTAGAL <small style="font-size: 16px; font-weight: 700; color: #d97706;">로타갈</small>
+        </div>
+        <div class="date-doc">
+          발신일: 2026년 7월<br />
+          문서번호: RA-2026-F500
+        </div>
+      </div>
+
+      <!-- 수신자 정보 -->
+      <div class="recipient-box">
+        <div class="to-title"> [수신] 전국 한우협회 대의원님 귀하</div>
+        <div class="subject">제목: 우리 송아지 3대 설사병 1회 원샷 예방 및 약값 1만 원 이상 절감 안내</div>
+      </div>
+
+      <!-- 본문 -->
+      <div class="letter-body">
+        <p>존경하는 한우협회 대의원님, 안녕하십니까!</p>
+        <p>대한민국 한우산업의 발전과 고품질 한우 육성을 위해 묵묵히 헌신하고 계신 대의원님의 노고에 깊은 경의를 표합니다. 최근 불안정한 사료값과 한우 가격 시세 속에서, 우리 농장의 가장 큰 자산인 <strong>'송아지'를 폐사나 성장 지연 없이 건강하게 키워내는 것</strong>이 농가 수익을 지키는 가장 핵심 과제가 되었습니다.</p>
+        <p>이에 유럽 슬로바키아 <strong>파마갈바이오(Pharmagal Bio)</strong>에서 생산하고, 까다로운 <strong>EU GMP 최고 등급 품질 인증</strong>을 획득한 오리지널 3종 혼합 불활화 백신 <strong>'로타갈(ROTAGAL)'</strong>을 대의원님께 특별히 소개합니다.</p>
+
+        <!-- 핵심 요약 -->
+        <div class="summary-box">
+          <h4>🌾 한우농가를 위한 로타갈 3대 핵심 이점</h4>
+          <ul class="summary-list">
+            <li><strong>어미소 단 1회(원샷) 접종의 편리함:</strong> 타사처럼 2번씩 주사하며 소 스트레스를 주거나 일손을 낭비할 필요 없이, 임신우 분만 전 단 1회 접종으로 고농도 초유 항체를 형성합니다.</li>
+            <li><strong>19,800원의 압도적 가성비 절감:</strong> 2회 접종하는 타사 백신(약 3만 원대) 대비, 마리당 1만 원 이상의 약값을 확실히 아껴드려 농장 경영비 부담을 덜어드립니다.</li>
+            <li><strong>경상국립대 수의과대학 국내 임상시험 통과:</strong> 로타바이러스, 코로나바이러스, 대장균(K99) 3종을 한 번에 잡으며 국내 분리 우세 균주에 대한 완벽한 방어력을 검증받았습니다.</li>
+          </ul>
+        </div>
+
+        <p>대의원님 농장의 적용은 물론, 소속 지부 및 인근 한우 농가분들과의 공동구매·처방 상담을 환영합니다. 아래 <strong>QR코드</strong>를 스마트폰으로 비춰보시면 언제 어디서든 간편하게 상세 자료를 보시고 바로 전화 상담을 받으실 수 있습니다.</p>
+      </div>
+
+      <!-- QR 코드 및 모바일 접속 안내 Box (가장 중요한 부분) -->
+      <div class="qr-highlight-section">
+        <div class="qr-code-box">
+          <!-- QR 코드 생성 위치 -->
+          <div id="qrcode-farmer"></div>
+          <div class="qr-label">📱 스마트폰 스캔</div>
+        </div>
+        <div class="qr-text-area">
+          <span class="tag">스마트폰 카메라로 QR코드를 비춰보세요!</span>
+          <h3>한우농가 전용 모바일 안내서 & 1:1 상담 연결</h3>
+          <p>카메라 앱을 열어 왼쪽 QR코드에 맞추시면, <strong>로타갈 제품 효능 검증 데이터, 임상시험 보고서 요약, 그리고 본사 및 도별 총판 1:1 직통 상담 신청 페이지</strong>로 즉시 연결됩니다.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 하단 연락처 -->
+    <div class="footer-contact">
+      <div class="title">■ 본사 및 도별 직통 공급·공동구매 상담센터</div>
+      <div class="contact-grid">
+        <div class="contact-item">
+          <strong>본사 직통 상담</strong>
+          <span>010-5407-5708</span>
+        </div>
+        <div class="contact-item">
+          <strong>경북 총판 ((주)대경)</strong>
+          <span>010-3506-3040</span>
+        </div>
+        <div class="contact-item">
+          <strong>경남 총판 (경남수의약품)</strong>
+          <span>010-5270-6498</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // QR코드 자바스크립트 생성 (현재 모바일 DM 랜딩 페이지 연결)
+    window.addEventListener('DOMContentLoaded', function() {
+      // 실제 웹 배포 주소나 사이트 주소로 연결 (기본값: 공식 사이트 및 모바일 DM 주소)
+      var targetUrl = "https://rotagal.co.kr"; 
+      new QRCode(document.getElementById("qrcode-farmer"), {
+        text: targetUrl,
+        width: 110,
+        height: 110,
+        colorDark: "#92400e",
+        colorLight: "#ffffff",
+        correctLevel: QRCode.CorrectLevel.H
+      });
+    });
+  </script>
+</body>
+</html>

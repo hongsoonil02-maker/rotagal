@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <defs>
+    <linearGradient id="gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFE53B" />
+      <stop offset="50%" stop-color="#FFD700" />
+      <stop offset="100%" stop-color="#FFA800" />
+    </linearGradient>
+    <linearGradient id="green-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#059669" />
+      <stop offset="100%" stop-color="#047857" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Outer Gold Border -->
+  <circle cx="100" cy="100" r="95" fill="url(#gold-grad)" filter="url(#shadow)" />
+  <circle cx="100" cy="100" r="88" fill="#ffffff" />
+  
+  <!-- Inner Green Seal -->
+  <circle cx="100" cy="100" r="83" fill="url(#green-grad)" />
+  <circle cx="100" cy="100" r="78" fill="none" stroke="url(#gold-grad)" stroke-width="1.5" stroke-dasharray="4,2" />
+
+  <!-- 12 European Union Stars (Circle radius = 64) -->
+  <g fill="url(#gold-grad)">
+    <!-- 12 o'clock -->
+    <polygon points="100,28 102,33 107,33 103,36 105,41 100,38 95,41 97,36 93,33 98,33" />
+    <!-- 1 o'clock -->
+    <polygon points="132,36 133,41 138,42 134,45 135,50 130,47 126,50 128,45 124,42 129,41" transform="rotate(30 100 100)" />
+    <!-- 2 o'clock -->
+    <polygon points="155,59 155,64 160,66 156,68 157,73 152,70 148,73 150,68 146,66 151,64" transform="rotate(60 100 100)" />
+    <!-- 3 o'clock -->
+    <polygon points="164,92 163,97 168,99 164,101 165,106 160,103 156,106 158,101 154,99 159,97" transform="rotate(90 100 100)" />
+    <!-- 4 o'clock -->
+    <polygon points="155,125 153,130 158,132 154,134 154,139 150,136 146,139 148,134 144,132 149,130" transform="rotate(120 100 100)" />
+    <!-- 5 o'clock -->
+    <polygon points="132,148 129,153 134,156 129,157 129,162 125,159 121,162 123,157 119,156 124,153" transform="rotate(150 100 100)" />
+    <!-- 6 o'clock -->
+    <polygon points="100,156 96,160 101,163 96,164 96,169 92,166 88,169 90,164 86,163 91,160" transform="rotate(180 100 100)" />
+    <!-- 7 o'clock -->
+    <polygon points="68,148 63,151 68,155 63,155 62,160 59,156 55,160 57,155 53,155 58,151" transform="rotate(210 100 100)" />
+    <!-- 8 o'clock -->
+    <polygon points="45,125 40,127 45,131 40,131 39,136 36,132 32,136 34,131 30,131 35,127" transform="rotate(240 100 100)" />
+    <!-- 9 o'clock -->
+    <polygon points="36,92 31,93 36,97 31,97 30,102 27,98 23,102 25,97 21,97 26,93" transform="rotate(270 100 100)" />
+    <!-- 10 o'clock -->
+    <polygon points="45,59 40,59 45,63 40,63 39,68 36,64 32,68 34,63 30,63 35,59" transform="rotate(300 100 100)" />
+    <!-- 11 o'clock -->
+    <polygon points="68,36 64,35 69,38 64,38 63,43 60,39 56,43 58,38 54,38 59,35" transform="rotate(330 100 100)" />
+  </g>
+
+  <!-- Laurel Wreath Leaves (Left and Right) -->
+  <path d="M 50 120 C 35 100 40 70 55 55" fill="none" stroke="url(#gold-grad)" stroke-width="4" stroke-linecap="round" />
+  <path d="M 150 120 C 165 100 160 70 145 55" fill="none" stroke="url(#gold-grad)" stroke-width="4" stroke-linecap="round" />
+
+  <!-- Center Text -->
+  <text x="100" y="96" font-family="Arial, Helvetica, sans-serif" font-weight="900" font-size="38" fill="url(#gold-grad)" text-anchor="middle" letter-spacing="2">EU</text>
+  <text x="100" y="132" font-family="Arial, Helvetica, sans-serif" font-weight="900" font-size="34" fill="#ffffff" text-anchor="middle" letter-spacing="3">GMP</text>
+  <text x="100" y="152" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="11" fill="#A7F3D0" text-anchor="middle" letter-spacing="1">CERTIFIED</text>
+</svg>

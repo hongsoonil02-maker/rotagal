@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="로타갈® - EU GMP 인증 3종 혼합 백신 광고 배너">
+  <title>로타갈® 광고 배너 - 가로형</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap"
+    rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: #f0f0f0;
+      padding: 20px;
+    }
+
+    /* ─── BANNER CONTAINER ─── */
+    .banner {
+      width: 900px;
+      height: 320px;
+      display: flex;
+      position: relative;
+      overflow: hidden;
+      border-radius: 4px;
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.18);
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+
+    /* ─── LEFT: DARK GREEN MAIN PANEL ─── */
+    .panel-left {
+      flex: 0 0 420px;
+      background: linear-gradient(145deg, #0d3d1c 0%, #1a5c2a 40%, #0f4820 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 30px 36px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Decorative circles */
+    .panel-left::before {
+      content: '';
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 255, 255, 0.06);
+      top: -80px;
+      right: -60px;
+    }
+
+    .panel-left::after {
+      content: '';
+      position: absolute;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 255, 255, 0.06);
+      bottom: -60px;
+      left: -30px;
+    }
+
+    .badge-eu {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 20px;
+      padding: 5px 14px 5px 8px;
+      margin-bottom: 18px;
+      width: fit-content;
+    }
+
+    .badge-eu img {
+      height: 22px;
+      width: auto;
+    }
+
+    .badge-eu span {
+      font-size: 10px;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .headline {
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: 0.3px;
+      line-height: 1.5;
+      margin-bottom: 6px;
+      opacity: 0.85;
+    }
+
+    .headline strong {
+      color: #7AE65C;
+      font-weight: 700;
+    }
+
+    .product-name-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .product-name-kr {
+      height: 50px;
+      width: auto;
+      filter: brightness(0) invert(1);
+    }
+
+    .divider {
+      width: 40px;
+      height: 2px;
+      background: #7AE65C;
+      margin-bottom: 16px;
+    }
+
+    .tagline {
+      font-size: 20px;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.35;
+      margin-bottom: 4px;
+    }
+
+    .tagline .accent {
+      color: #7AE65C;
+    }
+
+    .sub-tagline {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.65);
+      font-weight: 400;
+      margin-bottom: 22px;
+    }
+
+    /* Feature pills */
+    .features {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .feature-pill {
+      background: rgba(122, 230, 92, 0.15);
+      border: 1px solid rgba(122, 230, 92, 0.4);
+      border-radius: 20px;
+      padding: 4px 12px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #7AE65C;
+      white-space: nowrap;
+    }
+
+    /* ─── MIDDLE: PRODUCT IMAGE ─── */
+    .panel-mid {
+      flex: 0 0 200px;
+      background: linear-gradient(180deg, #f4fdf0 0%, #e8f7e0 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .panel-mid::before {
+      content: '';
+      position: absolute;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(122, 230, 92, 0.12) 0%, transparent 70%);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    /* Diagonal separator left */
+    .panel-mid::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 0;
+      height: 0;
+      border-top: 320px solid #1a5c2a;
+      border-right: 36px solid transparent;
+    }
+
+    .vial-img {
+      height: 200px;
+      width: auto;
+      object-fit: contain;
+      position: relative;
+      z-index: 2;
+      filter: drop-shadow(4px 8px 20px rgba(0, 80, 0, 0.22));
+      transform: rotate(-5deg);
+      transition: transform 0.4s ease;
+    }
+
+    .banner:hover .vial-img {
+      transform: rotate(0deg) scale(1.04);
+    }
+
+    .product-label-en {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 9px;
+      font-weight: 700;
+      color: #2d7a2d;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      position: relative;
+      z-index: 2;
+      margin-top: 6px;
+      text-align: center;
+    }
+
+    /* ─── RIGHT: QR + INFO ─── */
+    .panel-right {
+      flex: 1;
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 20px;
+      position: relative;
+      overflow: hidden;
+      border-left: 1px solid #e0e0e0;
+    }
+
+    /* Yellow top stripe */
+    .panel-right::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #f5c800, #e6a800);
+    }
+
+    /* Diagonal from mid-panel */
+    .panel-right-inner-left {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 0;
+      height: 0;
+      border-bottom: 320px solid #e8f7e0;
+      border-right: 30px solid transparent;
+    }
+
+    .qr-label-top {
+      font-size: 10px;
+      font-weight: 700;
+      color: #1a5c2a;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .qr-frame {
+      position: relative;
+      width: 120px;
+      height: 120px;
+      border-radius: 12px;
+      border: 3px solid #1a5c2a;
+      overflow: hidden;
+      margin-bottom: 10px;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Animated scan line */
+    .qr-frame::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #7AE65C, transparent);
+      animation: scan 2.5s ease-in-out infinite;
+      z-index: 5;
+    }
+
+    @keyframes scan {
+      0% {
+        top: 0;
+        opacity: 0;
+      }
+
+      10% {
+        opacity: 1;
+      }
+
+      90% {
+        opacity: 1;
+      }
+
+      100% {
+        top: 100%;
+        opacity: 0;
+      }
+    }
+
+    /* Corner decorations */
+    .qr-corner {
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      border-color: #f5c800;
+      border-style: solid;
+      border-width: 0;
+      z-index: 6;
+    }
+
+    .qr-corner.tl {
+      top: 3px;
+      left: 3px;
+      border-top-width: 3px;
+      border-left-width: 3px;
+    }
+
+    .qr-corner.tr {
+      top: 3px;
+      right: 3px;
+      border-top-width: 3px;
+      border-right-width: 3px;
+    }
+
+    .qr-corner.bl {
+      bottom: 3px;
+      left: 3px;
+      border-bottom-width: 3px;
+      border-left-width: 3px;
+    }
+
+    .qr-corner.br {
+      bottom: 3px;
+      right: 3px;
+      border-bottom-width: 3px;
+      border-right-width: 3px;
+    }
+
+    .qr-img {
+      width: 110px;
+      height: 110px;
+      object-fit: contain;
+    }
+
+    .qr-cta {
+      font-size: 11px;
+      font-weight: 700;
+      color: #1a5c2a;
+      text-align: center;
+      line-height: 1.4;
+      margin-bottom: 14px;
+    }
+
+    .qr-cta span {
+      display: block;
+      font-size: 9px;
+      font-weight: 500;
+      color: #888;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .url-tag {
+      background: #f5c800;
+      border-radius: 20px;
+      padding: 5px 14px;
+      font-size: 10px;
+      font-weight: 800;
+      color: #0d3d1c;
+      font-family: 'Montserrat', sans-serif;
+      letter-spacing: 0.5px;
+      text-decoration: none;
+      display: block;
+      text-align: center;
+    }
+
+    .eu-badge-icon {
+      height: 18px;
+      filter: brightness(0) invert(1);
+    }
+
+    .qr-wrap-inline {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="banner">
+
+    <!-- LEFT PANEL -->
+    <div class="panel-left">
+      <!-- EU GMP Badge -->
+      <div class="badge-eu">
+        <img src="eu_gmp_full.png" alt="EU GMP 인증 마크" class="eu-badge-icon">
+        <span>EU GMP 인증 제품</span>
+      </div>
+
+      <p class="headline">
+        송아지 설사·폐사율 감소의 해답<br>
+        <strong>3종 항원(로타·코로나·대장균) 혼합 백신</strong>
+      </p>
+
+      <div class="product-name-row">
+        <img src="rotagal-logo.png" alt="로타갈® 로고" class="product-name-kr">
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="tagline">
+        임신우 1회 접종으로<br>
+        <span class="accent">초유 항체</span> 전달
+      </div>
+      <div class="sub-tagline">분만 3~12주 전 근육 주사 · 1도즈 / 1두</div>
+
+      <div class="features">
+        <span class="feature-pill">🛡 3종 항원</span>
+        <span class="feature-pill">✓ EU GMP</span>
+        <span class="feature-pill">📦 1회 접종</span>
+      </div>
+    </div>
+
+    <!-- MIDDLE PRODUCT IMAGE PANEL -->
+    <div class="panel-mid">
+      <img src="product_from_pdf_p1_3.jpeg" alt="로타갈 제품" class="vial-img">
+      <div class="product-label-en">ROTAGAL® · Emulsion Injectable</div>
+    </div>
+
+    <!-- RIGHT QR PANEL -->
+    <div class="panel-right">
+      <div class="panel-right-inner-left"></div>
+
+      <div class="qr-wrap-inline">
+        <div class="qr-frame">
+          <div class="qr-corner tl"></div>
+          <div class="qr-corner tr"></div>
+          <div class="qr-corner bl"></div>
+          <div class="qr-corner br"></div>
+          <img src="/rotagal/rotagal_qrcode_logo.png" alt="로타갈® 제품 정보 QR 코드" class="qr-img">
+        </div>
+      </div>
+
+      <div class="qr-cta">
+        제품 상세 정보 확인
+        <span>Scan to learn more</span>
+      </div>
+
+      <a class="url-tag" href="https://www.rotagal.kr">www.rotagal.kr</a>
+    </div>
+
+  </div>
+
+</body>
+
+</html>

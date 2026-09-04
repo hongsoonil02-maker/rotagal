@@ -1,0 +1,4 @@
+# Netlify Redirects for Vite React SPA
+# Ensure client-side routing works without 404 errors on refresh
+# Note: Static files (like /rotagal_infographic.html or /favicon.svg) will automatically take precedence over this rule!
+/*    /index.html   200

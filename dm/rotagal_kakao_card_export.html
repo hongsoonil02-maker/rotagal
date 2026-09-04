@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>[전국 한우협회 대의원 귀하] 로타갈(ROTAGAL) 모바일 안내 카드</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+  <style>
+    :root {
+      --bg-dark: #0f3c2d;
+      --bg-darker: #0a291f;
+      --gold: #d97706;
+      --gold-light: #fef3c7;
+      --gold-border: #fde68a;
+      --emerald: #059669;
+      --emerald-light: #d1fae5;
+      --text-main: #1f2937;
+      --text-sub: #4b5563;
+      --text-muted: #6b7280;
+      --card-bg: #ffffff;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #f8fafc;
+      color: var(--text-main);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+      width: 500px;
+    }
+
+    .mobile-card-container {
+      width: 500px;
+      background: #f8fafc;
+      position: relative;
+      overflow: hidden;
+      padding-bottom: 30px;
+    }
+
+    .hero-header {
+      background: linear-gradient(160deg, var(--bg-darker) 0%, var(--bg-dark) 65%, #134e3a 100%);
+      padding: 38px 24px 45px 24px;
+      text-align: center;
+      position: relative;
+      color: #ffffff;
+      border-bottom-left-radius: 28px;
+      border-bottom-right-radius: 28px;
+      box-shadow: 0 10px 25px rgba(15, 60, 45, 0.25);
+    }
+
+    .hero-header::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 10%;
+      right: 10%;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #fbbf24, transparent);
+    }
+
+    .vip-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #fbbf24, #d97706);
+      color: #111827;
+      font-size: 14px;
+      font-weight: 800;
+      padding: 6px 18px;
+      border-radius: 30px;
+      box-shadow: 0 4px 12px rgba(217, 119, 6, 0.35);
+      margin-bottom: 16px;
+      letter-spacing: -0.3px;
+    }
+
+    .hero-title {
+      font-size: 27px;
+      font-weight: 900;
+      line-height: 1.35;
+      letter-spacing: -0.8px;
+      margin-bottom: 12px;
+      word-break: keep-all;
+    }
+
+    .hero-title span {
+      color: #fde047;
+      text-decoration: underline;
+      text-underline-offset: 6px;
+    }
+
+    .hero-sub {
+      font-size: 15.5px;
+      color: #e2e8f0;
+      font-weight: 500;
+      line-height: 1.6;
+      word-break: keep-all;
+    }
+
+    .cert-strip {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: -20px;
+      padding: 0 20px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .cert-pill {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      padding: 8px 14px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      font-size: 12.5px;
+      font-weight: 800;
+      color: #1f2937;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .cert-pill.eu { color: #1d4ed8; border-color: #bfdbfe; }
+    .cert-pill.vet { color: #047857; border-color: #a7f3d0; }
+    .cert-pill.price { color: #b45309; border-color: #fde68a; }
+
+    .greeting-box {
+      margin: 28px 20px 20px 20px;
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+      border: 1px solid #f1f5f9;
+    }
+
+    .greeting-box h3 {
+      font-size: 17.5px;
+      font-weight: 800;
+      color: var(--bg-dark);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .greeting-box p {
+      font-size: 14.5px;
+      color: var(--text-sub);
+      line-height: 1.65;
+      word-break: keep-all;
+    }
+
+    .greeting-box p strong {
+      color: #b45309;
+      font-weight: 700;
+    }
+
+    .benefits-section {
+      padding: 10px 20px 20px 20px;
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 900;
+      color: #111827;
+      margin-bottom: 16px;
+      text-align: center;
+      word-break: keep-all;
+    }
+
+    .section-title span {
+      color: #059669;
+    }
+
+    .benefit-card {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 20px;
+      margin-bottom: 14px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+      border: 1px solid #e2e8f0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .benefit-card::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 6px;
+    }
+
+    .benefit-card.c1::before { background: #059669; }
+    .benefit-card.c2::before { background: #d97706; }
+    .benefit-card.c3::before { background: #1f2937; }
+
+    .benefit-num {
+      font-size: 11.5px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+      display: inline-block;
+    }
+    .benefit-card.c1 .benefit-num { color: #059669; }
+    .benefit-card.c2 .benefit-num { color: #d97706; }
+    .benefit-card.c3 .benefit-num { color: #4b5563; }
+
+    .benefit-title {
+      font-size: 17.5px;
+      font-weight: 800;
+      color: #111827;
+      margin-bottom: 8px;
+      line-height: 1.35;
+    }
+
+    .benefit-desc {
+      font-size: 14px;
+      color: #4b5563;
+      line-height: 1.6;
+      word-break: keep-all;
+    }
+
+    .benefit-highlight {
+      margin-top: 10px;
+      background: #f8fafc;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #111827;
+      border-left: 3px solid #cbd5e1;
+    }
+
+    .qr-card-section {
+      margin: 16px 20px 24px 20px;
+      background: linear-gradient(145deg, #fffbeb, #fef3c7);
+      border: 2px solid #fcd34d;
+      border-radius: 24px;
+      padding: 26px 20px;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(217, 119, 6, 0.12);
+    }
+
+    .qr-card-section .tag {
+      display: inline-block;
+      background: #b45309;
+      color: #fff;
+      font-size: 12.5px;
+      font-weight: 800;
+      padding: 4px 14px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+    }
+
+    .qr-card-section h3 {
+      font-size: 20px;
+      font-weight: 900;
+      color: #78350f;
+      margin-bottom: 6px;
+      word-break: keep-all;
+    }
+
+    .qr-card-section p {
+      font-size: 14px;
+      color: #92400e;
+      margin-bottom: 18px;
+      word-break: keep-all;
+    }
+
+    .qr-wrapper {
+      background: #ffffff;
+      padding: 16px;
+      border-radius: 18px;
+      display: inline-block;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      border: 1px solid #fde68a;
+      margin-bottom: 12px;
+    }
+
+    #qrcode-box {
+      width: 160px;
+      height: 160px;
+      margin: 0 auto;
+    }
+
+    .qr-guide-text {
+      font-size: 13px;
+      font-weight: 700;
+      color: #4b5563;
+      margin-top: 4px;
+    }
+
+    .card-footer {
+      background: #1e293b;
+      color: #f8fafc;
+      padding: 28px 22px;
+      text-align: center;
+      border-radius: 20px;
+      margin: 0 15px;
+    }
+
+    .card-footer h4 {
+      font-size: 15.5px;
+      font-weight: 800;
+      color: #fde047;
+      margin-bottom: 16px;
+      letter-spacing: -0.3px;
+    }
+
+    .contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .contact-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 14px 16px;
+      border-radius: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-decoration: none;
+      color: #ffffff;
+    }
+
+    .contact-card .role {
+      font-size: 14px;
+      font-weight: 600;
+      color: #cbd5e1;
+      text-align: left;
+    }
+
+    .contact-card .role small {
+      display: block;
+      font-size: 11.5px;
+      color: #94a3b8;
+    }
+
+    .contact-card .phone {
+      font-size: 16.5px;
+      font-weight: 800;
+      color: #38bdf8;
+      background: rgba(56, 189, 248, 0.1);
+      padding: 4px 10px;
+      border-radius: 8px;
+    }
+
+    .copyright {
+      margin-top: 24px;
+      font-size: 12px;
+      color: #64748b;
+    }
+  </style>
+</head>
+<body>
+  <div class="mobile-card-container">
+    <div class="hero-header">
+      <div class="vip-badge">🌟 전국 한우협회 대의원님 특별 안내 🌟</div>
+      <h1 class="hero-title">
+        우리 소 3대 설사병<br />
+        <span>어미소 단 1회(원샷)</span> 예방
+      </h1>
+      <p class="hero-sub">
+        타사 2회 접종 대비 번거로움 제로!<br />
+        마리당 1만 원 이상 약값을 확실하게 아껴드립니다.
+      </p>
+    </div>
+
+    <div class="cert-strip">
+      <div class="cert-pill eu">🇪🇺 EU GMP 인증</div>
+      <div class="cert-pill vet">🇰🇷 수의과대학 임상통과</div>
+      <div class="cert-pill price">💰 1회 19,800원</div>
+    </div>
+
+    <div class="greeting-box">
+      <h3>🤝 한우협회 대의원님, 안녕하십니까!</h3>
+      <p>
+        사료값 상승과 한우 시세 불안정 속에서 <strong>농장의 1호 재산인 송아지</strong>를 폐사나 성장 지연 없이 건강하게 키워내는 것이 곧 농가 수익의 핵심입니다.<br /><br />
+        유럽 파마갈(Pharmagal)사에서 제조하고 <strong>국내 수의과대학 임상시험을 통과한 명품 백신 '로타갈(ROTAGAL)'</strong>을 통해 대의원님 농장의 생산성 향상과 획기적인 약값 절감을 제안합니다.
+      </p>
+    </div>
+
+    <div class="benefits-section">
+      <h2 class="section-title">🌾 로타갈 <span>3대 핵심 혁신</span></h2>
+
+      <div class="benefit-card c1">
+        <span class="benefit-num">Point 01. One-Shot Innovation</span>
+        <div class="benefit-title">어미소 분만 전 '단 1회(원샷)' 접종</div>
+        <p class="benefit-desc">타사처럼 2번씩 주사하며 소에게 스트레스를 주거나 일손을 낭비할 필요 없습니다. 단 1회 접종만으로 어미소 체내에 고농도 초유 항체가 형성됩니다.</p>
+        <div class="benefit-highlight">✨ 주사 횟수 1/2 감소 · 노동력 절감 · 소 스트레스 완벽 차단!</div>
+      </div>
+
+      <div class="benefit-card c2">
+        <span class="benefit-num">Point 02. Cost Saving</span>
+        <div class="benefit-title">19,800원의 압도적 약값 절감 효과</div>
+        <p class="benefit-desc">2회 접종하는 타사 백신(약 3만 원대) 대비, 마리당 1만 원 이상의 백신 비용을 확실히 절감해 드려 농장 경영비 부담을 덜어드립니다.</p>
+        <div class="benefit-highlight">✨ 마리당 약 10,000원 이상 절약 (100두 기준 100만 원 이상 절감)</div>
+      </div>
+
+      <div class="benefit-card c3">
+        <span class="benefit-num">Point 03. Premium Quality</span>
+        <div class="benefit-title">3종 동시 방어 & 수의과대학 임상 검증</div>
+        <p class="benefit-desc">로타바이러스, 코로나바이러스, 대장균(K99) 3종을 한 번에 완벽 방어하며, 경상국립대 수의대에서 국내 분리 우세 균주 임상시험을 성공적으로 마쳤습니다.</p>
+        <div class="benefit-highlight">✨ 유럽 EU GMP 최고 등급 시설 제조 & 교차면역 방어력 검증</div>
+      </div>
+    </div>
+
+    <div class="qr-card-section">
+      <span class="tag">📱 스마트폰 1초 스캔 & 접속</span>
+      <h3>로타갈 공식 안내 & 1:1 직통 상담</h3>
+      <p>스마트폰 카메라로 아래 QR코드를 비춰보시거나,<br />카카오톡 메시지의 링크를 터치하시면 즉시 연결됩니다.</p>
+      
+      <div class="qr-wrapper">
+        <div id="qrcode-box"></div>
+      </div>
+      <div class="qr-guide-text">👉 스마트폰 카메라를 QR코드에 맞추세요</div>
+    </div>
+
+    <div class="card-footer">
+      <h4>■ 본사 및 도별 직통 공급 · 공동구매 상담센터</h4>
+      <div class="contact-list">
+        <div class="contact-card">
+          <div class="role">
+            본사 직통 공급·처방 상담
+            <small>(주)한국아그로 공식 대표</small>
+          </div>
+          <div class="phone">010-5407-5708</div>
+        </div>
+        <div class="contact-card">
+          <div class="role">
+            경상북도 도별 총판
+            <small>(주)대경 동물약품</small>
+          </div>
+          <div class="phone">010-3506-3040</div>
+        </div>
+        <div class="contact-card">
+          <div class="role">
+            경상남도 도별 총판
+            <small>(주)경남수의약품</small>
+          </div>
+          <div class="phone">010-5270-6498</div>
+        </div>
+      </div>
+      <div class="copyright">
+        &copy; ROTAGAL by (주)한국아그로. All rights reserved. EU GMP Certified.
+      </div>
+    </div>
+  </div>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', function() {
+      var targetUrl = "https://hongsoonil02-maker.github.io/rotagal/"; 
+      new QRCode(document.getElementById("qrcode-box"), {
+        text: targetUrl,
+        width: 160,
+        height: 160,
+        colorDark: "#0f3c2d",
+        colorLight: "#ffffff",
+        correctLevel: QRCode.CorrectLevel.H
+      });
+    });
+  </script>
+</body>
+</html>
