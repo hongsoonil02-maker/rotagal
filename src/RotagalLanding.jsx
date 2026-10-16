@@ -274,7 +274,6 @@ export default function RotagalLanding() {
   // International phone number formatting
   const mainPhoneDisplay = lang === 'ko' ? '010-5407-5708' : '+82-10-5407-5708';
   const mainPhoneTel = '+82-10-5407-5708';
-  const primaryPhoneDisplay = lang === 'ko' ? primaryDistributor.phone : '+82-10-5407-5708';
 
   return (
     <div className="font-sans text-gray-900 bg-gray-50 min-h-screen overflow-x-hidden w-full">
