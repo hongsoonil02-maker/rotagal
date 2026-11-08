@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="ko">
 
 <head>
@@ -21,25 +21,50 @@
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://rotagal.kr/" />
 
-  <!-- Structured Data (JSON-LD) for Product -->
-  <script type="application/ld+json">
+  <!-- Structured Data (JSON-LD) for Product & FAQ E-E-A-T -->
+  <script id="geo-dynamic-schema" type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Product",
-    "name": "Rotagal 백신",
-    "image": "https://rotagal.kr/rotagal_og_new.jpg",
-    "description": "유럽 직수입 프리미엄 송아지 설사병 예방 백신",
-    "brand": {
-      "@type": "Brand",
-      "name": "Rotagal"
-    },
-      "offers": {
-        "@type": "Offer",
-        "url": "https://rotagal.kr/",
-        "priceCurrency": "KRW",
-        "price": "19800",
-        "availability": "https://schema.org/InStock"
+    "@graph": [
+      {
+        "@type": "Product",
+        "@id": "https://rotagal.kr/#product",
+        "name": "로타갈(ROTAGAL) 백신",
+        "image": "https://rotagal.kr/rotagal_og_new.jpg",
+        "description": "유럽 파마갈(Pharmagal)사 직수입 프리미엄 송아지 설사병 예방 백신. 임신우 분만 전 단 1회(원샷 3ml 근육주사) 접종으로 소 로타바이러스, 코로나바이러스, 대장균(K99) 3종 복합 예방.",
+        "brand": {
+          "@type": "Brand",
+          "name": "ROTAGAL (로타갈)"
+        },
+        "manufacturer": {
+          "@type": "Organization",
+          "@id": "https://www.agrokorea.net/#organization",
+          "name": "(주)한국아그로",
+          "url": "https://www.agrokorea.net/"
+        },
+        "offers": {
+          "@type": "Offer",
+          "url": "https://rotagal.kr/",
+          "priceCurrency": "KRW",
+          "price": "19800",
+          "availability": "https://schema.org/InStock"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://rotagal.kr/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "로타갈(ROTAGAL) 백신의 접종 대상과 시기는 어떻게 되나요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "임신우(어미소)의 분만 예정일 12주~3주 전에 단 1회(3ml 근육주사) 원샷 접종합니다. 어미소에서 생성된 고역가 항체가 분만 후 초유를 통해 신생 송아지에게 전달되어 로타바이러스, 코로나바이러스, 대장균(K99) 설사를 예방합니다."
+            }
+          }
+        ]
       }
+    ]
   }
   </script>
 
@@ -61,6 +86,22 @@
   <meta name="twitter:description"
     content="★한우농가 약값 절감★ 어미소 1회 접종으로 로타·코로나·대장균 3종 동시 예방! 1회 19,800원 명품 백신 로타갈 공식 홈페이지" />
   <meta name="twitter:image" content="https://rotagal.kr/rotagal_og_new.jpg?v=20260723_v2" />
+  <script id="geo-weekly-ld" type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "송아지 로타바이러스 예방백신 접종시기의 정확한 접종 시기와 용량은?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "임신우 분만 예정일 12주~3주 전에 어미소에게 3ml를 단 1회 근육주사(원샷 접종)하며, 분만 후 6시간 이내에 초유를 급여하여 로타·코로나·대장균 K99 설사를 예방합니다."
+      }
+    }
+  ]
+}
+</script>
 </head>
 
 <body>

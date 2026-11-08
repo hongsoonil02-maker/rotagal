@@ -149,6 +149,25 @@ export default function RotagalLanding() {
           body: JSON.stringify(inquiryPayload),
         });
         if (!res.ok) throw new Error(`Submission failed with status ${res.status}`);
+      } else {
+        // Fallback: 클립보드 자동 복사 + Cloudflare Worker 상담 API로 리드 백업 알림 전송
+        const summaryText = `[로타갈 백신 상담접수] 성함:${formData.name} / 연락처:${formData.phone} / 지역:${formData.region} / 사육규모:${formData.farmSize} / 문의:${formData.inquiry}`;
+        try {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            await navigator.clipboard.writeText(summaryText);
+          }
+        } catch {
+          /* ignore */
+        }
+        try {
+          await fetch(CHAT_API_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ type: 'lead_inquiry', message: summaryText, payload: inquiryPayload }),
+          });
+        } catch {
+          /* ignore */
+        }
       }
 
       backupLocally();
